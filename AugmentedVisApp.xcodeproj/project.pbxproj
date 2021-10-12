@@ -1,0 +1,1060 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		36AE5B864306DB5C48304379 /* libPods-AugmentedVisAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4662A7CF73B64D504930CDC /* libPods-AugmentedVisAppTests.a */; };
+		470D0E2D084011398422BF37 /* Pods_AugmentedVisApp__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C692FC43CC10537CCE51A24 /* Pods_AugmentedVisApp__iOS_.framework */; };
+		63127A68271573340096D61C /* data.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63127A67271573340096D61C /* data.csv */; };
+		63127A69271573340096D61C /* data.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63127A67271573340096D61C /* data.csv */; };
+		63127A702715A16F0096D61C /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A6E27159EC50096D61C /* Assets.swift */; };
+		63127A742715A6CA0096D61C /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A732715A6CA0096D61C /* Color+Extension.swift */; };
+		63281ADB2714253F004F79FF /* LineChartContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281ADA2714253F004F79FF /* LineChartContainerView.swift */; };
+		63281ADC2714253F004F79FF /* LineChartContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281ADA2714253F004F79FF /* LineChartContainerView.swift */; };
+		63281ADF271449DB004F79FF /* LinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281ADE271449DB004F79FF /* LinearScale.swift */; };
+		63281AE0271449DB004F79FF /* LinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281ADE271449DB004F79FF /* LinearScale.swift */; };
+		63281AE227144C67004F79FF /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AE127144C67004F79FF /* Scale.swift */; };
+		63281AE327144C67004F79FF /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AE127144C67004F79FF /* Scale.swift */; };
+		63281AE627145494004F79FF /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AE527145494004F79FF /* Axis.swift */; };
+		63281AE727145494004F79FF /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AE527145494004F79FF /* Axis.swift */; };
+		63281AE927145BEF004F79FF /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AE827145BEF004F79FF /* View+Extension.swift */; };
+		63281AEA27145BEF004F79FF /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AE827145BEF004F79FF /* View+Extension.swift */; };
+		63281AEF271473B4004F79FF /* EdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AEE271473B4004F79FF /* EdgeInsets+Extension.swift */; };
+		63281AF0271473B4004F79FF /* EdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AEE271473B4004F79FF /* EdgeInsets+Extension.swift */; };
+		63281AF227147D4C004F79FF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AF127147D4C004F79FF /* String+Extension.swift */; };
+		63281AF327147D4C004F79FF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AF127147D4C004F79FF /* String+Extension.swift */; };
+		634588BA27169A3600867F16 /* SCNVector3+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588B927169A3600867F16 /* SCNVector3+Extension.swift */; };
+		634588BD27169AD700867F16 /* ARVisViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634588BB27169AD700867F16 /* ARVisViewController.storyboard */; };
+		634588BE27169AD700867F16 /* ARVisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588BC27169AD700867F16 /* ARVisViewController.swift */; };
+		634588C027169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588BF27169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift */; };
+		634588C327169BD700867F16 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588C227169BD700867F16 /* StatusViewController.swift */; };
+		634588C52716A00B00867F16 /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588C42716A00B00867F16 /* AppMainView.swift */; };
+		634588CC2716A22500867F16 /* Storyboard Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588C62716A22100867F16 /* Storyboard Segues.swift */; };
+		634588CD2716A22500867F16 /* Storyboard Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588C72716A22100867F16 /* Storyboard Scenes.swift */; };
+		634588CE2716A22500867F16 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A6E27159EC50096D61C /* Assets.swift */; };
+		636AF72A2715AF920027C825 /* BandScaleXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636AF7292715AF920027C825 /* BandScaleXCTest.swift */; };
+		636AF72F2715B16D0027C825 /* BandScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A712715A5E00096D61C /* BandScale.swift */; };
+		636AF73C2715B8240027C825 /* PointScaleXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636AF73B2715B8240027C825 /* PointScaleXCTest.swift */; };
+		636AF7402715B8840027C825 /* PointScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636AF73D2715B83A0027C825 /* PointScale.swift */; };
+		636AF7412715B8840027C825 /* PointScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636AF73D2715B83A0027C825 /* PointScale.swift */; };
+		636AF7422715B8840027C825 /* PointScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636AF73D2715B83A0027C825 /* PointScale.swift */; };
+		636AF7432715B8890027C825 /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AE127144C67004F79FF /* Scale.swift */; };
+		636AF7442715B8890027C825 /* LinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281ADE271449DB004F79FF /* LinearScale.swift */; };
+		636AF7452715B8890027C825 /* BandScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A712715A5E00096D61C /* BandScale.swift */; };
+		636AF7462715B8890027C825 /* BandScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A712715A5E00096D61C /* BandScale.swift */; };
+		636AF7492715B8DC0027C825 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF7482715B8DC0027C825 /* Collections */; };
+		636AF74B2715B8DC0027C825 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF74A2715B8DC0027C825 /* DequeModule */; };
+		636AF74D2715B8DC0027C825 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF74C2715B8DC0027C825 /* OrderedCollections */; };
+		636AF74F2715B8EC0027C825 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF74E2715B8EC0027C825 /* Collections */; };
+		636AF7512715B8EC0027C825 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF7502715B8EC0027C825 /* DequeModule */; };
+		636AF7532715B8EC0027C825 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF7522715B8EC0027C825 /* OrderedCollections */; };
+		636AF7552715B90A0027C825 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF7542715B90A0027C825 /* Collections */; };
+		636AF7572715B90A0027C825 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF7562715B90A0027C825 /* DequeModule */; };
+		636AF7592715B90A0027C825 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF7582715B90A0027C825 /* OrderedCollections */; };
+		63EE70DE27045087007C3BED /* AugmentedVisAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE70CE27045085007C3BED /* AugmentedVisAppApp.swift */; };
+		63EE70DF27045087007C3BED /* AugmentedVisAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE70CE27045085007C3BED /* AugmentedVisAppApp.swift */; };
+		63EE70E127045087007C3BED /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE70CF27045085007C3BED /* AppMainView.swift */; };
+		63EE70E227045087007C3BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63EE70D027045087007C3BED /* Assets.xcassets */; };
+		63EE70E327045087007C3BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63EE70D027045087007C3BED /* Assets.xcassets */; };
+		EDF226CC2F0FC33C0EC19C6A /* Pods_AugmentedVisApp__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FF56568C47D4F3241B3CEA /* Pods_AugmentedVisApp__macOS_.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		636AF7372715B4460027C825 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63EE70C927045085007C3BED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63EE70DA27045087007C3BED;
+			remoteInfo = "AugmentedVisApp (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2B86FF955E68199E0D44431C /* Pods-AugmentedVisApp (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisApp (macOS).release.xcconfig"; path = "Target Support Files/Pods-AugmentedVisApp (macOS)/Pods-AugmentedVisApp (macOS).release.xcconfig"; sourceTree = "<group>"; };
+		4DDBDD7B30A1217DAA49CEDB /* Pods-AugmentedVisAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisAppTests.debug.xcconfig"; path = "Target Support Files/Pods-AugmentedVisAppTests/Pods-AugmentedVisAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		63127A67271573340096D61C /* data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.csv; sourceTree = "<group>"; };
+		63127A6C27159D730096D61C /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		63127A6E27159EC50096D61C /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		63127A712715A5E00096D61C /* BandScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandScale.swift; sourceTree = "<group>"; };
+		63127A732715A6CA0096D61C /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		63281ADA2714253F004F79FF /* LineChartContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartContainerView.swift; sourceTree = "<group>"; };
+		63281ADE271449DB004F79FF /* LinearScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearScale.swift; sourceTree = "<group>"; };
+		63281AE127144C67004F79FF /* Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scale.swift; sourceTree = "<group>"; };
+		63281AE527145494004F79FF /* Axis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Axis.swift; sourceTree = "<group>"; };
+		63281AE827145BEF004F79FF /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		63281AEE271473B4004F79FF /* EdgeInsets+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EdgeInsets+Extension.swift"; sourceTree = "<group>"; };
+		63281AF127147D4C004F79FF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		634588B927169A3600867F16 /* SCNVector3+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Extension.swift"; sourceTree = "<group>"; };
+		634588BB27169AD700867F16 /* ARVisViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ARVisViewController.storyboard; sourceTree = "<group>"; };
+		634588BC27169AD700867F16 /* ARVisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARVisViewController.swift; sourceTree = "<group>"; };
+		634588BF27169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ARVisViewController+ARSessionDelegate.swift"; sourceTree = "<group>"; };
+		634588C227169BD700867F16 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		634588C42716A00B00867F16 /* AppMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainView.swift; sourceTree = "<group>"; };
+		634588C62716A22100867F16 /* Storyboard Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard Segues.swift"; sourceTree = "<group>"; };
+		634588C72716A22100867F16 /* Storyboard Scenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard Scenes.swift"; sourceTree = "<group>"; };
+		636AF7222715AEE30027C825 /* AugmentedVisAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AugmentedVisAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		636AF7292715AF920027C825 /* BandScaleXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandScaleXCTest.swift; sourceTree = "<group>"; };
+		636AF73B2715B8240027C825 /* PointScaleXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointScaleXCTest.swift; sourceTree = "<group>"; };
+		636AF73D2715B83A0027C825 /* PointScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointScale.swift; sourceTree = "<group>"; };
+		639B5CBB0BC0B5EF1EF6B930 /* Pods-AugmentedVisApp (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisApp (iOS).debug.xcconfig"; path = "Target Support Files/Pods-AugmentedVisApp (iOS)/Pods-AugmentedVisApp (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		63EE70CE27045085007C3BED /* AugmentedVisAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AugmentedVisAppApp.swift; sourceTree = "<group>"; };
+		63EE70CF27045085007C3BED /* AppMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainView.swift; sourceTree = "<group>"; };
+		63EE70D027045087007C3BED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		63EE70D527045087007C3BED /* AugmentedVisApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AugmentedVisApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63EE70DB27045087007C3BED /* AugmentedVisApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AugmentedVisApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63EE70DD27045087007C3BED /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		63EE70EC270456F7007C3BED /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
+		8C692FC43CC10537CCE51A24 /* Pods_AugmentedVisApp__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AugmentedVisApp__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4662A7CF73B64D504930CDC /* libPods-AugmentedVisAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AugmentedVisAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5FF56568C47D4F3241B3CEA /* Pods_AugmentedVisApp__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AugmentedVisApp__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D774BA7476C16D13A91796D7 /* Pods-AugmentedVisApp (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisApp (iOS).release.xcconfig"; path = "Target Support Files/Pods-AugmentedVisApp (iOS)/Pods-AugmentedVisApp (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		DDC8C75E801CEB1C7525EE0D /* Pods-AugmentedVisApp (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisApp (macOS).debug.xcconfig"; path = "Target Support Files/Pods-AugmentedVisApp (macOS)/Pods-AugmentedVisApp (macOS).debug.xcconfig"; sourceTree = "<group>"; };
+		E45E969D9331D38F8627A065 /* Pods-AugmentedVisAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisAppTests.release.xcconfig"; path = "Target Support Files/Pods-AugmentedVisAppTests/Pods-AugmentedVisAppTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		636AF71F2715AEE30027C825 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				636AF7552715B90A0027C825 /* Collections in Frameworks */,
+				636AF7592715B90A0027C825 /* OrderedCollections in Frameworks */,
+				636AF7572715B90A0027C825 /* DequeModule in Frameworks */,
+				36AE5B864306DB5C48304379 /* libPods-AugmentedVisAppTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63EE70D227045087007C3BED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				636AF7492715B8DC0027C825 /* Collections in Frameworks */,
+				636AF74D2715B8DC0027C825 /* OrderedCollections in Frameworks */,
+				636AF74B2715B8DC0027C825 /* DequeModule in Frameworks */,
+				470D0E2D084011398422BF37 /* Pods_AugmentedVisApp__iOS_.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63EE70D827045087007C3BED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				636AF74F2715B8EC0027C825 /* Collections in Frameworks */,
+				636AF7532715B8EC0027C825 /* OrderedCollections in Frameworks */,
+				636AF7512715B8EC0027C825 /* DequeModule in Frameworks */,
+				EDF226CC2F0FC33C0EC19C6A /* Pods_AugmentedVisApp__macOS_.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		63127A6D27159EB10096D61C /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				634588C72716A22100867F16 /* Storyboard Scenes.swift */,
+				634588C62716A22100867F16 /* Storyboard Segues.swift */,
+				63127A6E27159EC50096D61C /* Assets.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		63127A752715A76D0096D61C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				634588B927169A3600867F16 /* SCNVector3+Extension.swift */,
+				63281AE827145BEF004F79FF /* View+Extension.swift */,
+				63281AEE271473B4004F79FF /* EdgeInsets+Extension.swift */,
+				63281AF127147D4C004F79FF /* String+Extension.swift */,
+				63127A732715A6CA0096D61C /* Color+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		63127A762715A7800096D61C /* Scales */ = {
+			isa = PBXGroup;
+			children = (
+				63127A712715A5E00096D61C /* BandScale.swift */,
+				63281ADE271449DB004F79FF /* LinearScale.swift */,
+				636AF73D2715B83A0027C825 /* PointScale.swift */,
+				63281AE127144C67004F79FF /* Scale.swift */,
+			);
+			path = Scales;
+			sourceTree = "<group>";
+		};
+		63127A772715A91A0096D61C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				63EE70EC270456F7007C3BED /* iOS.entitlements */,
+				634588BB27169AD700867F16 /* ARVisViewController.storyboard */,
+				634588BC27169AD700867F16 /* ARVisViewController.swift */,
+				634588BF27169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift */,
+				634588C127169BD700867F16 /* Additional View Controllers */,
+				634588C42716A00B00867F16 /* AppMainView.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		63281ADD271449C9004F79FF /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				63127A762715A7800096D61C /* Scales */,
+				63127A752715A76D0096D61C /* Extensions */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		63281AE427145488004F79FF /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				63281ADA2714253F004F79FF /* LineChartContainerView.swift */,
+				63281AE527145494004F79FF /* Axis.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		6343DDF8BEFF3E0AAD2BA285 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C692FC43CC10537CCE51A24 /* Pods_AugmentedVisApp__iOS_.framework */,
+				B5FF56568C47D4F3241B3CEA /* Pods_AugmentedVisApp__macOS_.framework */,
+				A4662A7CF73B64D504930CDC /* libPods-AugmentedVisAppTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		634588C127169BD700867F16 /* Additional View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				634588C227169BD700867F16 /* StatusViewController.swift */,
+			);
+			path = "Additional View Controllers";
+			sourceTree = "<group>";
+		};
+		636AF7232715AEE30027C825 /* AugmentedVisAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				636AF73B2715B8240027C825 /* PointScaleXCTest.swift */,
+				636AF7292715AF920027C825 /* BandScaleXCTest.swift */,
+			);
+			path = AugmentedVisAppTests;
+			sourceTree = "<group>";
+		};
+		63EE70C827045085007C3BED = {
+			isa = PBXGroup;
+			children = (
+				63127A6C27159D730096D61C /* swiftgen.yml */,
+				63127A6D27159EB10096D61C /* Generated */,
+				63EE70CD27045085007C3BED /* Shared */,
+				63127A772715A91A0096D61C /* iOS */,
+				63EE70DC27045087007C3BED /* macOS */,
+				636AF7232715AEE30027C825 /* AugmentedVisAppTests */,
+				63EE70D627045087007C3BED /* Products */,
+				6E2060EDF6A011811AE547A3 /* Pods */,
+				6343DDF8BEFF3E0AAD2BA285 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		63EE70CD27045085007C3BED /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				63127A67271573340096D61C /* data.csv */,
+				63281AE427145488004F79FF /* Charts */,
+				63281ADD271449C9004F79FF /* Tools */,
+				63EE70CE27045085007C3BED /* AugmentedVisAppApp.swift */,
+				63EE70D027045087007C3BED /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		63EE70D627045087007C3BED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63EE70D527045087007C3BED /* AugmentedVisApp.app */,
+				63EE70DB27045087007C3BED /* AugmentedVisApp.app */,
+				636AF7222715AEE30027C825 /* AugmentedVisAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		63EE70DC27045087007C3BED /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				63EE70DD27045087007C3BED /* macOS.entitlements */,
+				63EE70CF27045085007C3BED /* AppMainView.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		6E2060EDF6A011811AE547A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				639B5CBB0BC0B5EF1EF6B930 /* Pods-AugmentedVisApp (iOS).debug.xcconfig */,
+				D774BA7476C16D13A91796D7 /* Pods-AugmentedVisApp (iOS).release.xcconfig */,
+				DDC8C75E801CEB1C7525EE0D /* Pods-AugmentedVisApp (macOS).debug.xcconfig */,
+				2B86FF955E68199E0D44431C /* Pods-AugmentedVisApp (macOS).release.xcconfig */,
+				4DDBDD7B30A1217DAA49CEDB /* Pods-AugmentedVisAppTests.debug.xcconfig */,
+				E45E969D9331D38F8627A065 /* Pods-AugmentedVisAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		636AF7212715AEE30027C825 /* AugmentedVisAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 636AF7282715AEE30027C825 /* Build configuration list for PBXNativeTarget "AugmentedVisAppTests" */;
+			buildPhases = (
+				A3F7422182514BE1292759F1 /* [CP] Check Pods Manifest.lock */,
+				636AF71E2715AEE30027C825 /* Sources */,
+				636AF71F2715AEE30027C825 /* Frameworks */,
+				636AF7202715AEE30027C825 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				636AF7382715B4460027C825 /* PBXTargetDependency */,
+			);
+			name = AugmentedVisAppTests;
+			packageProductDependencies = (
+				636AF7542715B90A0027C825 /* Collections */,
+				636AF7562715B90A0027C825 /* DequeModule */,
+				636AF7582715B90A0027C825 /* OrderedCollections */,
+			);
+			productName = AugmentedVisAppTests;
+			productReference = 636AF7222715AEE30027C825 /* AugmentedVisAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		63EE70D427045087007C3BED /* AugmentedVisApp (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63EE70E627045087007C3BED /* Build configuration list for PBXNativeTarget "AugmentedVisApp (iOS)" */;
+			buildPhases = (
+				DC853914A63124F11013D65A /* [CP] Check Pods Manifest.lock */,
+				63127A6A27159CDD0096D61C /* SwiftGen */,
+				63EE70D127045087007C3BED /* Sources */,
+				63EE70D227045087007C3BED /* Frameworks */,
+				63EE70D327045087007C3BED /* Resources */,
+				EC33EB44A352D06116B0F070 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AugmentedVisApp (iOS)";
+			packageProductDependencies = (
+				636AF7482715B8DC0027C825 /* Collections */,
+				636AF74A2715B8DC0027C825 /* DequeModule */,
+				636AF74C2715B8DC0027C825 /* OrderedCollections */,
+			);
+			productName = "AugmentedVisApp (iOS)";
+			productReference = 63EE70D527045087007C3BED /* AugmentedVisApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		63EE70DA27045087007C3BED /* AugmentedVisApp (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63EE70E927045087007C3BED /* Build configuration list for PBXNativeTarget "AugmentedVisApp (macOS)" */;
+			buildPhases = (
+				B04BED1C9D6429D6886CC7F2 /* [CP] Check Pods Manifest.lock */,
+				63127A6B27159CF40096D61C /* SwiftGen */,
+				63EE70D727045087007C3BED /* Sources */,
+				63EE70D827045087007C3BED /* Frameworks */,
+				63EE70D927045087007C3BED /* Resources */,
+				38E696526D95A79ABCC8AF14 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AugmentedVisApp (macOS)";
+			packageProductDependencies = (
+				636AF74E2715B8EC0027C825 /* Collections */,
+				636AF7502715B8EC0027C825 /* DequeModule */,
+				636AF7522715B8EC0027C825 /* OrderedCollections */,
+			);
+			productName = "AugmentedVisApp (macOS)";
+			productReference = 63EE70DB27045087007C3BED /* AugmentedVisApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		63EE70C927045085007C3BED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					636AF7212715AEE30027C825 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					63EE70D427045087007C3BED = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					63EE70DA27045087007C3BED = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
+			};
+			buildConfigurationList = 63EE70CC27045085007C3BED /* Build configuration list for PBXProject "AugmentedVisApp" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 63EE70C827045085007C3BED;
+			packageReferences = (
+				636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
+			productRefGroup = 63EE70D627045087007C3BED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				63EE70D427045087007C3BED /* AugmentedVisApp (iOS) */,
+				63EE70DA27045087007C3BED /* AugmentedVisApp (macOS) */,
+				636AF7212715AEE30027C825 /* AugmentedVisAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		636AF7202715AEE30027C825 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63EE70D327045087007C3BED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				634588BD27169AD700867F16 /* ARVisViewController.storyboard in Resources */,
+				63127A68271573340096D61C /* data.csv in Resources */,
+				63EE70E227045087007C3BED /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63EE70D927045087007C3BED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63127A69271573340096D61C /* data.csv in Resources */,
+				63EE70E327045087007C3BED /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		38E696526D95A79ABCC8AF14 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AugmentedVisApp (macOS)/Pods-AugmentedVisApp (macOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AugmentedVisApp (macOS)/Pods-AugmentedVisApp (macOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AugmentedVisApp (macOS)/Pods-AugmentedVisApp (macOS)-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63127A6A27159CDD0096D61C /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
+		};
+		63127A6B27159CF40096D61C /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
+		};
+		A3F7422182514BE1292759F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AugmentedVisAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B04BED1C9D6429D6886CC7F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AugmentedVisApp (macOS)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC853914A63124F11013D65A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AugmentedVisApp (iOS)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC33EB44A352D06116B0F070 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AugmentedVisApp (iOS)/Pods-AugmentedVisApp (iOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AugmentedVisApp (iOS)/Pods-AugmentedVisApp (iOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AugmentedVisApp (iOS)/Pods-AugmentedVisApp (iOS)-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		636AF71E2715AEE30027C825 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				636AF72A2715AF920027C825 /* BandScaleXCTest.swift in Sources */,
+				636AF7412715B8840027C825 /* PointScale.swift in Sources */,
+				636AF72F2715B16D0027C825 /* BandScale.swift in Sources */,
+				636AF7442715B8890027C825 /* LinearScale.swift in Sources */,
+				636AF7432715B8890027C825 /* Scale.swift in Sources */,
+				636AF73C2715B8240027C825 /* PointScaleXCTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63EE70D127045087007C3BED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63281AF227147D4C004F79FF /* String+Extension.swift in Sources */,
+				63EE70DE27045087007C3BED /* AugmentedVisAppApp.swift in Sources */,
+				634588CE2716A22500867F16 /* Assets.swift in Sources */,
+				63281ADB2714253F004F79FF /* LineChartContainerView.swift in Sources */,
+				63281AE227144C67004F79FF /* Scale.swift in Sources */,
+				634588C52716A00B00867F16 /* AppMainView.swift in Sources */,
+				636AF7462715B8890027C825 /* BandScale.swift in Sources */,
+				636AF7422715B8840027C825 /* PointScale.swift in Sources */,
+				63281AEF271473B4004F79FF /* EdgeInsets+Extension.swift in Sources */,
+				634588BA27169A3600867F16 /* SCNVector3+Extension.swift in Sources */,
+				634588C327169BD700867F16 /* StatusViewController.swift in Sources */,
+				634588CC2716A22500867F16 /* Storyboard Segues.swift in Sources */,
+				63281AE627145494004F79FF /* Axis.swift in Sources */,
+				63127A742715A6CA0096D61C /* Color+Extension.swift in Sources */,
+				63281AE927145BEF004F79FF /* View+Extension.swift in Sources */,
+				634588CD2716A22500867F16 /* Storyboard Scenes.swift in Sources */,
+				634588C027169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift in Sources */,
+				634588BE27169AD700867F16 /* ARVisViewController.swift in Sources */,
+				63281ADF271449DB004F79FF /* LinearScale.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63EE70D727045087007C3BED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63EE70E127045087007C3BED /* AppMainView.swift in Sources */,
+				63281AF327147D4C004F79FF /* String+Extension.swift in Sources */,
+				63EE70DF27045087007C3BED /* AugmentedVisAppApp.swift in Sources */,
+				636AF7402715B8840027C825 /* PointScale.swift in Sources */,
+				63281ADC2714253F004F79FF /* LineChartContainerView.swift in Sources */,
+				63281AE327144C67004F79FF /* Scale.swift in Sources */,
+				63281AF0271473B4004F79FF /* EdgeInsets+Extension.swift in Sources */,
+				636AF7452715B8890027C825 /* BandScale.swift in Sources */,
+				63281AE727145494004F79FF /* Axis.swift in Sources */,
+				63281AEA27145BEF004F79FF /* View+Extension.swift in Sources */,
+				63127A702715A16F0096D61C /* Assets.swift in Sources */,
+				63281AE0271449DB004F79FF /* LinearScale.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		636AF7382715B4460027C825 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63EE70DA27045087007C3BED /* AugmentedVisApp (macOS) */;
+			targetProxy = 636AF7372715B4460027C825 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		636AF7262715AEE30027C825 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DDBDD7B30A1217DAA49CEDB /* Pods-AugmentedVisAppTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WHS7F725MC;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jjayhen.AugmentedVisAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		636AF7272715AEE30027C825 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E45E969D9331D38F8627A065 /* Pods-AugmentedVisAppTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WHS7F725MC;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jjayhen.AugmentedVisAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		63EE70E427045087007C3BED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		63EE70E527045087007C3BED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		63EE70E727045087007C3BED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 639B5CBB0BC0B5EF1EF6B930 /* Pods-AugmentedVisApp (iOS).debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WHS7F725MC;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTING_SEARCH_PATHS = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Using your camera to enable Augmented Reality experiance.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jjayhen.AugmentedVisApp;
+				PRODUCT_NAME = AugmentedVisApp;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		63EE70E827045087007C3BED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D774BA7476C16D13A91796D7 /* Pods-AugmentedVisApp (iOS).release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WHS7F725MC;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTING_SEARCH_PATHS = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Using your camera to enable Augmented Reality experiance.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jjayhen.AugmentedVisApp;
+				PRODUCT_NAME = AugmentedVisApp;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		63EE70EA27045087007C3BED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDC8C75E801CEB1C7525EE0D /* Pods-AugmentedVisApp (macOS).debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WHS7F725MC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTING_SEARCH_PATHS = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jjayhen.AugmentedVisApp;
+				PRODUCT_NAME = AugmentedVisApp;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		63EE70EB27045087007C3BED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B86FF955E68199E0D44431C /* Pods-AugmentedVisApp (macOS).release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WHS7F725MC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTING_SEARCH_PATHS = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jjayhen.AugmentedVisApp;
+				PRODUCT_NAME = AugmentedVisApp;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		636AF7282715AEE30027C825 /* Build configuration list for PBXNativeTarget "AugmentedVisAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				636AF7262715AEE30027C825 /* Debug */,
+				636AF7272715AEE30027C825 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63EE70CC27045085007C3BED /* Build configuration list for PBXProject "AugmentedVisApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63EE70E427045087007C3BED /* Debug */,
+				63EE70E527045087007C3BED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63EE70E627045087007C3BED /* Build configuration list for PBXNativeTarget "AugmentedVisApp (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63EE70E727045087007C3BED /* Debug */,
+				63EE70E827045087007C3BED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63EE70E927045087007C3BED /* Build configuration list for PBXNativeTarget "AugmentedVisApp (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63EE70EA27045087007C3BED /* Debug */,
+				63EE70EB27045087007C3BED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		636AF7482715B8DC0027C825 /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+		636AF74A2715B8DC0027C825 /* DequeModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = DequeModule;
+		};
+		636AF74C2715B8DC0027C825 /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+		636AF74E2715B8EC0027C825 /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+		636AF7502715B8EC0027C825 /* DequeModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = DequeModule;
+		};
+		636AF7522715B8EC0027C825 /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+		636AF7542715B90A0027C825 /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+		636AF7562715B90A0027C825 /* DequeModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = DequeModule;
+		};
+		636AF7582715B90A0027C825 /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 63EE70C927045085007C3BED /* Project object */;
+}

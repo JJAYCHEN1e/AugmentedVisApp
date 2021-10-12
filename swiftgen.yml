@@ -1,0 +1,13 @@
+xcassets:
+  inputs:
+    - Shared/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: Generated/Assets.swift
+ib:
+  inputs: ./
+  outputs:
+    - templateName: scenes-swift5
+      output: Generated/Storyboard Scenes.swift
+    - templateName: segues-swift5
+      output: Generated/Storyboard Segues.swift
