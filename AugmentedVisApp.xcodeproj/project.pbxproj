@@ -27,7 +27,6 @@
 		63281AF0271473B4004F79FF /* EdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AEE271473B4004F79FF /* EdgeInsets+Extension.swift */; };
 		63281AF227147D4C004F79FF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AF127147D4C004F79FF /* String+Extension.swift */; };
 		63281AF327147D4C004F79FF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AF127147D4C004F79FF /* String+Extension.swift */; };
-		6335D8A62716B69F00DB027D /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588C42716A00B00867F16 /* AppMainView.swift */; };
 		634588BA27169A3600867F16 /* SCNVector3+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588B927169A3600867F16 /* SCNVector3+Extension.swift */; };
 		634588BD27169AD700867F16 /* ARVisViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634588BB27169AD700867F16 /* ARVisViewController.storyboard */; };
 		634588BE27169AD700867F16 /* ARVisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588BC27169AD700867F16 /* ARVisViewController.swift */; };
@@ -56,7 +55,7 @@
 		636AF7572715B90A0027C825 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF7562715B90A0027C825 /* DequeModule */; };
 		636AF7592715B90A0027C825 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF7582715B90A0027C825 /* OrderedCollections */; };
 		63A941E12716C14F00636EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A941E02716C14F00636EFB /* AppDelegate.swift */; };
-		63EE70DF27045087007C3BED /* AugmentedVisAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE70CE27045085007C3BED /* AugmentedVisAppApp.swift */; };
+		63EE70DF27045087007C3BED /* AugmentedVisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE70CE27045085007C3BED /* AugmentedVisApp.swift */; };
 		63EE70E127045087007C3BED /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE70CF27045085007C3BED /* AppMainView.swift */; };
 		63EE70E227045087007C3BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63EE70D027045087007C3BED /* Assets.xcassets */; };
 		63EE70E327045087007C3BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63EE70D027045087007C3BED /* Assets.xcassets */; };
@@ -93,7 +92,6 @@
 		634588BC27169AD700867F16 /* ARVisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARVisViewController.swift; sourceTree = "<group>"; };
 		634588BF27169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ARVisViewController+ARSessionDelegate.swift"; sourceTree = "<group>"; };
 		634588C227169BD700867F16 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
-		634588C42716A00B00867F16 /* AppMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainView.swift; sourceTree = "<group>"; };
 		634588C62716A22100867F16 /* Storyboard Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard Segues.swift"; sourceTree = "<group>"; };
 		634588C72716A22100867F16 /* Storyboard Scenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard Scenes.swift"; sourceTree = "<group>"; };
 		636AF7222715AEE30027C825 /* AugmentedVisAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AugmentedVisAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +100,7 @@
 		636AF73D2715B83A0027C825 /* PointScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointScale.swift; sourceTree = "<group>"; };
 		639B5CBB0BC0B5EF1EF6B930 /* Pods-AugmentedVisApp (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisApp (iOS).debug.xcconfig"; path = "Target Support Files/Pods-AugmentedVisApp (iOS)/Pods-AugmentedVisApp (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		63A941E02716C14F00636EFB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		63EE70CE27045085007C3BED /* AugmentedVisAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AugmentedVisAppApp.swift; sourceTree = "<group>"; };
+		63EE70CE27045085007C3BED /* AugmentedVisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AugmentedVisApp.swift; sourceTree = "<group>"; };
 		63EE70CF27045085007C3BED /* AppMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainView.swift; sourceTree = "<group>"; };
 		63EE70D027045087007C3BED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63EE70D527045087007C3BED /* AugmentedVisApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AugmentedVisApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,7 +194,6 @@
 				634588BC27169AD700867F16 /* ARVisViewController.swift */,
 				634588BF27169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift */,
 				634588C127169BD700867F16 /* Additional View Controllers */,
-				634588C42716A00B00867F16 /* AppMainView.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -285,7 +282,7 @@
 		63EE70DC27045087007C3BED /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				63EE70CE27045085007C3BED /* AugmentedVisAppApp.swift */,
+				63EE70CE27045085007C3BED /* AugmentedVisApp.swift */,
 				63EE70DD27045087007C3BED /* macOS.entitlements */,
 				63EE70CF27045085007C3BED /* AppMainView.swift */,
 			);
@@ -629,7 +626,6 @@
 				634588C027169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift in Sources */,
 				634588BE27169AD700867F16 /* ARVisViewController.swift in Sources */,
 				63A941E12716C14F00636EFB /* AppDelegate.swift in Sources */,
-				6335D8A62716B69F00DB027D /* AppMainView.swift in Sources */,
 				63281ADF271449DB004F79FF /* LinearScale.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,7 +636,7 @@
 			files = (
 				63EE70E127045087007C3BED /* AppMainView.swift in Sources */,
 				63281AF327147D4C004F79FF /* String+Extension.swift in Sources */,
-				63EE70DF27045087007C3BED /* AugmentedVisAppApp.swift in Sources */,
+				63EE70DF27045087007C3BED /* AugmentedVisApp.swift in Sources */,
 				636AF7402715B8840027C825 /* PointScale.swift in Sources */,
 				63281ADC2714253F004F79FF /* LineChartContainerView.swift in Sources */,
 				63281AE327144C67004F79FF /* Scale.swift in Sources */,
