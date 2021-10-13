@@ -23,7 +23,7 @@ struct ARVisViewControllerRepresentable: UIViewControllerRepresentable {
 
 struct AppMainView: View {
     var body: some View {
-        ARVisViewControllerRepresentable()
-			.edgesIgnoringSafeArea(.all)
+		ARVisViewControllerRepresentable()
+//			.edgesIgnoringSafeArea(.all)
     }
 }

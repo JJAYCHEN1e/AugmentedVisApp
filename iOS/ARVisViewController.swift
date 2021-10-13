@@ -1,12 +1,17 @@
 import ARKit
 import SceneKit
 import UIKit
+import SwiftCSV
+import SwiftUI
 
 class ARVisViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
     
     @IBOutlet weak var blurView: UIVisualEffectView!
+	
+	let width: CGFloat = 1920.0
+	let height: CGFloat = 1080.0
     
     /// The view controller that displays the status and "restart experience" UI.
     lazy var statusViewController: StatusViewController = {
@@ -67,10 +72,57 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         
         let configuration = ARWorldTrackingConfiguration()
         configuration.detectionImages = referenceImages
-		configuration.maximumNumberOfTrackedImages = 1
+		configuration.maximumNumberOfTrackedImages = 0
         session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
 
         statusViewController.scheduleMessage("Look around to detect images", inSeconds: 7.5, messageType: .contentPlacement)
+	}
+	
+	private func readDataSource() -> ChartData<Int> {
+		let resource = try! CSV(
+			name: "data",
+			extension: "csv",
+			bundle: .main,
+			delimiter: ",",
+			encoding: .utf8)!
+		
+		var aggregatedSumDic: [Int : CGFloat] = [:]
+		
+		resource.namedRows.forEach { row in
+			if let _year = row["year"], let year = Int(_year), let _n = row["n"], let n = Int(_n) {
+				aggregatedSumDic[year] = aggregatedSumDic[year, default: 0] + CGFloat(n)
+			} else {
+				fatalError("Corrupted Data!")
+			}
+		}
+		
+		let sortedKeys = aggregatedSumDic.keys.sorted()
+		
+		return ChartData(data: aggregatedSumDic, keys: sortedKeys)
+	}
+	
+	func createHostingController(for node: SCNNode) {
+		let data = readDataSource()
+		DispatchQueue.main.async {
+			let lineChartHostingVC = UIHostingController(rootView: LineChartContainerView(dataSources: [data]))
+			
+//			lineChartHostingVC.willMove(toParent: self)
+//			self.addChild(lineChartHostingVC)
+			lineChartHostingVC.view.frame = CGRect(x: 0, y: 0, width: 1920, height: 1080)
+//			self.view.addSubview(lineChartHostingVC.view)
+//			lineChartHostingVC.didMove(toParent: self)
+			
+			self.show(viewController: lineChartHostingVC, on: node)
+		}
+	}
+	
+	func show(viewController: UIViewController, on node: SCNNode) {
+//		viewController.view.isOpaque = false
+//		viewController.view.backgroundColor = UIColor.clear
+		
+		let material = SCNMaterial()
+		material.diffuse.contents = viewController.view
+		node.geometry?.materials = [material]
 	}
 
 	var plane: SCNPlane?
@@ -83,11 +135,16 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
 		let referenceImage = imageAnchor.referenceImage
 		updateQueue.async {
 			print("FIRST NODE")
-			// Create a plane to visualize the initial position of the detected image.
-			let plane = SCNPlane(width: referenceImage.physicalSize.width * 2,
-								 height: referenceImage.physicalSize.height * 2)
+			
+			let planeWidth = referenceImage.physicalSize.width * 4
+			let planeHeight = self.height / self.width * planeWidth
+			
+			let plane = SCNPlane(width: planeWidth,
+								 height: planeHeight)
 			let planeNode = SCNNode(geometry: plane)
-			planeNode.position = .init(-referenceImage.physicalSize.width * 1.5, 0, -referenceImage.physicalSize.height * 1.5)
+//			planeNode.position = .init(-referenceImage.physicalSize.width * 1.5, 0, -referenceImage.physicalSize.height * 1.5)
+			planeNode.position = .init(0, 0, 0)
+			self.createHostingController(for: planeNode)
 			
 			self.plane = plane
 			self.planeNode = planeNode
@@ -128,7 +185,8 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
 					planeNode.removeFromParentNode()
 					node.addChildNode(planeNode)
 					
-					planeNode.position = .init(-referenceImage.physicalSize.width * 1.5, 0, -referenceImage.physicalSize.height * 1.5)
+//					planeNode.position = .init(-referenceImage.physicalSize.width * 1.5, 0, -referenceImage.physicalSize.height * 1.5)
+					planeNode.position = .init(0, 0, 0)
 					planeNode.eulerAngles.x = -.pi / 2
 					planeNode.eulerAngles.y = 0
 					planeNode.eulerAngles.z = 0

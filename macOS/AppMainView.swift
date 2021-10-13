@@ -10,7 +10,7 @@ import SwiftCSV
 
 struct AppMainView: View {
 	
-	func readDataSource() -> ChartData<Int> {
+	private func readDataSource() -> ChartData<Int> {
 		let resource = try! CSV(
 			name: "data",
 			extension: "csv",

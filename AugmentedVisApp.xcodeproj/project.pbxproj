@@ -27,12 +27,12 @@
 		63281AF0271473B4004F79FF /* EdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AEE271473B4004F79FF /* EdgeInsets+Extension.swift */; };
 		63281AF227147D4C004F79FF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AF127147D4C004F79FF /* String+Extension.swift */; };
 		63281AF327147D4C004F79FF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AF127147D4C004F79FF /* String+Extension.swift */; };
+		6335D8A62716B69F00DB027D /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588C42716A00B00867F16 /* AppMainView.swift */; };
 		634588BA27169A3600867F16 /* SCNVector3+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588B927169A3600867F16 /* SCNVector3+Extension.swift */; };
 		634588BD27169AD700867F16 /* ARVisViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634588BB27169AD700867F16 /* ARVisViewController.storyboard */; };
 		634588BE27169AD700867F16 /* ARVisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588BC27169AD700867F16 /* ARVisViewController.swift */; };
 		634588C027169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588BF27169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift */; };
 		634588C327169BD700867F16 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588C227169BD700867F16 /* StatusViewController.swift */; };
-		634588C52716A00B00867F16 /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588C42716A00B00867F16 /* AppMainView.swift */; };
 		634588CC2716A22500867F16 /* Storyboard Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588C62716A22100867F16 /* Storyboard Segues.swift */; };
 		634588CD2716A22500867F16 /* Storyboard Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588C72716A22100867F16 /* Storyboard Scenes.swift */; };
 		634588CE2716A22500867F16 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A6E27159EC50096D61C /* Assets.swift */; };
@@ -55,7 +55,7 @@
 		636AF7552715B90A0027C825 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF7542715B90A0027C825 /* Collections */; };
 		636AF7572715B90A0027C825 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF7562715B90A0027C825 /* DequeModule */; };
 		636AF7592715B90A0027C825 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF7582715B90A0027C825 /* OrderedCollections */; };
-		63EE70DE27045087007C3BED /* AugmentedVisAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE70CE27045085007C3BED /* AugmentedVisAppApp.swift */; };
+		63A941E12716C14F00636EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A941E02716C14F00636EFB /* AppDelegate.swift */; };
 		63EE70DF27045087007C3BED /* AugmentedVisAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE70CE27045085007C3BED /* AugmentedVisAppApp.swift */; };
 		63EE70E127045087007C3BED /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE70CF27045085007C3BED /* AppMainView.swift */; };
 		63EE70E227045087007C3BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63EE70D027045087007C3BED /* Assets.xcassets */; };
@@ -101,6 +101,7 @@
 		636AF73B2715B8240027C825 /* PointScaleXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointScaleXCTest.swift; sourceTree = "<group>"; };
 		636AF73D2715B83A0027C825 /* PointScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointScale.swift; sourceTree = "<group>"; };
 		639B5CBB0BC0B5EF1EF6B930 /* Pods-AugmentedVisApp (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisApp (iOS).debug.xcconfig"; path = "Target Support Files/Pods-AugmentedVisApp (iOS)/Pods-AugmentedVisApp (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		63A941E02716C14F00636EFB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63EE70CE27045085007C3BED /* AugmentedVisAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AugmentedVisAppApp.swift; sourceTree = "<group>"; };
 		63EE70CF27045085007C3BED /* AppMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainView.swift; sourceTree = "<group>"; };
 		63EE70D027045087007C3BED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -189,6 +190,7 @@
 		63127A772715A91A0096D61C /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				63A941E02716C14F00636EFB /* AppDelegate.swift */,
 				63EE70EC270456F7007C3BED /* iOS.entitlements */,
 				634588BB27169AD700867F16 /* ARVisViewController.storyboard */,
 				634588BC27169AD700867F16 /* ARVisViewController.swift */,
@@ -265,7 +267,6 @@
 				63127A67271573340096D61C /* data.csv */,
 				63281AE427145488004F79FF /* Charts */,
 				63281ADD271449C9004F79FF /* Tools */,
-				63EE70CE27045085007C3BED /* AugmentedVisAppApp.swift */,
 				63EE70D027045087007C3BED /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -284,6 +285,7 @@
 		63EE70DC27045087007C3BED /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				63EE70CE27045085007C3BED /* AugmentedVisAppApp.swift */,
 				63EE70DD27045087007C3BED /* macOS.entitlements */,
 				63EE70CF27045085007C3BED /* AppMainView.swift */,
 			);
@@ -418,8 +420,8 @@
 			projectRoot = "";
 			targets = (
 				63EE70D427045087007C3BED /* AugmentedVisApp (iOS) */,
-				63EE70DA27045087007C3BED /* AugmentedVisApp (macOS) */,
 				636AF7212715AEE30027C825 /* AugmentedVisAppTests */,
+				63EE70DA27045087007C3BED /* AugmentedVisApp (macOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -611,11 +613,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				63281AF227147D4C004F79FF /* String+Extension.swift in Sources */,
-				63EE70DE27045087007C3BED /* AugmentedVisAppApp.swift in Sources */,
 				634588CE2716A22500867F16 /* Assets.swift in Sources */,
 				63281ADB2714253F004F79FF /* LineChartContainerView.swift in Sources */,
 				63281AE227144C67004F79FF /* Scale.swift in Sources */,
-				634588C52716A00B00867F16 /* AppMainView.swift in Sources */,
 				636AF7462715B8890027C825 /* BandScale.swift in Sources */,
 				636AF7422715B8840027C825 /* PointScale.swift in Sources */,
 				63281AEF271473B4004F79FF /* EdgeInsets+Extension.swift in Sources */,
@@ -628,6 +628,8 @@
 				634588CD2716A22500867F16 /* Storyboard Scenes.swift in Sources */,
 				634588C027169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift in Sources */,
 				634588BE27169AD700867F16 /* ARVisViewController.swift in Sources */,
+				63A941E12716C14F00636EFB /* AppDelegate.swift in Sources */,
+				6335D8A62716B69F00DB027D /* AppMainView.swift in Sources */,
 				63281ADF271449DB004F79FF /* LinearScale.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -838,10 +840,11 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTING_SEARCH_PATHS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AugmentedVisApp--iOS--Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Using your camera to enable Augmented Reality experiance.";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIMainStoryboardFile = ARVisViewController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -873,10 +876,11 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTING_SEARCH_PATHS = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AugmentedVisApp--iOS--Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Using your camera to enable Augmented Reality experiance.";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIMainStoryboardFile = ARVisViewController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
