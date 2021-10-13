@@ -78,33 +78,10 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         statusViewController.scheduleMessage("Look around to detect images", inSeconds: 7.5, messageType: .contentPlacement)
 	}
 	
-	private func readDataSource() -> ChartData<Int> {
-		let resource = try! CSV(
-			name: "data",
-			extension: "csv",
-			bundle: .main,
-			delimiter: ",",
-			encoding: .utf8)!
-		
-		var aggregatedSumDic: [Int : CGFloat] = [:]
-		
-		resource.namedRows.forEach { row in
-			if let _year = row["year"], let year = Int(_year), let _n = row["n"], let n = Int(_n) {
-				aggregatedSumDic[year] = aggregatedSumDic[year, default: 0] + CGFloat(n)
-			} else {
-				fatalError("Corrupted Data!")
-			}
-		}
-		
-		let sortedKeys = aggregatedSumDic.keys.sorted()
-		
-		return ChartData(data: aggregatedSumDic, keys: sortedKeys)
-	}
-	
 	func createHostingController(for node: SCNNode) {
 		let data = readDataSource()
 		DispatchQueue.main.async {
-			let lineChartHostingVC = UIHostingController(rootView: LineChartContainerView(dataSources: [data]))
+			let lineChartHostingVC = UIHostingController(rootView: LineChartContainerView(dataSources: [SampleDataHelper.readLineChartSampleDataSourceCatSevNumOrdered()]))
 			
 //			lineChartHostingVC.willMove(toParent: self)
 //			self.addChild(lineChartHostingVC)
