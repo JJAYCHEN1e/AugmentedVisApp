@@ -79,9 +79,9 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
 	}
 	
 	func createHostingController(for node: SCNNode) {
-		let data = readDataSource()
+		let data = SampleDataHelper.readLineChartSampleDataSourceCatSevNumOrdered()
 		DispatchQueue.main.async {
-			let lineChartHostingVC = UIHostingController(rootView: LineChartContainerView(dataSources: [SampleDataHelper.readLineChartSampleDataSourceCatSevNumOrdered()]))
+			let lineChartHostingVC = UIHostingController(rootView: LineChartContainerView(dataSources: [data]))
 			
 //			lineChartHostingVC.willMove(toParent: self)
 //			self.addChild(lineChartHostingVC)
