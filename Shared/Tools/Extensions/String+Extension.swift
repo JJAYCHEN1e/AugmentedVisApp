@@ -16,7 +16,7 @@ import AppKit
 
 extension String {
 #if os(iOS)
-   func widthOfString(usingFont font: UIFont) -> CGFloat {
+	func widthOfString(usingFont font: UIFont) -> CGFloat {
 		let fontAttributes = [NSAttributedString.Key.font: font]
 		let size = self.size(withAttributes: fontAttributes)
 		return size.width
@@ -25,9 +25,9 @@ extension String {
 	
 #if os(macOS)
 	func widthOfString(usingFont font: NSFont) -> CGFloat {
-		 let fontAttributes = [NSAttributedString.Key.font: font]
-		 let size = self.size(withAttributes: fontAttributes)
-		 return size.width
-	 }
+		let fontAttributes = [NSAttributedString.Key.font: font]
+		let size = self.size(withAttributes: fontAttributes)
+		return size.width
+	}
 #endif
 }

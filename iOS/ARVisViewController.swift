@@ -10,8 +10,14 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet weak var blurView: UIVisualEffectView!
 	
-	let width: CGFloat = 1920.0
-	let height: CGFloat = 1080.0
+	let augmentedViewWidth: CGFloat = 1920.0
+	let augmentedViewHeight: CGFloat = 1080.0
+	
+	var maxAugmentedViewWH: CGFloat {
+		get {
+			max(augmentedViewWidth, augmentedViewHeight)
+		}
+	}
     
     /// The view controller that displays the status and "restart experience" UI.
     lazy var statusViewController: StatusViewController = {
@@ -80,21 +86,21 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
 	
 	func createHostingController(for node: SCNNode) {
 		DispatchQueue.main.async {
+			let viewController = UIViewController()
+			viewController.view.frame = CGRect(x: 0, y: 0, width: self.maxAugmentedViewWH, height: self.maxAugmentedViewWH)
+			viewController.view.isOpaque = false
+			viewController.view.backgroundColor = .clear
+			
 			let lineChartHostingVC = UIHostingController(rootView: LineChartContainerView(dataSources: SampleDataHelper.catSevNumOrderedSeries))
+			lineChartHostingVC.view.frame = CGRect(x: 0, y: self.maxAugmentedViewWH / 4, width: self.augmentedViewWidth, height: self.augmentedViewHeight)
 			
-//			lineChartHostingVC.willMove(toParent: self)
-//			self.addChild(lineChartHostingVC)
-			lineChartHostingVC.view.frame = CGRect(x: 0, y: 0, width: 1920, height: 1080)
-//			self.view.addSubview(lineChartHostingVC.view)
-//			lineChartHostingVC.didMove(toParent: self)
+			viewController.view.addSubview(lineChartHostingVC.view)
 			
-			self.show(viewController: lineChartHostingVC, on: node)
+			self.show(viewController: viewController, on: node)
 		}
 	}
 	
 	func show(viewController: UIViewController, on node: SCNNode) {
-//		viewController.view.isOpaque = false
-//		viewController.view.backgroundColor = UIColor.clear
 		
 		let material = SCNMaterial()
 		material.diffuse.contents = viewController.view
@@ -113,10 +119,9 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
 			print("FIRST NODE")
 			
 			let planeWidth = referenceImage.physicalSize.width * 4
-			let planeHeight = self.height / self.width * planeWidth
+			let planeHeight = planeWidth
 			
-			let plane = SCNPlane(width: planeWidth,
-								 height: planeHeight)
+			let plane = SCNPlane(width: planeWidth, height: planeHeight)
 			let planeNode = SCNNode(geometry: plane)
 //			planeNode.position = .init(-referenceImage.physicalSize.width * 1.5, 0, -referenceImage.physicalSize.height * 1.5)
 			planeNode.position = .init(0, 0, 0)
