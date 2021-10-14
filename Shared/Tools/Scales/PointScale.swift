@@ -32,4 +32,17 @@ struct PointScale<T: Hashable> {
             return nil
         }
     }
+
+    func invert() -> (CGFloat) -> (T) {
+        { input in
+            let index = Int((input + step * 0.5) / step)
+            if index < 0 {
+                return domain[0]
+            } else if index >= domain.count {
+                return domain.last!
+            } else {
+                return domain[index]
+            }
+        }
+    }
 }

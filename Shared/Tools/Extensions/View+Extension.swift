@@ -8,8 +8,8 @@
 import SwiftUI
 
 extension View {
-    func execute(closure: () -> Void) -> EmptyView {
+    func execute(closure: () -> Void) -> some View {
         closure()
-        return EmptyView()
+        return Circle().fill().opacity(0)
     }
 }
