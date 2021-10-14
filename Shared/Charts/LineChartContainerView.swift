@@ -305,7 +305,7 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                                 }
                             }
                         )
-                        .position(pointerPosition != nil ? CGPoint(x: pointerPosition!.x + (textDimension?.width ?? 0.0) / 2, y: pointerPosition!.y) : CGPoint(x: 0, y: 0))
+                        .position(pointerPosition != nil ? CGPoint(x: pointerPosition!.x + (textDimension?.width ?? 0.0) / 2, y: pointerPosition!.y) : CGPoint(x: -1000, y: -1000))
                 }
                 .simultaneousGesture(
                     DragGesture(minimumDistance: .zero)
