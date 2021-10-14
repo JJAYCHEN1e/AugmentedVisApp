@@ -8,8 +8,8 @@
 import SwiftUI
 
 extension View {
-	func execute(closure: () -> ()) -> EmptyView {
-		closure()
-		return EmptyView()
-	}
+    func execute(closure: () -> Void) -> EmptyView {
+        closure()
+        return EmptyView()
+    }
 }

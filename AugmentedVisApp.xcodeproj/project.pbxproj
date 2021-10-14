@@ -360,6 +360,7 @@
 				63EE70D227045087007C3BED /* Frameworks */,
 				63EE70D327045087007C3BED /* Resources */,
 				EC33EB44A352D06116B0F070 /* [CP] Embed Pods Frameworks */,
+				6305D5152718451B00583480 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -385,6 +386,7 @@
 				63EE70D827045087007C3BED /* Frameworks */,
 				63EE70D927045087007C3BED /* Resources */,
 				38E696526D95A79ABCC8AF14 /* [CP] Embed Pods Frameworks */,
+				6305D5162718452B00583480 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -494,6 +496,40 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AugmentedVisApp (macOS)/Pods-AugmentedVisApp (macOS)-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		6305D5152718451B00583480 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		6305D5162718452B00583480 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		63127A6A27159CDD0096D61C /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;

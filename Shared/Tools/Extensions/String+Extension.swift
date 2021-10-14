@@ -7,27 +7,27 @@
 
 import Foundation
 #if os(iOS)
-import UIKit
+    import UIKit
 #endif
 
 #if os(macOS)
-import AppKit
+    import AppKit
 #endif
 
 extension String {
-#if os(iOS)
-	func widthOfString(usingFont font: UIFont) -> CGFloat {
-		let fontAttributes = [NSAttributedString.Key.font: font]
-		let size = self.size(withAttributes: fontAttributes)
-		return size.width
-	}
-#endif
-	
-#if os(macOS)
-	func widthOfString(usingFont font: NSFont) -> CGFloat {
-		let fontAttributes = [NSAttributedString.Key.font: font]
-		let size = self.size(withAttributes: fontAttributes)
-		return size.width
-	}
-#endif
+    #if os(iOS)
+        func widthOfString(usingFont font: UIFont) -> CGFloat {
+            let fontAttributes = [NSAttributedString.Key.font: font]
+            let textSize = self.size(withAttributes: fontAttributes)
+            return textSize.width
+        }
+    #endif
+
+    #if os(macOS)
+        func widthOfString(usingFont font: NSFont) -> CGFloat {
+            let fontAttributes = [NSAttributedString.Key.font: font]
+            let textSize = self.size(withAttributes: fontAttributes)
+            return textSize.width
+        }
+    #endif
 }

@@ -8,15 +8,11 @@
 import SwiftUI
 
 extension EdgeInsets {
-	var horizontal: CGFloat {
-		get {
-			leading + trailing
-		}
-	}
-	
-	var vertical: CGFloat {
-		get {
-			top + bottom
-		}
-	}
+    var horizontal: CGFloat {
+        leading + trailing
+    }
+
+    var vertical: CGFloat {
+        top + bottom
+    }
 }
