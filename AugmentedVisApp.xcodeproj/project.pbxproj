@@ -12,8 +12,8 @@
 		630C94D927170B030041897A /* SampleDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C94D827170B030041897A /* SampleDataHelper.swift */; };
 		630C94DA27170B5C0041897A /* SampleDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C94D827170B030041897A /* SampleDataHelper.swift */; };
 		630C94DB27170B5E0041897A /* SampleDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C94D827170B030041897A /* SampleDataHelper.swift */; };
-		63127A68271573340096D61C /* data.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63127A67271573340096D61C /* data.csv */; };
-		63127A69271573340096D61C /* data.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63127A67271573340096D61C /* data.csv */; };
+		63127A68271573340096D61C /* CatSevNumOrdered.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63127A67271573340096D61C /* CatSevNumOrdered.csv */; };
+		63127A69271573340096D61C /* CatSevNumOrdered.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63127A67271573340096D61C /* CatSevNumOrdered.csv */; };
 		63127A702715A16F0096D61C /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A6E27159EC50096D61C /* Assets.swift */; };
 		63127A742715A6CA0096D61C /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A732715A6CA0096D61C /* Color+Extension.swift */; };
 		63281ADB2714253F004F79FF /* LineChartContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281ADA2714253F004F79FF /* LineChartContainerView.swift */; };
@@ -57,6 +57,10 @@
 		636AF7552715B90A0027C825 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF7542715B90A0027C825 /* Collections */; };
 		636AF7572715B90A0027C825 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF7562715B90A0027C825 /* DequeModule */; };
 		636AF7592715B90A0027C825 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF7582715B90A0027C825 /* OrderedCollections */; };
+		6371F9662717C71C00BA9025 /* CatSevNumOrderedMock2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6371F9652717C71C00BA9025 /* CatSevNumOrderedMock2.csv */; };
+		6371F9672717C71C00BA9025 /* CatSevNumOrderedMock2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6371F9652717C71C00BA9025 /* CatSevNumOrderedMock2.csv */; };
+		637C457D27171DC700BC2484 /* CatSevNumOrderedMock.csv in Resources */ = {isa = PBXBuildFile; fileRef = 637C457C27171DC700BC2484 /* CatSevNumOrderedMock.csv */; };
+		637C457E27171DC700BC2484 /* CatSevNumOrderedMock.csv in Resources */ = {isa = PBXBuildFile; fileRef = 637C457C27171DC700BC2484 /* CatSevNumOrderedMock.csv */; };
 		63A941E12716C14F00636EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A941E02716C14F00636EFB /* AppDelegate.swift */; };
 		63EE70DF27045087007C3BED /* AugmentedVisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE70CE27045085007C3BED /* AugmentedVisApp.swift */; };
 		63EE70E127045087007C3BED /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE70CF27045085007C3BED /* AppMainView.swift */; };
@@ -79,7 +83,7 @@
 		2B86FF955E68199E0D44431C /* Pods-AugmentedVisApp (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisApp (macOS).release.xcconfig"; path = "Target Support Files/Pods-AugmentedVisApp (macOS)/Pods-AugmentedVisApp (macOS).release.xcconfig"; sourceTree = "<group>"; };
 		4DDBDD7B30A1217DAA49CEDB /* Pods-AugmentedVisAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisAppTests.debug.xcconfig"; path = "Target Support Files/Pods-AugmentedVisAppTests/Pods-AugmentedVisAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		630C94D827170B030041897A /* SampleDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataHelper.swift; sourceTree = "<group>"; };
-		63127A67271573340096D61C /* data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.csv; sourceTree = "<group>"; };
+		63127A67271573340096D61C /* CatSevNumOrdered.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CatSevNumOrdered.csv; sourceTree = "<group>"; };
 		63127A6C27159D730096D61C /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		63127A6E27159EC50096D61C /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		63127A712715A5E00096D61C /* BandScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandScale.swift; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 		636AF7292715AF920027C825 /* BandScaleXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandScaleXCTest.swift; sourceTree = "<group>"; };
 		636AF73B2715B8240027C825 /* PointScaleXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointScaleXCTest.swift; sourceTree = "<group>"; };
 		636AF73D2715B83A0027C825 /* PointScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointScale.swift; sourceTree = "<group>"; };
+		6371F9652717C71C00BA9025 /* CatSevNumOrderedMock2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CatSevNumOrderedMock2.csv; sourceTree = "<group>"; };
+		637C457C27171DC700BC2484 /* CatSevNumOrderedMock.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CatSevNumOrderedMock.csv; sourceTree = "<group>"; };
 		639B5CBB0BC0B5EF1EF6B930 /* Pods-AugmentedVisApp (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisApp (iOS).debug.xcconfig"; path = "Target Support Files/Pods-AugmentedVisApp (iOS)/Pods-AugmentedVisApp (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		63A941E02716C14F00636EFB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63EE70CE27045085007C3BED /* AugmentedVisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AugmentedVisApp.swift; sourceTree = "<group>"; };
@@ -159,6 +165,9 @@
 		630C94D727170AF60041897A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				63127A67271573340096D61C /* CatSevNumOrdered.csv */,
+				637C457C27171DC700BC2484 /* CatSevNumOrderedMock.csv */,
+				6371F9652717C71C00BA9025 /* CatSevNumOrderedMock2.csv */,
 				630C94D827170B030041897A /* SampleDataHelper.swift */,
 			);
 			path = Data;
@@ -274,7 +283,6 @@
 		63EE70CD27045085007C3BED /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				63127A67271573340096D61C /* data.csv */,
 				63281AE427145488004F79FF /* Charts */,
 				63281ADD271449C9004F79FF /* Tools */,
 				63EE70D027045087007C3BED /* Assets.xcassets */,
@@ -449,8 +457,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				634588BD27169AD700867F16 /* ARVisViewController.storyboard in Resources */,
-				63127A68271573340096D61C /* data.csv in Resources */,
+				63127A68271573340096D61C /* CatSevNumOrdered.csv in Resources */,
 				63EE70E227045087007C3BED /* Assets.xcassets in Resources */,
+				637C457D27171DC700BC2484 /* CatSevNumOrderedMock.csv in Resources */,
+				6371F9662717C71C00BA9025 /* CatSevNumOrderedMock2.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,7 +468,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63127A69271573340096D61C /* data.csv in Resources */,
+				63127A69271573340096D61C /* CatSevNumOrdered.csv in Resources */,
+				637C457E27171DC700BC2484 /* CatSevNumOrderedMock.csv in Resources */,
+				6371F9672717C71C00BA9025 /* CatSevNumOrderedMock2.csv in Resources */,
 				63EE70E327045087007C3BED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

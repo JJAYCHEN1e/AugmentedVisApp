@@ -236,6 +236,28 @@ class LineChartContainerViewModel<X: Hashable & Comparable>: ObservableObject {
 			axisRightMarginRefinedValue = refinedX
 		}
 	}
+	
+	func lineColor(dataSource: ChartData<X>) -> Color {
+		// category10 colors from d3 - https://github.com/mbostock/d3/wiki/Ordinal-Scales
+		let colors: [Color] = [
+			Color(red: 0.121569, green: 0.466667, blue: 0.705882, opacity: 1),
+			Color(red: 1, green: 0.498039, blue: 0.054902, opacity: 1),
+			Color(red: 0.172549, green: 0.627451, blue: 0.172549, opacity: 1),
+			Color(red: 0.839216, green: 0.152941, blue: 0.156863, opacity: 1),
+			Color(red: 0.580392, green: 0.403922, blue: 0.741176, opacity: 1),
+			Color(red: 0.54902, green: 0.337255, blue: 0.294118, opacity: 1),
+			Color(red: 0.890196, green: 0.466667, blue: 0.760784, opacity: 1),
+			Color(red: 0.498039, green: 0.498039, blue: 0.498039, opacity: 1),
+			Color(red: 0.737255, green: 0.741176, blue: 0.133333, opacity: 1),
+			Color(red: 0.0901961, green: 0.745098, blue: 0.811765, opacity: 1)
+		]
+		
+		if let i = dataSources.firstIndex(of: dataSource) {
+			return colors[i % colors.count]
+		} else {
+			return colors[0]
+		}
+	}
 }
 
 struct LineChartContainerView<X: Hashable & Comparable>: View {
@@ -448,15 +470,6 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
 						cxt.stroke(path, with: .color(Color(Asset.dynamicBlack.color)), lineWidth: viewModel.axisLineWidth)
 					}
 					
-					// Original Point
-					Canvas { cxt, size in
-						let scaleFunctionY = viewModel.yAxis.scaleFunction
-						let scaleFunctionX = viewModel.xAxis.scaleFunction
-						let r = viewModel.originalPointRidius
-						let point = Path(ellipseIn: .init(x: scaleFunctionX(0) - r, y: scaleFunctionY(0) - r, width: 2 * r, height: 2 * r))
-						cxt.fill(point, with: .color(Color(Asset.dynamicBlack.color)))
-					}
-					
 					// Line
 					ForEach(viewModel.dataSources, id: \.self) { dataSource in
 						Path { path in
@@ -483,6 +496,7 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
 						.onTapGesture {
 							print("Tapped")
 						}
+						.foregroundColor(viewModel.lineColor(dataSource: dataSource))
 						.onAppear {
 							withAnimation(.easeOut(duration: 10.0)) {
 								viewModel.percentage = 1.0
@@ -511,12 +525,27 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
 							path.addLine(to: .init(x: xEnd, y: viewModel.yAxis.scale.scale()(0)))
 							path.addLine(to: .init(x: xStart, y: viewModel.yAxis.scale.scale()(0)))
 						}
-						.fill(Color(Asset.dynamicBlack.color).opacity(0.5))
+						.fill(viewModel.lineColor(dataSource: dataSource).opacity(0.2))
 						.onTapGesture {
-							print("Tapped2")
+							print(viewModel.lineColor(dataSource: dataSource))
 						}
 					}
+					
+					// Original Point
+					Canvas { cxt, size in
+						let scaleFunctionY = viewModel.yAxis.scaleFunction
+						let scaleFunctionX = viewModel.xAxis.scaleFunction
+						let r = viewModel.originalPointRidius
+						let point = Path(ellipseIn: .init(x: scaleFunctionX(0) - r, y: scaleFunctionY(0) - r, width: 2 * r, height: 2 * r))
+						cxt.fill(point, with: .color(Color(Asset.dynamicBlack.color)))
+					}
+					.allowsHitTesting(false)
 				}
+				.simultaneousGesture(
+					TapGesture().onEnded {
+						print("Tapped Globally.")
+					}
+				)
 			}
 		}
 	}

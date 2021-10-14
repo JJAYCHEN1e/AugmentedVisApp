@@ -9,9 +9,38 @@ import Foundation
 import SwiftCSV
 
 class SampleDataHelper {
-	static func readLineChartSampleDataSourceCatSevNumOrdered() -> ChartData<Int> {
+	
+	static var catSevNumOrderedSeries: [ChartData<Int>] {
+		get {
+			[
+				catSevNumOrdered,
+				catSevNumOrderedMock,
+				catSevNumOrderedMock2
+			]
+		}
+	}
+	
+	static var catSevNumOrdered: ChartData<Int> {
+		get {
+			readLineChartSampleDataSourceCatSevNumOrderedSeries(name: "CatSevNumOrdered")
+		}
+	}
+	
+	static var catSevNumOrderedMock: ChartData<Int> {
+		get {
+			readLineChartSampleDataSourceCatSevNumOrderedSeries(name: "CatSevNumOrderedMock")
+		}
+	}
+	
+	static var catSevNumOrderedMock2: ChartData<Int> {
+		get {
+			readLineChartSampleDataSourceCatSevNumOrderedSeries(name: "CatSevNumOrderedMock2")
+		}
+	}
+	
+	static private func readLineChartSampleDataSourceCatSevNumOrderedSeries(name: String) -> ChartData<Int> {
 		let resource = try! CSV(
-			name: "data",
+			name: name,
 			extension: "csv",
 			bundle: .main,
 			delimiter: ",",

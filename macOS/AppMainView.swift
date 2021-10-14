@@ -11,9 +11,7 @@ import SwiftCSV
 struct AppMainView: View {
 	
     var body: some View {
-		LineChartContainerView(dataSources: [
-			SampleDataHelper.readLineChartSampleDataSourceCatSevNumOrdered()
-		])
+		LineChartContainerView(dataSources: SampleDataHelper.catSevNumOrderedSeries)
 #if os(macOS)
 			.frame(minWidth: 500, minHeight: 250)
 #endif
