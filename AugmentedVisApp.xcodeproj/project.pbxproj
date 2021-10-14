@@ -11,7 +11,6 @@
 		470D0E2D084011398422BF37 /* Pods_AugmentedVisApp__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C692FC43CC10537CCE51A24 /* Pods_AugmentedVisApp__iOS_.framework */; };
 		6305D511271817FC00583480 /* Storyboard Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588C72716A22100867F16 /* Storyboard Scenes.swift */; };
 		6305D5122718180600583480 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A941E02716C14F00636EFB /* AppDelegate.swift */; };
-		6305D51427181D7900583480 /* SwiftUIARCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6305D51327181D7900583480 /* SwiftUIARCardView.swift */; };
 		630C94D927170B030041897A /* SampleDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C94D827170B030041897A /* SampleDataHelper.swift */; };
 		630C94DA27170B5C0041897A /* SampleDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C94D827170B030041897A /* SampleDataHelper.swift */; };
 		630C94DB27170B5E0041897A /* SampleDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C94D827170B030041897A /* SampleDataHelper.swift */; };
@@ -83,7 +82,6 @@
 /* Begin PBXFileReference section */
 		2B86FF955E68199E0D44431C /* Pods-AugmentedVisApp (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisApp (macOS).release.xcconfig"; path = "Target Support Files/Pods-AugmentedVisApp (macOS)/Pods-AugmentedVisApp (macOS).release.xcconfig"; sourceTree = "<group>"; };
 		4DDBDD7B30A1217DAA49CEDB /* Pods-AugmentedVisAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisAppTests.debug.xcconfig"; path = "Target Support Files/Pods-AugmentedVisAppTests/Pods-AugmentedVisAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		6305D51327181D7900583480 /* SwiftUIARCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIARCardView.swift; sourceTree = "<group>"; };
 		630C94D827170B030041897A /* SampleDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataHelper.swift; sourceTree = "<group>"; };
 		63127A67271573340096D61C /* CatSevNumOrdered.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CatSevNumOrdered.csv; sourceTree = "<group>"; };
 		63127A6C27159D730096D61C /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -270,7 +268,6 @@
 		63EE70C827045085007C3BED = {
 			isa = PBXGroup;
 			children = (
-				6305D51327181D7900583480 /* SwiftUIARCardView.swift */,
 				63127A6C27159D730096D61C /* swiftgen.yml */,
 				63127A6D27159EB10096D61C /* Generated */,
 				63EE70CD27045085007C3BED /* Shared */,
@@ -651,7 +648,6 @@
 				634588CC2716A22500867F16 /* Storyboard Segues.swift in Sources */,
 				630C94D927170B030041897A /* SampleDataHelper.swift in Sources */,
 				63281AE627145494004F79FF /* Axis.swift in Sources */,
-				6305D51427181D7900583480 /* SwiftUIARCardView.swift in Sources */,
 				63127A742715A6CA0096D61C /* Color+Extension.swift in Sources */,
 				63281AE927145BEF004F79FF /* View+Extension.swift in Sources */,
 				634588C027169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift in Sources */,
