@@ -9,11 +9,14 @@ import SwiftUI
 
 // swiftlint:disable type_body_length
 struct LineChartContainerView<X: Hashable & Comparable>: View {
+    let animationDisabled: Bool
+
     @ObservedObject private var viewModel = LineChartContainerViewModel<X>()
 
     @State private var pointerPosition: CGPoint?
 
-    init(dataSources: [ChartData<X>] = [], fixedSize: CGSize? = nil) {
+    init(dataSources: [ChartData<X>] = [], fixedSize: CGSize? = nil, animationDisabled: Bool = false) {
+        self.animationDisabled = animationDisabled
         viewModel.dataSources = dataSources
         viewModel.fixedSize = fixedSize
     }
@@ -24,7 +27,12 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
         if viewModel.isValid {
             GeometryReader { geo in
                 execute {
-                    viewModel.size = geo.size
+                    if viewModel.size != geo.size {
+                        viewModel.size = geo.size
+                        DispatchQueue.main.async {
+                            pointerPosition = nil
+                        }
+                    }
                     viewModel.refineMarginValue()
                 }
 
@@ -335,18 +343,17 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                                     ctx.draw(
                                         Text(str)
                                             .font(viewModel.axisLabelFont),
-                                        at: .init(x: roundedX + viewModel.labelMargin, y: y),
-                                        anchor: .leading
+                                        at: .init(x: roundedX + viewModel.labelMargin, y: y - viewModel.labelMargin),
+                                        anchor: .bottomLeading
                                     )
                                 }
 
                                 for dataSource in viewModel.dataSources {
                                     if let identicalElement = dataSource.keys.first(where: { $0 == transfromedDataX }) {
                                         let data = dataSource.data[identicalElement]!
-                                        print("X: \(transfromedDataX), Y: \(data)")
+
                                     }
                                 }
-                                print("-----")
                             }
                         }
                         .allowsHitTesting(false)
@@ -358,6 +365,9 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                             pointerPosition = value.location
                         }
                 )
+            }
+            .if(animationDisabled) { view in
+                view.animation(nil)
             }
         }
     }
