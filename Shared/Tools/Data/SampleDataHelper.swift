@@ -13,7 +13,8 @@ class SampleDataHelper {
         [
             catSevNumOrdered,
             catSevNumOrderedMock,
-            catSevNumOrderedMock2
+            catSevNumOrderedMock2,
+//            catSevNumOrderedMock3
         ]
     }
 
@@ -27,6 +28,10 @@ class SampleDataHelper {
 
     static var catSevNumOrderedMock2: ChartData<Int> {
         readLineChartSampleDataSourceCatSevNumOrderedSeries(name: "CatSevNumOrderedMock2")
+    }
+
+    static var catSevNumOrderedMock3: ChartData<Int> {
+        readLineChartSampleDataSourceCatSevNumOrderedSeries(name: "CatSevNumOrderedMock3")
     }
 
     private static func readLineChartSampleDataSourceCatSevNumOrderedSeries(name: String) -> ChartData<Int> {

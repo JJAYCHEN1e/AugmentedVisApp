@@ -90,7 +90,7 @@ class LineChartContainerViewModel<X: Hashable & Comparable>: ObservableObject {
     var xLabelMaxCount: Int {
         if let maxLength = maxXLabelLength {
             let axisLength = xAxis.scale.range.last! - xAxis.scale.range.first!
-            return Int(axisLength / maxLength)
+            return min(Int(axisLength / maxLength), dataScaleX.domain.count)
         }
         return 0
     }

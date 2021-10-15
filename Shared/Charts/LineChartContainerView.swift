@@ -7,12 +7,11 @@
 
 import SwiftUI
 
+// swiftlint:disable type_body_length
 struct LineChartContainerView<X: Hashable & Comparable>: View {
     @ObservedObject private var viewModel = LineChartContainerViewModel<X>()
 
     @State private var pointerPosition: CGPoint?
-    @State private var textDimension: CGSize?
-
 
     init(dataSources: [ChartData<X>] = [], fixedSize: CGSize? = nil) {
         viewModel.dataSources = dataSources
@@ -31,7 +30,7 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
 
                 ZStack {
                     // Horizontal Grid Lines
-                    Canvas { cxt, _ in
+                    Canvas { ctx, _ in
                         let path = Path {
                             let scaleFunctionY = viewModel.yAxis.scaleFunction
                             let gridStepLengthY = viewModel.yAxis.gridStepLength
@@ -65,11 +64,11 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                                 index += 1
                             }
                         }
-                        cxt.stroke(path, with: .color(.gray.opacity(0.3)), lineWidth: 1)
+                        ctx.stroke(path, with: .color(.gray.opacity(0.3)), lineWidth: 1)
                     }
 
                     // Vertical Grid Lines
-                    Canvas { cxt, _ in
+                    Canvas { ctx, _ in
                         let path = Path {
                             let scaleFunctionX = viewModel.xAxis.scaleFunction
                             let gridStepLengthX = viewModel.xAxis.gridStepLength
@@ -103,11 +102,11 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                                 index += 1
                             }
                         }
-                        cxt.stroke(path, with: .color(.gray.opacity(0.3)), lineWidth: 1)
+                        ctx.stroke(path, with: .color(.gray.opacity(0.3)), lineWidth: 1)
                     }
 
                     // yAxis Label
-                    Canvas { cxt, _ in
+                    Canvas { ctx, _ in
                         let tick = viewModel.yAxis.tick
                         let scaleFunctionY = viewModel.yAxis.scaleFunction
                         let scaleFunctionX = viewModel.xAxis.scaleFunction
@@ -115,14 +114,14 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                         for i in 0 ... viewModel.yAxis.tickCount {
                             let y = tick.start + CGFloat(i) * tick.step
                             if y == 0.0, viewModel.extentY.min < 0 {
-                                cxt.draw(
+                                ctx.draw(
                                     Text(String(format: "%.2f", y))
                                         .font(.system(size: 14).bold()),
                                     at: .init(x: scaleFunctionX(0) - viewModel.labelMargin, y: scaleFunctionY(y) - viewModel.labelMargin),
                                     anchor: .bottomTrailing
                                 )
                             } else {
-                                cxt.draw(
+                                ctx.draw(
                                     Text(String(format: "%.2f", y))
                                         .font(.system(size: 14).bold()),
                                     at: .init(x: scaleFunctionX(0) - viewModel.labelMargin, y: scaleFunctionY(y)),
@@ -134,46 +133,46 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                                     $0.move(to: .init(x: scaleFunctionX(0), y: scaleFunctionY(y)))
                                     $0.addLine(to: .init(x: scaleFunctionX(0) + viewModel.tickMarkHeight, y: scaleFunctionY(y)))
                                 }
-                                cxt.stroke(path, with: .color(.primary), lineWidth: viewModel.axisLineWidth)
+                                ctx.stroke(path, with: .color(.primary), lineWidth: viewModel.axisLineWidth)
                             }
                         }
                     }
 
                     // xAxis Label(Original Number)
-                    Canvas { cxt, _ in
+                    Canvas { ctx, _ in
                         let tick = viewModel.xAxis.tick
                         let scaleFunctionX = viewModel.xAxis.scaleFunction
                         let scaleFunctionY = viewModel.yAxis.scaleFunction
                         for i in 0 ... viewModel.xAxis.tickCount {
                             let x = tick.start + CGFloat(i) * tick.step
                             if x == 0.0, viewModel.extentX.min < 0 {
-                                cxt.draw(
+                                ctx.draw(
                                     Text(String(format: "%.2f", x))
                                         .font(viewModel.axisLabelFont),
-                                    at: .init(x: scaleFunctionX(x) + viewModel.labelMargin, y: scaleFunctionY(0) + viewModel.labelMargin),
+                                    at: .init(x: scaleFunctionX(x) + viewModel.labelMargin, y: scaleFunctionY(viewModel.yAxis.scale.domainExtent.min) + viewModel.labelMargin),
                                     anchor: .topLeading
                                 )
                             } else {
-                                cxt.draw(
+                                ctx.draw(
                                     Text(String(format: "%.2f", x))
                                         .font(viewModel.axisLabelFont),
-                                    at: .init(x: scaleFunctionX(x), y: scaleFunctionY(0) + viewModel.labelMargin),
+                                    at: .init(x: scaleFunctionX(x), y: scaleFunctionY(viewModel.yAxis.scale.domainExtent.min) + viewModel.labelMargin),
                                     anchor: .top
                                 )
 
                                 // Tick Mark
                                 let path = Path {
-                                    $0.move(to: .init(x: scaleFunctionX(x), y: scaleFunctionY(0)))
-                                    $0.addLine(to: .init(x: scaleFunctionX(x), y: scaleFunctionY(0) + viewModel.tickMarkHeight))
+                                    $0.move(to: .init(x: scaleFunctionX(x), y: scaleFunctionY(viewModel.yAxis.scale.domainExtent.min)))
+                                    $0.addLine(to: .init(x: scaleFunctionX(x), y: scaleFunctionY(viewModel.yAxis.scale.domainExtent.min) + viewModel.tickMarkHeight))
                                 }
-                                cxt.stroke(path, with: .color(Color(Asset.dynamicBlack.color)), lineWidth: viewModel.axisLineWidth)
+                                ctx.stroke(path, with: .color(Color(Asset.dynamicBlack.color)), lineWidth: viewModel.axisLineWidth)
                             }
                         }
                     }
                     .opacity(0)
 
                     // xAxis Label
-                    Canvas { cxt, _ in
+                    Canvas { ctx, _ in
                         for label in viewModel.xLabels {
                             let scaleFunctionX = viewModel.xAxis.scaleFunction
                             let scaleFunctionY = viewModel.yAxis.scaleFunction
@@ -181,25 +180,25 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                             if let _x = dataPointScale(label) {
                                 let x = scaleFunctionX(_x)
                                 let str = "\(label)"
-                                cxt.draw(
+                                ctx.draw(
                                     Text(str)
                                         .font(viewModel.axisLabelFont),
-                                    at: .init(x: x, y: scaleFunctionY(0) + viewModel.labelMargin),
+                                    at: .init(x: x, y: scaleFunctionY(viewModel.yAxis.scale.domainExtent.min) + viewModel.labelMargin),
                                     anchor: .top
                                 )
 
                                 // Tick Mark
                                 let path = Path {
-                                    $0.move(to: .init(x: x, y: scaleFunctionY(0)))
-                                    $0.addLine(to: .init(x: x, y: scaleFunctionY(0) - viewModel.tickMarkHeight))
+                                    $0.move(to: .init(x: x, y: scaleFunctionY(viewModel.yAxis.scale.domainExtent.min)))
+                                    $0.addLine(to: .init(x: x, y: scaleFunctionY(viewModel.yAxis.scale.domainExtent.min) - viewModel.tickMarkHeight))
                                 }
-                                cxt.stroke(path, with: .color(Color(Asset.dynamicBlack.color)), lineWidth: viewModel.axisLineWidth)
+                                ctx.stroke(path, with: .color(Color(Asset.dynamicBlack.color)), lineWidth: viewModel.axisLineWidth)
                             }
                         }
                     }
 
                     // yAxis
-                    Canvas { cxt, _ in
+                    Canvas { ctx, _ in
                         let path = Path {
                             let scaleFunctionX = viewModel.xAxis.scaleFunction
                             let scaleFunctionY = viewModel.yAxis.scaleFunction
@@ -207,19 +206,19 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                             $0.move(to: .init(x: scaleFunctionX(0), y: scaleFunctionY(viewModel.yAxis.scale.domainExtent.min)))
                             $0.addLine(to: .init(x: scaleFunctionX(0), y: scaleFunctionY(viewModel.yAxis.scale.domainExtent.max)))
                         }
-                        cxt.stroke(path, with: .color(Color(Asset.dynamicBlack.color)), lineWidth: viewModel.axisLineWidth)
+                        ctx.stroke(path, with: .color(Color(Asset.dynamicBlack.color)), lineWidth: viewModel.axisLineWidth)
                     }
 
                     // xAxis
-                    Canvas { cxt, _ in
+                    Canvas { ctx, _ in
                         let path = Path {
                             let scaleFunctionY = viewModel.yAxis.scaleFunction
                             let scaleFunctionX = viewModel.xAxis.scaleFunction
 
-                            $0.move(to: .init(x: scaleFunctionX(viewModel.xAxis.scale.domainExtent.min), y: scaleFunctionY(0)))
-                            $0.addLine(to: .init(x: scaleFunctionX(viewModel.xAxis.scale.domainExtent.max), y: scaleFunctionY(0)))
+                            $0.move(to: .init(x: scaleFunctionX(viewModel.xAxis.scale.domainExtent.min), y: scaleFunctionY(viewModel.yAxis.scale.domainExtent.min)))
+                            $0.addLine(to: .init(x: scaleFunctionX(viewModel.xAxis.scale.domainExtent.max), y: scaleFunctionY(viewModel.yAxis.scale.domainExtent.min)))
                         }
-                        cxt.stroke(path, with: .color(Color(Asset.dynamicBlack.color)), lineWidth: viewModel.axisLineWidth)
+                        ctx.stroke(path, with: .color(Color(Asset.dynamicBlack.color)), lineWidth: viewModel.axisLineWidth)
                     }
 
                     // Line
@@ -266,7 +265,7 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                             }
 
                             let (xStart, _) = calXY(dataSource.keys.first!)
-                            path.move(to: .init(x: xStart, y: viewModel.yAxis.scale.scale()(0)))
+                            path.move(to: .init(x: xStart, y: viewModel.yAxis.scale.scale()(viewModel.yAxis.scale.domainExtent.min)))
 
                             for key in dataSource.keys {
                                 let (x, y) = calXY(key)
@@ -274,8 +273,8 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                             }
 
                             let (xEnd, _) = calXY(dataSource.keys.last!)
-                            path.addLine(to: .init(x: xEnd, y: viewModel.yAxis.scale.scale()(0)))
-                            path.addLine(to: .init(x: xStart, y: viewModel.yAxis.scale.scale()(0)))
+                            path.addLine(to: .init(x: xEnd, y: viewModel.yAxis.scale.scale()(viewModel.yAxis.scale.domainExtent.min)))
+                            path.addLine(to: .init(x: xStart, y: viewModel.yAxis.scale.scale()(viewModel.yAxis.scale.domainExtent.min)))
                         }
                         .fill(viewModel.lineColor(dataSource: dataSource).opacity(0.2))
                         .onTapGesture {
@@ -284,37 +283,79 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                     }
 
                     // Original Point
-                    Canvas { cxt, _ in
+                    Canvas { ctx, _ in
                         let scaleFunctionY = viewModel.yAxis.scaleFunction
                         let scaleFunctionX = viewModel.xAxis.scaleFunction
                         let r = viewModel.originalPointRidius
-                        let point = Path(ellipseIn: .init(x: scaleFunctionX(0) - r, y: scaleFunctionY(0) - r, width: 2 * r, height: 2 * r))
-                        cxt.fill(point, with: .color(Color(Asset.dynamicBlack.color)))
+                        let point = Path(ellipseIn: .init(x: scaleFunctionX(0) - r, y: scaleFunctionY(viewModel.yAxis.scale.domainExtent.min) - r, width: 2 * r, height: 2 * r))
+                        ctx.fill(point, with: .color(Color(Asset.dynamicBlack.color)))
                     }
                     .allowsHitTesting(false)
 
-                    Text("👈 Pointer is here.")
-                        .overlay(
-                            GeometryReader { proxy in
-                                execute {
-                                    if textDimension == nil {
-                                        DispatchQueue.main.async {
-                                            textDimension = proxy.size
-                                        }
+                    // Pointer
+                    Group {
+                        Canvas { ctx, _ in
+                            if let pointerPosition = pointerPosition {
+                                let x = pointerPosition.x
+                                let y = pointerPosition.y
+
+                                let transfromedDataY = viewModel.yAxis.scale.invert()(y)
+                                let transfromedDataX = viewModel.dataScaleX.invert()(viewModel.xAxis.scale.invert()(x))
+                                let roundedX = viewModel.xAxis.scale.scale()(viewModel.dataScaleX.scale()(transfromedDataX)!)
+
+                                let xLinePath = Path {
+                                    $0.move(to: .init(x: viewModel.xAxis.scaleFunction(0), y: y))
+                                    $0.addLine(to: .init(x: roundedX, y: y))
+                                }
+
+                                let shading = GraphicsContext.Shading.color(Color(Asset.dynamicBlack.color).opacity(0.8))
+                                let style = StrokeStyle(lineWidth: viewModel.axisLineWidth / 1.5, dash: [6, 3])
+                                ctx.stroke(xLinePath, with: shading, style: style)
+
+                                let yLinepath = Path {
+                                    $0.move(to: .init(x: roundedX, y: viewModel.yAxis.scaleFunction(viewModel.yAxis.scale.domainExtent.min)))
+                                    $0.addLine(to: .init(x: roundedX, y: y))
+                                }
+                                ctx.stroke(yLinepath, with: .color(Color(Asset.dynamicBlack.color).opacity(0.8)), style: .init(lineWidth: viewModel.axisLineWidth / 1.5, dash: [6, 3]))
+
+                                let r = viewModel.originalPointRidius
+                                let point = Path(ellipseIn: .init(x: roundedX - r, y: y - r, width: 2 * r, height: 2 * r))
+                                ctx.fill(point, with: .color(Color(Asset.dynamicBlack.color)))
+
+                                let str = "\(transfromedDataX), \(transfromedDataY)"
+                                let strWidth = str.widthOfString(usingFont: viewModel.axisLabelTraditionalFont)
+                                if roundedX + viewModel.labelMargin + strWidth > viewModel.size.width {
+                                    ctx.draw(
+                                        Text(str)
+                                            .font(viewModel.axisLabelFont),
+                                        at: .init(x: roundedX - viewModel.labelMargin, y: y - viewModel.labelMargin),
+                                        anchor: .bottomTrailing
+                                    )
+                                } else {
+                                    ctx.draw(
+                                        Text(str)
+                                            .font(viewModel.axisLabelFont),
+                                        at: .init(x: roundedX + viewModel.labelMargin, y: y),
+                                        anchor: .leading
+                                    )
+                                }
+
+                                for dataSource in viewModel.dataSources {
+                                    if let identicalElement = dataSource.keys.first(where: { $0 == transfromedDataX }) {
+                                        let data = dataSource.data[identicalElement]!
+                                        print("X: \(transfromedDataX), Y: \(data)")
                                     }
                                 }
+                                print("-----")
                             }
-                        )
-                        .position(pointerPosition != nil ? CGPoint(x: pointerPosition!.x + (textDimension?.width ?? 0.0) / 2, y: pointerPosition!.y) : CGPoint(x: -1000, y: -1000))
+                        }
+                        .allowsHitTesting(false)
+                    }
                 }
                 .simultaneousGesture(
                     DragGesture(minimumDistance: .zero)
                         .onChanged { value in
                             pointerPosition = value.location
-
-                            let y = viewModel.yAxis.scale.invert()(value.location.y)
-                            let x = viewModel.xAxis.scale.invert()(value.location.x)
-                            print("x: \(viewModel.dataScaleX.invert()(x)), y: \(y)")
                         }
                 )
             }
