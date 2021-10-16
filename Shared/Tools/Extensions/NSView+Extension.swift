@@ -36,4 +36,27 @@ extension View {
             vc.view.makePNGFromView()
         }
     }
+
+    func snapshotMock() {
+        DispatchQueue.main.async {
+            let padding: CGFloat = 16.0
+            let qrCodeSize: CGFloat = 240.0
+            let graphWidth: CGFloat = 1920.0
+            let graphHeight: CGFloat = 1080.0
+
+            let rootVC = NSViewController()
+            rootVC.view = NSView()
+            rootVC.view.frame = .init(x: 0, y: 0, width: (graphWidth + padding + qrCodeSize) / 2, height: graphHeight / 2)
+
+            let vc = NSHostingController(rootView: self)
+            vc.view.frame = .init(x: 0, y: 0, width: graphWidth / 2, height: graphHeight / 2)
+            rootVC.view.addSubview(vc.view)
+
+            let qrCodeView = NSImageView(image: NSImage(named: "flower2")!)
+            rootVC.view.addSubview(qrCodeView)
+            qrCodeView.frame = .init(x: (graphWidth + padding) / 2, y: 0, width: qrCodeSize / 2, height: qrCodeSize / 2)
+
+            rootVC.view.makePNGFromView()
+        }
+    }
 }

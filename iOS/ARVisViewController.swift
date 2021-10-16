@@ -3,14 +3,20 @@ import SceneKit
 import SwiftCSV
 import SwiftUI
 import UIKit
+import DequeModule
 
 class ARVisViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
 
     @IBOutlet var blurView: UIVisualEffectView!
 
-    let augmentedViewWidth: CGFloat = 1920.0
-    let augmentedViewHeight: CGFloat = 1080.0
+    let augmentedViewWidth: CGFloat = 1920.0 / 2
+    let augmentedViewHeight: CGFloat = 1080.0 / 2
+
+    let padding: CGFloat = 16.0
+    let qrCodeSize: CGFloat = 240.0
+    let graphWidth: CGFloat = 1920.0
+    let graphHeight: CGFloat = 1080.0
 
     var maxAugmentedViewWH: CGFloat {
         max(augmentedViewWidth, augmentedViewHeight)
@@ -73,8 +79,9 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         }
 
         let configuration = ARWorldTrackingConfiguration()
+        configuration.automaticImageScaleEstimationEnabled = true
         configuration.detectionImages = referenceImages
-        configuration.maximumNumberOfTrackedImages = 0
+        configuration.maximumNumberOfTrackedImages = 1
         session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
 
         statusViewController.scheduleMessage("Look around to detect images", inSeconds: 7.5, messageType: .contentPlacement)
@@ -88,7 +95,8 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
             viewController.view.backgroundColor = .clear
 
             let lineChartHostingVC = UIHostingController(rootView: LineChartContainerView(dataSources: SampleDataHelper.catSevNumOrderedSeries))
-            lineChartHostingVC.view.frame = CGRect(x: 0, y: self.maxAugmentedViewWH / 4, width: self.augmentedViewWidth, height: self.augmentedViewHeight)
+            lineChartHostingVC.view.backgroundColor = .clear
+            lineChartHostingVC.view.frame = CGRect(x: 0, y: (self.maxAugmentedViewWH - self.augmentedViewHeight) / 2, width: self.augmentedViewWidth, height: self.augmentedViewHeight)
 
             viewController.view.addSubview(lineChartHostingVC.view)
 
@@ -102,8 +110,31 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         node.geometry?.materials = [material]
     }
 
-    var plane: SCNPlane?
-    var planeNode: SCNNode?
+    var plane = SCNPlane()
+    var planeNode = SCNNode()
+    var dumbNode = SCNNode()
+
+    var dumbNodeLastEulerAnglesDeque = Deque<SCNVector3>()
+    var dumbNodeLastPositionDeque = Deque<SCNVector3>()
+    var dumbNodeLastStablePositionSample = SCNVector3()
+
+    var isPositionAndEulerAnglesValid: Bool {
+        let maxEulerAnglesXRange = abs(dumbNodeLastEulerAnglesDeque.max { $0.x < $1.x }!.x - dumbNodeLastEulerAnglesDeque.min { $0.x < $1.x }!.x)
+        let maxEulerAnglesYRange = abs(dumbNodeLastEulerAnglesDeque.max { $0.y < $1.y }!.y - dumbNodeLastEulerAnglesDeque.min { $0.y < $1.y }!.y)
+        let maxEulerAnglesZRange = abs(dumbNodeLastEulerAnglesDeque.max { $0.z < $1.z }!.z - dumbNodeLastEulerAnglesDeque.min { $0.z < $1.z }!.z)
+
+        // TODO: - Magic Numebr `0.0015` Should be Relative to Reference Image's Physical size I think.
+        if maxEulerAnglesXRange < 0.02, maxEulerAnglesYRange < 0.02, maxEulerAnglesZRange < 0.02 {
+            if dumbNodeLastPositionDeque.allSatisfy({ abs($0.x - dumbNodeLastStablePositionSample.x) > 0.0015 }) ||
+                dumbNodeLastPositionDeque.allSatisfy({ abs($0.y - dumbNodeLastStablePositionSample.y) > 0.0015 }) ||
+                dumbNodeLastPositionDeque.allSatisfy({ abs($0.z - dumbNodeLastStablePositionSample.z) > 0.0015 }) {
+                dumbNodeLastStablePositionSample = dumbNodeLastPositionDeque.last!
+                return true
+            }
+        }
+
+        return false
+    }
 
     // MARK: - ARSCNViewDelegate (Image detection results)
 
@@ -111,24 +142,33 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
     func renderer(_: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let imageAnchor = anchor as? ARImageAnchor else { return }
         let referenceImage = imageAnchor.referenceImage
+
+        let imageSize = referenceImage.physicalSize.width * imageAnchor.estimatedScaleFactor
+
+        let sizeScale = qrCodeSize / imageSize
+
+        let planeWidth = graphWidth / sizeScale
+        let planeHeight = planeWidth
+
+        let dumbNodePosition = SCNVector3(-((graphWidth + qrCodeSize) / 2 + padding) / sizeScale, 0, -(graphHeight - qrCodeSize) / 2 / sizeScale)
+
         updateQueue.async {
             print("FIRST NODE")
 
-            let planeWidth = referenceImage.physicalSize.width * 4
-            let planeHeight = planeWidth
+            self.plane.width = planeWidth
+            self.plane.height = planeHeight
+            self.planeNode.geometry = self.plane
+            self.createHostingController(for: self.planeNode)
 
-            let plane = SCNPlane(width: planeWidth, height: planeHeight)
-            let planeNode = SCNNode(geometry: plane)
-            //			planeNode.position = .init(-referenceImage.physicalSize.width * 1.5, 0, -referenceImage.physicalSize.height * 1.5)
-            planeNode.position = .init(0, 0, 0)
-            self.createHostingController(for: planeNode)
+            node.addChildNode(self.dumbNode)
+            self.dumbNode.position = dumbNodePosition
+            self.dumbNode.eulerAngles.x = -.pi / 2
+            self.dumbNodeLastEulerAnglesDeque.append(self.dumbNode.eulerAngles)
+            self.dumbNodeLastPositionDeque.append(self.dumbNode.position)
+            self.dumbNodeLastStablePositionSample = self.dumbNode.position
 
-            self.plane = plane
-            self.planeNode = planeNode
-
-            planeNode.eulerAngles.x = -.pi / 2
-
-            node.addChildNode(planeNode)
+            self.planeNode.setWorldTransform(self.dumbNode.worldTransform)
+            self.sceneView.scene.rootNode.addChildNode(self.planeNode)
         }
 
         DispatchQueue.main.async {
@@ -142,44 +182,41 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         guard let imageAnchor = anchor as? ARImageAnchor else { return }
         let referenceImage = imageAnchor.referenceImage
 
-        if let planeNode = planeNode {
-            if node.isHidden == true, planeNode.parent == node {
+        let imageSize = referenceImage.physicalSize.width * imageAnchor.estimatedScaleFactor
+
+        let sizeScale = qrCodeSize / imageSize
+
+        let planeWidth = graphWidth / sizeScale
+        let planeHeight = planeWidth
+
+        let dumbNodePosition = SCNVector3(-((graphWidth + qrCodeSize) / 2 + padding) / sizeScale, 0, -(graphHeight - qrCodeSize) / 2 / sizeScale)
+
+        if imageAnchor.isTracked {
+//            print(node.position.x - dumbNodeLastStablePositionSample.x)
+
+            if dumbNodeLastEulerAnglesDeque.count == 5 {
+                _ = dumbNodeLastEulerAnglesDeque.popFirst()
+            }
+
+            if dumbNodeLastPositionDeque.count == 3 {
+                _ = dumbNodeLastPositionDeque.popFirst()
+            }
+
+            dumbNodeLastEulerAnglesDeque.append(node.eulerAngles)
+            dumbNodeLastPositionDeque.append(node.position)
+
+            if isPositionAndEulerAnglesValid {
+//                print("👆满足!")
                 updateQueue.async {
-                    print("WORLD")
-                    // But we should manually 'tracking' the new position and orientation.
-                    let worldP = planeNode.worldPosition
-                    let worldO = planeNode.worldOrientation
+                    self.plane.width = planeWidth
+                    self.plane.height = planeHeight
+                    self.dumbNode.position = dumbNodePosition
 
-                    planeNode.removeFromParentNode()
-                    self.sceneView.scene.rootNode.addChildNode(planeNode)
-                    planeNode.worldPosition = worldP
-                    planeNode.worldOrientation = worldO
-                }
-            } else if node.isHidden == false, planeNode.parent != node {
-                updateQueue.async {
-                    print("NODE")
-
-                    planeNode.removeFromParentNode()
-                    node.addChildNode(planeNode)
-
-                    //					planeNode.position = .init(-referenceImage.physicalSize.width * 1.5, 0, -referenceImage.physicalSize.height * 1.5)
-                    planeNode.position = .init(0, 0, 0)
-                    planeNode.eulerAngles.x = -.pi / 2
-                    planeNode.eulerAngles.y = 0
-                    planeNode.eulerAngles.z = 0
+                    self.planeNode.setWorldTransform(self.dumbNode.worldTransform)
                 }
             }
         }
+
     }
 
-    var imageHighlightAction: SCNAction {
-        .sequence([
-            .wait(duration: 0.25),
-            .fadeOpacity(to: 0.85, duration: 0.25),
-            .fadeOpacity(to: 0.15, duration: 0.25),
-            .fadeOpacity(to: 0.85, duration: 0.25),
-            .fadeOut(duration: 0.5),
-            .removeFromParentNode()
-        ])
-    }
 }

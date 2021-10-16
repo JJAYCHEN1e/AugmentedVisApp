@@ -15,7 +15,7 @@ struct AppMainView: View {
             LineChartContainerView(dataSources: SampleDataHelper.catSevNumOrderedSeries)
 
             Button {
-                LineChartContainerView(dataSources: SampleDataHelper.catSevNumOrderedSeries, animationDisabled: true).snapshot()
+                LineChartContainerView(dataSources: SampleDataHelper.catSevNumOrderedSeries, animationDisabled: true).snapshotMock()
             } label: {
                 Text("Save")
             }

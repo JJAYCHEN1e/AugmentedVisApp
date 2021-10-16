@@ -37,6 +37,7 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                 }
 
                 ZStack {
+                    #if os(macOS)
                     // Horizontal Grid Lines
                     Canvas { ctx, _ in
                         let path = Path {
@@ -228,6 +229,7 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                         }
                         ctx.stroke(path, with: .color(Color(Asset.dynamicBlack.color)), lineWidth: viewModel.axisLineWidth)
                     }
+                    #endif
 
                     // Line
                     ForEach(viewModel.dataSources, id: \.self) { dataSource in
@@ -290,6 +292,7 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                         }
                     }
 
+                    #if os(macOS)
                     // Original Point
                     Canvas { ctx, _ in
                         let scaleFunctionY = viewModel.yAxis.scaleFunction
@@ -299,6 +302,7 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                         ctx.fill(point, with: .color(Color(Asset.dynamicBlack.color)))
                     }
                     .allowsHitTesting(false)
+                    #endif
 
                     // Pointer
                     Group {

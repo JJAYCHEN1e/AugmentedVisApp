@@ -25,6 +25,7 @@ internal enum Asset {
   internal static let arResources = ARResourceGroupAsset(name: "AR Resources")
   internal static let accentColor = ColorAsset(name: "AccentColor")
   internal static let dynamicBlack = ColorAsset(name: "DynamicBlack")
+  internal static let flower2 = ImageAsset(name: "flower2")
   internal static let restart = ImageAsset(name: "restart")
   internal static let restartPressed = ImageAsset(name: "restartPressed")
 }
