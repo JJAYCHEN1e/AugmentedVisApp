@@ -153,8 +153,6 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         let dumbNodePosition = SCNVector3(-((graphWidth + qrCodeSize) / 2 + padding) / sizeScale, 0, -(graphHeight - qrCodeSize) / 2 / sizeScale)
 
         updateQueue.async {
-            print("FIRST NODE")
-
             self.plane.width = planeWidth
             self.plane.height = planeHeight
             self.planeNode.geometry = self.plane
