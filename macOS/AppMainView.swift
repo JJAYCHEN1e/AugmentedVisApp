@@ -9,13 +9,13 @@ import SwiftCSV
 import SwiftUI
 
 struct AppMainView: View {
-
+    let viewModel = LineChartContainerViewModel(dataSources: SampleDataHelper.catSevNumOrderedSeries)
     var body: some View {
         VStack {
-            LineChartContainerView(dataSources: SampleDataHelper.catSevNumOrderedSeries)
+            LineChartContainerView(viewModel: viewModel)
 
             Button {
-                LineChartContainerView(dataSources: SampleDataHelper.catSevNumOrderedSeries, animationDisabled: true).snapshotMock()
+                LineChartContainerView(viewModel: viewModel, animationDisabled: true).snapshotMock()
             } label: {
                 Text("Save")
             }

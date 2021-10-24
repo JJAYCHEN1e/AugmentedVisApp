@@ -12,7 +12,7 @@ import Foundation
 extension NSView {
     func makePNGFromView() {
         guard let rep = self.bitmapImageRepForCachingDisplay(in: self.bounds) else {
-            print("NIL")
+            fatalError("Save failed")
             return
         }
         rep.size = self.bounds.size
@@ -23,6 +23,7 @@ extension NSView {
                 try data.write(to: path, options: .atomic)
             } catch {
                 print(error)
+                fatalError(error.localizedDescription)
             }
         }
     }
@@ -39,22 +40,22 @@ extension View {
 
     func snapshotMock() {
         DispatchQueue.main.async {
-            let padding: CGFloat = 16.0
-            let qrCodeSize: CGFloat = 240.0
-            let graphWidth: CGFloat = 1920.0
-            let graphHeight: CGFloat = 1080.0
+            let qrCodeSize = ImageGenerateHelper.qrCodeSize
+            let graphWidth = ImageGenerateHelper.graphWidth
+            let graphHeight = ImageGenerateHelper.graphHeight
+            let padding = ImageGenerateHelper.padding
 
             let rootVC = NSViewController()
             rootVC.view = NSView()
-            rootVC.view.frame = .init(x: 0, y: 0, width: (graphWidth + padding + qrCodeSize) / 2, height: graphHeight / 2)
+            rootVC.view.frame = .init(x: 0, y: 0, width: graphWidth + padding + qrCodeSize, height: graphHeight)
 
             let vc = NSHostingController(rootView: self)
-            vc.view.frame = .init(x: 0, y: 0, width: graphWidth / 2, height: graphHeight / 2)
+            vc.view.frame = .init(x: 0, y: 0, width: graphWidth, height: graphHeight)
             rootVC.view.addSubview(vc.view)
 
             let qrCodeView = NSImageView(image: NSImage(named: "flower2")!)
             rootVC.view.addSubview(qrCodeView)
-            qrCodeView.frame = .init(x: (graphWidth + padding) / 2, y: 0, width: qrCodeSize / 2, height: qrCodeSize / 2)
+            qrCodeView.frame = .init(x: graphWidth + padding, y: 0, width: qrCodeSize, height: qrCodeSize)
 
             rootVC.view.makePNGFromView()
         }

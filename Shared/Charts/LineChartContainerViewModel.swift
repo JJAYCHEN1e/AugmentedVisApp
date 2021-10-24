@@ -10,9 +10,23 @@ import OrderedCollections
 import SwiftUI
 import Combine
 
-struct ChartData<X: Hashable & Comparable>: Hashable {
+protocol Hiddeable {
+    var isHidden: Bool { get set }
+}
+
+protocol HasName {
+    var name: String { get }
+}
+
+struct ChartData<X: Hashable & Comparable>: Identifiable, Hashable, Hiddeable, HasName {
     let data: [X: CGFloat]
     let keys: [X]
+
+    let id = UUID()
+    var name: String {
+        id.uuidString
+    }
+    var isHidden = false
 }
 
 class LineChartContainerViewModel<X: Hashable & Comparable>: ObservableObject {
@@ -23,6 +37,8 @@ class LineChartContainerViewModel<X: Hashable & Comparable>: ObservableObject {
     @Published var isValid = true
 
     @Published var dataSources: [ChartData<X>]
+
+    @Published var realTimeTrackingEnabled: Bool = true
 
     private var _extentY: Extent<CGFloat>?
 
@@ -124,13 +140,8 @@ class LineChartContainerViewModel<X: Hashable & Comparable>: ObservableObject {
              gridCount: 10)
     }
 
-    #if os(macOS)
-        /// Whole chart's edge inset.
+    /// Whole chart's edge inset.
         let edgeInset = EdgeInsets(top: 24, leading: 16, bottom: 24, trailing: 16)
-    #elseif os(iOS)
-        /// Whole chart's edge inset.
-        let edgeInset = EdgeInsets(top: 12, leading: 8, bottom: 12, trailing: 8)
-    #endif
 
     /// 坐标轴距离左边界的 margin
     @Published var axisLeftMarginRefinedValue: CGFloat = 0.0
@@ -170,7 +181,7 @@ class LineChartContainerViewModel<X: Hashable & Comparable>: ObservableObject {
         self.dataSources = dataSources
         self.fixedSize = fixedSize
 
-        let dataSourcesChangeSubscription = dataSources.publisher.sink { _ in
+        let dataSourcesChangeSubscription = self.dataSources.publisher.sink { _ in
             self._dataScaleX = nil
             self._extentY = nil
             self._maxXLabelLength = nil

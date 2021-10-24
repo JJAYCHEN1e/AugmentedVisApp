@@ -4,19 +4,15 @@ import SwiftCSV
 import SwiftUI
 import UIKit
 import DequeModule
+import Combine
 
 class ARVisViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
 
     @IBOutlet var blurView: UIVisualEffectView!
 
-    let augmentedViewWidth: CGFloat = 1920.0 / 2
-    let augmentedViewHeight: CGFloat = 1080.0 / 2
-
-    let padding: CGFloat = 16.0
-    let qrCodeSize: CGFloat = 240.0
-    let graphWidth: CGFloat = 1920.0
-    let graphHeight: CGFloat = 1080.0
+    let augmentedViewWidth: CGFloat = ImageGenerateHelper.graphWidth
+    let augmentedViewHeight: CGFloat = ImageGenerateHelper.graphHeight
 
     var maxAugmentedViewWH: CGFloat {
         max(augmentedViewWidth, augmentedViewHeight)
@@ -36,6 +32,10 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session
     }
 
+    @ObservedObject var viewModel = LineChartContainerViewModel(dataSources: SampleDataHelper.catSevNumOrderedSeries)
+
+    private var subscribers: Set<AnyCancellable> = []
+
     // MARK: - View Controller Life Cycle
 
     override func viewDidLoad() {
@@ -48,6 +48,17 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         statusViewController.restartExperienceHandler = { [unowned self] in
             self.restartExperience()
         }
+
+        subscribers.insert(viewModel.$realTimeTrackingEnabled.sink(receiveValue: {
+            if !$0 {
+                if self.planeNode.parent != self.dumbNode {
+                    self.updateQueue.async {
+                        self.planeNode.removeFromParentNode()
+                        self.dumbNode.addChildNode(self.planeNode)
+                    }
+                }
+            }
+        }))
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -94,7 +105,7 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
             viewController.view.isOpaque = false
             viewController.view.backgroundColor = .clear
 
-            let lineChartHostingVC = UIHostingController(rootView: LineChartContainerView(dataSources: SampleDataHelper.catSevNumOrderedSeries))
+            let lineChartHostingVC = UIHostingController(rootView: LineChartContainerView(viewModel: self.viewModel))
             lineChartHostingVC.view.backgroundColor = .clear
             lineChartHostingVC.view.frame = CGRect(x: 0, y: (self.maxAugmentedViewWH - self.augmentedViewHeight) / 2, width: self.augmentedViewWidth, height: self.augmentedViewHeight)
 
@@ -163,11 +174,48 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         return false
     }
 
+    private var supplementaryViewsAdded = false
+    private func setupSupplementaryViews(initPosition: SCNVector3) {
+        guard supplementaryViewsAdded == false else { return }
+
+        supplementaryViewsAdded = true
+        let settingViewController = UIHostingController(rootView: ARVisSettingView(items: $viewModel.dataSources, realTimeTrackingEnabled: $viewModel.realTimeTrackingEnabled))
+        settingViewController.view.backgroundColor = .clear
+        view.addSubview(settingViewController.view)
+
+        let width: CGFloat = 325
+        let height: CGFloat = 280
+        let padding: CGFloat = 16
+        let originX = view.frame.size.width - width - padding
+        let originY = view.frame.size.height - height - padding
+        let rect = CGRect(x: originX, y: originY, width: width, height: height)
+        let transform: CGAffineTransform =
+            .identity
+            .translatedBy(x: CGFloat(initPosition.x) - originX - width / 2, y: CGFloat(initPosition.y) - originY - height / 2)
+            .scaledBy(x: 0.5, y: 0.5)
+
+        settingViewController.view.alpha = 0
+        settingViewController.view.frame = rect
+        settingViewController.view.transform = transform
+        DispatchQueue.main.async {
+            UIViewPropertyAnimator(duration: 0.7, curve: .easeInOut) {
+                settingViewController.view.alpha = 1
+                settingViewController.view.transform = .identity
+                settingViewController.view.layoutIfNeeded()
+            }.startAnimation()
+        }
+    }
+
     // MARK: - ARSCNViewDelegate (Image detection results)
 
     private func updatePosAndRot(for node: SCNNode, imageAnchor: ARImageAnchor) {
         let referenceImage = imageAnchor.referenceImage
         let imageSize = referenceImage.physicalSize.width * imageAnchor.estimatedScaleFactor
+
+        let qrCodeSize = ImageGenerateHelper.qrCodeSize
+        let graphWidth = ImageGenerateHelper.graphWidth
+        let graphHeight = ImageGenerateHelper.graphHeight
+        let padding = ImageGenerateHelper.padding
 
         let sizeScale = qrCodeSize / imageSize
 
@@ -191,6 +239,11 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
 
         let referenceImage = imageAnchor.referenceImage
 
+        self.dumbNodeLastPositionDeque.append(node.position)
+        self.dumbNodeLastEulerAnglesDeque.append(node.eulerAngles)
+        self.dumbNodeLastStablePositionSample = node.position
+        self.dumbNodeLastStableEulerAnglesSample = node.eulerAngles
+
         updateQueue.async {
             self.planeNode.geometry = self.plane
             self.createHostingController(for: self.planeNode)
@@ -199,21 +252,21 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
             node.parent?.addChildNode(self.dumbNode)
 
             self.updatePosAndRot(for: self.planeNode, imageAnchor: imageAnchor)
-            self.dumbNodeLastPositionDeque.append(node.position)
-            self.dumbNodeLastEulerAnglesDeque.append(node.eulerAngles)
-            self.dumbNodeLastStablePositionSample = node.position
-            self.dumbNodeLastStableEulerAnglesSample = node.eulerAngles
         }
 
         DispatchQueue.main.async {
             let imageName = referenceImage.name ?? ""
             self.statusViewController.cancelAllScheduledMessages()
             self.statusViewController.showMessage("Detected image “\(imageName)”")
+
+            let projectedPosition = self.sceneView.projectPoint(node.position)
+            self.setupSupplementaryViews(initPosition: projectedPosition)
         }
     }
 
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let imageAnchor = anchor as? ARImageAnchor else { return }
+        guard viewModel.realTimeTrackingEnabled else { return }
 
         if imageAnchor.isTracked {
             if dumbNodeLastEulerAnglesDeque.count == 5 {
@@ -244,6 +297,5 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
                 }
             }
         }
-
     }
 }

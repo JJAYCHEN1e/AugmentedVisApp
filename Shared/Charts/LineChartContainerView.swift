@@ -11,14 +11,13 @@ import SwiftUI
 struct LineChartContainerView<X: Hashable & Comparable>: View {
     let animationDisabled: Bool
 
-    @ObservedObject private var viewModel = LineChartContainerViewModel<X>()
+    @ObservedObject private var viewModel: LineChartContainerViewModel<X>
 
     @State private var pointerPosition: CGPoint?
 
-    init(dataSources: [ChartData<X>] = [], fixedSize: CGSize? = nil, animationDisabled: Bool = false) {
+    init(viewModel: LineChartContainerViewModel<X>, animationDisabled: Bool = false) {
+        self.viewModel = viewModel
         self.animationDisabled = animationDisabled
-        viewModel.dataSources = dataSources
-        viewModel.fixedSize = fixedSize
     }
 
     private func setUp(width _: CGFloat, height _: CGFloat) {}
@@ -232,7 +231,7 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                     #endif
 
                     // Line
-                    ForEach(viewModel.dataSources, id: \.self) { dataSource in
+                    ForEach(viewModel.dataSources.filter { !$0.isHidden }, id: \.self) { dataSource in
                         Path { path in
                             let calXY = { (key: X) -> (CGFloat, CGFloat) in
                                 let _x = viewModel.dataScaleX.scale()(key)!
@@ -370,6 +369,7 @@ struct LineChartContainerView<X: Hashable & Comparable>: View {
                         }
                 )
             }
+//            .border(Color.black, width: 1.0)
             .if(animationDisabled) { view in
                 view.animation(nil)
             }
