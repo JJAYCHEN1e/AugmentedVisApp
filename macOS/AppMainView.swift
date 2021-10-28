@@ -12,10 +12,10 @@ struct AppMainView: View {
     let viewModel = LineChartContainerViewModel(dataSources: SampleDataHelper.catSevNumOrderedSeries)
     var body: some View {
         VStack {
-            LineChartContainerView(viewModel: viewModel)
+            LineChart(viewModel: viewModel)
 
             Button {
-                LineChartContainerView(viewModel: viewModel, animationDisabled: true).snapshotMock()
+                LineChart(viewModel: viewModel, animationDisabled: true).snapshotMock()
             } label: {
                 Text("Save")
             }

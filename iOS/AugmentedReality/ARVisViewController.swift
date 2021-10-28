@@ -105,7 +105,7 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
             viewController.view.isOpaque = false
             viewController.view.backgroundColor = .clear
 
-            let lineChartHostingVC = UIHostingController(rootView: LineChartContainerView(viewModel: self.viewModel))
+            let lineChartHostingVC = UIHostingController(rootView: LineChart(viewModel: self.viewModel))
             lineChartHostingVC.view.backgroundColor = .clear
             lineChartHostingVC.view.frame = CGRect(x: 0, y: (self.maxAugmentedViewWH - self.augmentedViewHeight) / 2, width: self.augmentedViewWidth, height: self.augmentedViewHeight)
 
@@ -179,7 +179,11 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         guard supplementaryViewsAdded == false else { return }
 
         supplementaryViewsAdded = true
-        let settingViewController = UIHostingController(rootView: ARVisSettingView(items: $viewModel.dataSources, realTimeTrackingEnabled: $viewModel.realTimeTrackingEnabled))
+        
+        let generatedViewInfoComponent = SampleViewInfoComponentHelper.sampleViewInfoComponent
+        let settingViewController = UIHostingController(rootView: generatedViewInfoComponent.view)
+        
+//        let settingViewController = UIHostingController(rootView: ARVisSettingView(items: $viewModel.dataSources, realTimeTrackingEnabled: $viewModel.realTimeTrackingEnabled))
         settingViewController.view.backgroundColor = .clear
         view.addSubview(settingViewController.view)
 
