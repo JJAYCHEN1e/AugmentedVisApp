@@ -11,6 +11,10 @@
 		470D0E2D084011398422BF37 /* Pods_AugmentedVisApp__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C692FC43CC10537CCE51A24 /* Pods_AugmentedVisApp__iOS_.framework */; };
 		6305D511271817FC00583480 /* Storyboard Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588C72716A22100867F16 /* Storyboard Scenes.swift */; };
 		6305D5122718180600583480 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A941E02716C14F00636EFB /* AppDelegate.swift */; };
+		630766DD272AAEA8008289DA /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630766DC272AAEA8008289DA /* Enums.swift */; };
+		630766DE272AAEA8008289DA /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630766DC272AAEA8008289DA /* Enums.swift */; };
+		630766DF272AAEA8008289DA /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630766DC272AAEA8008289DA /* Enums.swift */; };
+		630766E0272AB5B4008289DA /* ARVisInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A16E2723F92500661A68 /* ARVisInfoView.swift */; };
 		630C94D927170B030041897A /* SampleDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C94D827170B030041897A /* SampleDataHelper.swift */; };
 		630C94DA27170B5C0041897A /* SampleDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C94D827170B030041897A /* SampleDataHelper.swift */; };
 		630C94DB27170B5E0041897A /* SampleDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C94D827170B030041897A /* SampleDataHelper.swift */; };
@@ -19,8 +23,11 @@
 		63127A69271573340096D61C /* CatSevNumOrdered.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63127A67271573340096D61C /* CatSevNumOrdered.csv */; };
 		63127A702715A16F0096D61C /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A6E27159EC50096D61C /* Assets.swift */; };
 		63127A742715A6CA0096D61C /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A732715A6CA0096D61C /* Color+Extension.swift */; };
-		63281ADB2714253F004F79FF /* LineChartContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281ADA2714253F004F79FF /* LineChartContainerView.swift */; };
-		63281ADC2714253F004F79FF /* LineChartContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281ADA2714253F004F79FF /* LineChartContainerView.swift */; };
+		631E6911272C137900C713D0 /* SampleViewInfoComponentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E6910272C137900C713D0 /* SampleViewInfoComponentHelper.swift */; };
+		631E6912272C137900C713D0 /* SampleViewInfoComponentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E6910272C137900C713D0 /* SampleViewInfoComponentHelper.swift */; };
+		631E6913272C137900C713D0 /* SampleViewInfoComponentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E6910272C137900C713D0 /* SampleViewInfoComponentHelper.swift */; };
+		63281ADB2714253F004F79FF /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281ADA2714253F004F79FF /* LineChart.swift */; };
+		63281ADC2714253F004F79FF /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281ADA2714253F004F79FF /* LineChart.swift */; };
 		63281ADF271449DB004F79FF /* LinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281ADE271449DB004F79FF /* LinearScale.swift */; };
 		63281AE0271449DB004F79FF /* LinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281ADE271449DB004F79FF /* LinearScale.swift */; };
 		63281AE227144C67004F79FF /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AE127144C67004F79FF /* Scale.swift */; };
@@ -33,8 +40,21 @@
 		63281AF0271473B4004F79FF /* EdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AEE271473B4004F79FF /* EdgeInsets+Extension.swift */; };
 		63281AF227147D4C004F79FF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AF127147D4C004F79FF /* String+Extension.swift */; };
 		63281AF327147D4C004F79FF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AF127147D4C004F79FF /* String+Extension.swift */; };
+		632F4FE0272FD38A00166D18 /* ARVisViewController+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588BF27169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift */; };
+		632F4FE1272FD38A00166D18 /* ARVisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588BC27169AD700867F16 /* ARVisViewController.swift */; };
+		632F4FE2272FD55E00166D18 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A732715A6CA0096D61C /* Color+Extension.swift */; };
+		632F5060272FDAC000166D18 /* HexColorInputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632F505D272FDABF00166D18 /* HexColorInputError.swift */; };
+		632F5061272FDAC000166D18 /* HexColorInputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632F505D272FDABF00166D18 /* HexColorInputError.swift */; };
+		632F5062272FDAC000166D18 /* HexColorInputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632F505D272FDABF00166D18 /* HexColorInputError.swift */; };
+		632F5063272FDAC000166D18 /* UINSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632F505E272FDABF00166D18 /* UINSColorExtension.swift */; };
+		632F5064272FDAC000166D18 /* UINSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632F505E272FDABF00166D18 /* UINSColorExtension.swift */; };
+		632F5065272FDAC000166D18 /* UINSColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632F505E272FDABF00166D18 /* UINSColorExtension.swift */; };
+		632F5066272FDAC000166D18 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632F505F272FDABF00166D18 /* StringExtension.swift */; };
+		632F5067272FDAC000166D18 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632F505F272FDABF00166D18 /* StringExtension.swift */; };
+		632F5068272FDAC000166D18 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632F505F272FDABF00166D18 /* StringExtension.swift */; };
+		632F5069272FDBA700166D18 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A732715A6CA0096D61C /* Color+Extension.swift */; };
 		633774C32718545200070358 /* LinearScaleXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633774C22718545200070358 /* LinearScaleXCTest.swift */; };
-		633774C4271855AA00070358 /* LineChartContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281ADA2714253F004F79FF /* LineChartContainerView.swift */; };
+		633774C4271855AA00070358 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281ADA2714253F004F79FF /* LineChart.swift */; };
 		633774C5271855D500070358 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AE827145BEF004F79FF /* View+Extension.swift */; };
 		633774C7271855D500070358 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AF127147D4C004F79FF /* String+Extension.swift */; };
 		633774C9271855D500070358 /* EdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AEE271473B4004F79FF /* EdgeInsets+Extension.swift */; };
@@ -44,11 +64,18 @@
 		634588C327169BD700867F16 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588C227169BD700867F16 /* StatusViewController.swift */; };
 		634588CC2716A22500867F16 /* Storyboard Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588C62716A22100867F16 /* Storyboard Segues.swift */; };
 		634588CE2716A22500867F16 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A6E27159EC50096D61C /* Assets.swift */; };
+		6345D906272D9B4F00C44D45 /* RadarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345D905272D9B4F00C44D45 /* RadarChart.swift */; };
+		6345D907272D9B4F00C44D45 /* RadarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345D905272D9B4F00C44D45 /* RadarChart.swift */; };
+		6345D908272D9B4F00C44D45 /* RadarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345D905272D9B4F00C44D45 /* RadarChart.swift */; };
+		6345D90B272DA48600C44D45 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345D90A272DA48600C44D45 /* BarChart.swift */; };
+		6345D90C272DA48600C44D45 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345D90A272DA48600C44D45 /* BarChart.swift */; };
+		6345D90D272DA48600C44D45 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345D90A272DA48600C44D45 /* BarChart.swift */; };
+		6345D910272EEB6800C44D45 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345D90F272EEB6800C44D45 /* PieChart.swift */; };
+		6345D911272EEB6800C44D45 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345D90F272EEB6800C44D45 /* PieChart.swift */; };
+		6345D912272EEB6800C44D45 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345D90F272EEB6800C44D45 /* PieChart.swift */; };
 		6351A16D2723CE7300661A68 /* ARVisViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634588BB27169AD700867F16 /* ARVisViewController.storyboard */; };
-		6351A16F2723F92500661A68 /* ARVisInfoVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A16E2723F92500661A68 /* ARVisInfoVIew.swift */; };
-		6351A1722723F93E00661A68 /* ViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A1712723F93E00661A68 /* ViewInfo.swift */; };
-		6351A1762724416E00661A68 /* ARVisViewController+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588BF27169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift */; };
-		6351A1772724416E00661A68 /* ARVisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588BC27169AD700867F16 /* ARVisViewController.swift */; };
+		6351A16F2723F92500661A68 /* ARVisInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A16E2723F92500661A68 /* ARVisInfoView.swift */; };
+		6351A1722723F93E00661A68 /* ViewInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A1712723F93E00661A68 /* ViewInfoComponent.swift */; };
 		6351A1792725124D00661A68 /* ImageGenerateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A1782725124D00661A68 /* ImageGenerateHelper.swift */; };
 		6351A17A2725124D00661A68 /* ImageGenerateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A1782725124D00661A68 /* ImageGenerateHelper.swift */; };
 		636AF72A2715AF920027C825 /* BandScaleXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636AF7292715AF920027C825 /* BandScaleXCTest.swift */; };
@@ -80,6 +107,9 @@
 		6396A1FE27185E5C004F7ABD /* LineChartContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6396A1FD27185E5C004F7ABD /* LineChartContainerViewModel.swift */; };
 		6396A1FF27185E5C004F7ABD /* LineChartContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6396A1FD27185E5C004F7ABD /* LineChartContainerViewModel.swift */; };
 		6396A20027185E5C004F7ABD /* LineChartContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6396A1FD27185E5C004F7ABD /* LineChartContainerViewModel.swift */; };
+		63C3255827256D17006C8BBB /* ViewInfoJSONTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3255727256D17006C8BBB /* ViewInfoJSONTest.swift */; };
+		63C3255927256D99006C8BBB /* ViewInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A1712723F93E00661A68 /* ViewInfoComponent.swift */; };
+		63C3255A27256D9F006C8BBB /* ViewInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A1712723F93E00661A68 /* ViewInfoComponent.swift */; };
 		63EE70DF27045087007C3BED /* AugmentedVisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE70CE27045085007C3BED /* AugmentedVisApp.swift */; };
 		63EE70E127045087007C3BED /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE70CF27045085007C3BED /* AppMainView.swift */; };
 		63EE70E227045087007C3BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63EE70D027045087007C3BED /* Assets.xcassets */; };
@@ -100,6 +130,7 @@
 /* Begin PBXFileReference section */
 		2B86FF955E68199E0D44431C /* Pods-AugmentedVisApp (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisApp (macOS).release.xcconfig"; path = "Target Support Files/Pods-AugmentedVisApp (macOS)/Pods-AugmentedVisApp (macOS).release.xcconfig"; sourceTree = "<group>"; };
 		4DDBDD7B30A1217DAA49CEDB /* Pods-AugmentedVisAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisAppTests.debug.xcconfig"; path = "Target Support Files/Pods-AugmentedVisAppTests/Pods-AugmentedVisAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		630766DC272AAEA8008289DA /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		630C94D827170B030041897A /* SampleDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataHelper.swift; sourceTree = "<group>"; };
 		630ED28A2723B619006B7360 /* ARVisSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVisSettingView.swift; sourceTree = "<group>"; };
 		63127A67271573340096D61C /* CatSevNumOrdered.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CatSevNumOrdered.csv; sourceTree = "<group>"; };
@@ -107,13 +138,17 @@
 		63127A6E27159EC50096D61C /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		63127A712715A5E00096D61C /* BandScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandScale.swift; sourceTree = "<group>"; };
 		63127A732715A6CA0096D61C /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		63281ADA2714253F004F79FF /* LineChartContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartContainerView.swift; sourceTree = "<group>"; };
+		631E6910272C137900C713D0 /* SampleViewInfoComponentHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewInfoComponentHelper.swift; sourceTree = "<group>"; };
+		63281ADA2714253F004F79FF /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		63281ADE271449DB004F79FF /* LinearScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearScale.swift; sourceTree = "<group>"; };
 		63281AE127144C67004F79FF /* Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scale.swift; sourceTree = "<group>"; };
 		63281AE527145494004F79FF /* Axis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Axis.swift; sourceTree = "<group>"; };
 		63281AE827145BEF004F79FF /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		63281AEE271473B4004F79FF /* EdgeInsets+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EdgeInsets+Extension.swift"; sourceTree = "<group>"; };
 		63281AF127147D4C004F79FF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		632F505D272FDABF00166D18 /* HexColorInputError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColorInputError.swift; sourceTree = "<group>"; };
+		632F505E272FDABF00166D18 /* UINSColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINSColorExtension.swift; sourceTree = "<group>"; };
+		632F505F272FDABF00166D18 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		633774C22718545200070358 /* LinearScaleXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearScaleXCTest.swift; sourceTree = "<group>"; };
 		634588B927169A3600867F16 /* SCNVector3+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Extension.swift"; sourceTree = "<group>"; };
 		634588BB27169AD700867F16 /* ARVisViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ARVisViewController.storyboard; sourceTree = "<group>"; };
@@ -122,8 +157,11 @@
 		634588C227169BD700867F16 /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		634588C62716A22100867F16 /* Storyboard Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard Segues.swift"; sourceTree = "<group>"; };
 		634588C72716A22100867F16 /* Storyboard Scenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard Scenes.swift"; sourceTree = "<group>"; };
-		6351A16E2723F92500661A68 /* ARVisInfoVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVisInfoVIew.swift; sourceTree = "<group>"; };
-		6351A1712723F93E00661A68 /* ViewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInfo.swift; sourceTree = "<group>"; };
+		6345D905272D9B4F00C44D45 /* RadarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarChart.swift; sourceTree = "<group>"; };
+		6345D90A272DA48600C44D45 /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
+		6345D90F272EEB6800C44D45 /* PieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChart.swift; sourceTree = "<group>"; };
+		6351A16E2723F92500661A68 /* ARVisInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVisInfoView.swift; sourceTree = "<group>"; };
+		6351A1712723F93E00661A68 /* ViewInfoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInfoComponent.swift; sourceTree = "<group>"; };
 		6351A1782725124D00661A68 /* ImageGenerateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateHelper.swift; sourceTree = "<group>"; };
 		636AF7222715AEE30027C825 /* AugmentedVisAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AugmentedVisAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		636AF7292715AF920027C825 /* BandScaleXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandScaleXCTest.swift; sourceTree = "<group>"; };
@@ -136,6 +174,7 @@
 		6396A1FD27185E5C004F7ABD /* LineChartContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartContainerViewModel.swift; sourceTree = "<group>"; };
 		639B5CBB0BC0B5EF1EF6B930 /* Pods-AugmentedVisApp (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisApp (iOS).debug.xcconfig"; path = "Target Support Files/Pods-AugmentedVisApp (iOS)/Pods-AugmentedVisApp (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		63A941E02716C14F00636EFB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		63C3255727256D17006C8BBB /* ViewInfoJSONTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInfoJSONTest.swift; sourceTree = "<group>"; };
 		63C5BE68271C65FE006D791B /* Demo_Vis_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Demo_Vis_1920x1080.png; sourceTree = "<group>"; };
 		63EAB7D32723CAE90015E839 /* ARVisViewControllerMockForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVisViewControllerMockForPreview.swift; sourceTree = "<group>"; };
 		63EE70CE27045085007C3BED /* AugmentedVisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AugmentedVisApp.swift; sourceTree = "<group>"; };
@@ -198,6 +237,7 @@
 				6371F9652717C71C00BA9025 /* CatSevNumOrderedMock2.csv */,
 				6379DB20271994820007FF21 /* CatSevNumOrderedMock3.csv */,
 				630C94D827170B030041897A /* SampleDataHelper.swift */,
+				631E6910272C137900C713D0 /* SampleViewInfoComponentHelper.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -207,7 +247,7 @@
 			children = (
 				6351A1702723F92A00661A68 /* Model */,
 				630ED28A2723B619006B7360 /* ARVisSettingView.swift */,
-				6351A16E2723F92500661A68 /* ARVisInfoVIew.swift */,
+				6351A16E2723F92500661A68 /* ARVisInfoView.swift */,
 			);
 			path = SupplementaryViews;
 			sourceTree = "<group>";
@@ -261,6 +301,7 @@
 		63281ADD271449C9004F79FF /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				632F4FE3272FDA3300166D18 /* HexColor */,
 				630C94D727170AF60041897A /* Data */,
 				63127A762715A7800096D61C /* Scales */,
 				63127A752715A76D0096D61C /* Extensions */,
@@ -272,11 +313,22 @@
 		63281AE427145488004F79FF /* Charts */ = {
 			isa = PBXGroup;
 			children = (
-				6396A1FD27185E5C004F7ABD /* LineChartContainerViewModel.swift */,
-				63281ADA2714253F004F79FF /* LineChartContainerView.swift */,
-				63281AE527145494004F79FF /* Axis.swift */,
+				6345D918272FC01900C44D45 /* LineChart */,
+				6345D90E272EEB5A00C44D45 /* PieChart */,
+				6345D909272DA47A00C44D45 /* BarChart */,
+				6345D904272D9B3900C44D45 /* RadarChart */,
 			);
 			path = Charts;
+			sourceTree = "<group>";
+		};
+		632F4FE3272FDA3300166D18 /* HexColor */ = {
+			isa = PBXGroup;
+			children = (
+				632F505F272FDABF00166D18 /* StringExtension.swift */,
+				632F505E272FDABF00166D18 /* UINSColorExtension.swift */,
+				632F505D272FDABF00166D18 /* HexColorInputError.swift */,
+			);
+			path = HexColor;
 			sourceTree = "<group>";
 		};
 		6343DDF8BEFF3E0AAD2BA285 /* Frameworks */ = {
@@ -297,10 +349,45 @@
 			path = "Additional View Controllers";
 			sourceTree = "<group>";
 		};
+		6345D904272D9B3900C44D45 /* RadarChart */ = {
+			isa = PBXGroup;
+			children = (
+				6345D905272D9B4F00C44D45 /* RadarChart.swift */,
+			);
+			path = RadarChart;
+			sourceTree = "<group>";
+		};
+		6345D909272DA47A00C44D45 /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+				6345D90A272DA48600C44D45 /* BarChart.swift */,
+			);
+			path = BarChart;
+			sourceTree = "<group>";
+		};
+		6345D90E272EEB5A00C44D45 /* PieChart */ = {
+			isa = PBXGroup;
+			children = (
+				6345D90F272EEB6800C44D45 /* PieChart.swift */,
+			);
+			path = PieChart;
+			sourceTree = "<group>";
+		};
+		6345D918272FC01900C44D45 /* LineChart */ = {
+			isa = PBXGroup;
+			children = (
+				6396A1FD27185E5C004F7ABD /* LineChartContainerViewModel.swift */,
+				63281ADA2714253F004F79FF /* LineChart.swift */,
+				63281AE527145494004F79FF /* Axis.swift */,
+			);
+			path = LineChart;
+			sourceTree = "<group>";
+		};
 		6351A1702723F92A00661A68 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6351A1712723F93E00661A68 /* ViewInfo.swift */,
+				6351A1712723F93E00661A68 /* ViewInfoComponent.swift */,
+				630766DC272AAEA8008289DA /* Enums.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -308,6 +395,7 @@
 		636AF7232715AEE30027C825 /* AugmentedVisAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				63C3255727256D17006C8BBB /* ViewInfoJSONTest.swift */,
 				633774C22718545200070358 /* LinearScaleXCTest.swift */,
 				636AF73B2715B8240027C825 /* PointScaleXCTest.swift */,
 				636AF7292715AF920027C825 /* BandScaleXCTest.swift */,
@@ -723,10 +811,18 @@
 			files = (
 				633774C32718545200070358 /* LinearScaleXCTest.swift in Sources */,
 				633774CA271855EE00070358 /* Axis.swift in Sources */,
+				631E6912272C137900C713D0 /* SampleViewInfoComponentHelper.swift in Sources */,
+				63C3255827256D17006C8BBB /* ViewInfoJSONTest.swift in Sources */,
 				636AF72A2715AF920027C825 /* BandScaleXCTest.swift in Sources */,
+				6345D911272EEB6800C44D45 /* PieChart.swift in Sources */,
 				633774C5271855D500070358 /* View+Extension.swift in Sources */,
+				632F5067272FDAC000166D18 /* StringExtension.swift in Sources */,
 				6396A1FF27185E5C004F7ABD /* LineChartContainerViewModel.swift in Sources */,
+				6345D907272D9B4F00C44D45 /* RadarChart.swift in Sources */,
+				63C3255927256D99006C8BBB /* ViewInfoComponent.swift in Sources */,
 				630C94DB27170B5E0041897A /* SampleDataHelper.swift in Sources */,
+				632F5061272FDAC000166D18 /* HexColorInputError.swift in Sources */,
+				632F5064272FDAC000166D18 /* UINSColorExtension.swift in Sources */,
 				633774C7271855D500070358 /* String+Extension.swift in Sources */,
 				636AF7412715B8840027C825 /* PointScale.swift in Sources */,
 				636AF72F2715B16D0027C825 /* BandScale.swift in Sources */,
@@ -735,7 +831,10 @@
 				636AF7432715B8890027C825 /* Scale.swift in Sources */,
 				633774C9271855D500070358 /* EdgeInsets+Extension.swift in Sources */,
 				636AF73C2715B8240027C825 /* PointScaleXCTest.swift in Sources */,
-				633774C4271855AA00070358 /* LineChartContainerView.swift in Sources */,
+				630766DE272AAEA8008289DA /* Enums.swift in Sources */,
+				6345D90C272DA48600C44D45 /* BarChart.swift in Sources */,
+				633774C4271855AA00070358 /* LineChart.swift in Sources */,
+				632F5069272FDBA700166D18 /* Color+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,9 +844,11 @@
 			files = (
 				63281AF227147D4C004F79FF /* String+Extension.swift in Sources */,
 				634588CE2716A22500867F16 /* Assets.swift in Sources */,
-				6351A1722723F93E00661A68 /* ViewInfo.swift in Sources */,
+				630766DD272AAEA8008289DA /* Enums.swift in Sources */,
+				632F5060272FDAC000166D18 /* HexColorInputError.swift in Sources */,
+				6351A1722723F93E00661A68 /* ViewInfoComponent.swift in Sources */,
 				6305D5122718180600583480 /* AppDelegate.swift in Sources */,
-				63281ADB2714253F004F79FF /* LineChartContainerView.swift in Sources */,
+				63281ADB2714253F004F79FF /* LineChart.swift in Sources */,
 				63281AE227144C67004F79FF /* Scale.swift in Sources */,
 				636AF7462715B8890027C825 /* BandScale.swift in Sources */,
 				636AF7422715B8840027C825 /* PointScale.swift in Sources */,
@@ -756,17 +857,23 @@
 				6351A1792725124D00661A68 /* ImageGenerateHelper.swift in Sources */,
 				634588C327169BD700867F16 /* StatusViewController.swift in Sources */,
 				634588CC2716A22500867F16 /* Storyboard Segues.swift in Sources */,
-				6351A1772724416E00661A68 /* ARVisViewController.swift in Sources */,
+				632F5063272FDAC000166D18 /* UINSColorExtension.swift in Sources */,
 				630C94D927170B030041897A /* SampleDataHelper.swift in Sources */,
+				632F4FE0272FD38A00166D18 /* ARVisViewController+ARSessionDelegate.swift in Sources */,
+				632F4FE1272FD38A00166D18 /* ARVisViewController.swift in Sources */,
+				632F5066272FDAC000166D18 /* StringExtension.swift in Sources */,
 				63281AE627145494004F79FF /* Axis.swift in Sources */,
 				63127A742715A6CA0096D61C /* Color+Extension.swift in Sources */,
+				6345D910272EEB6800C44D45 /* PieChart.swift in Sources */,
 				63281AE927145BEF004F79FF /* View+Extension.swift in Sources */,
+				6345D90B272DA48600C44D45 /* BarChart.swift in Sources */,
 				6305D511271817FC00583480 /* Storyboard Scenes.swift in Sources */,
-				6351A16F2723F92500661A68 /* ARVisInfoVIew.swift in Sources */,
+				6351A16F2723F92500661A68 /* ARVisInfoView.swift in Sources */,
 				630ED28B2723B619006B7360 /* ARVisSettingView.swift in Sources */,
 				63281ADF271449DB004F79FF /* LinearScale.swift in Sources */,
 				6396A1FE27185E5C004F7ABD /* LineChartContainerViewModel.swift in Sources */,
-				6351A1762724416E00661A68 /* ARVisViewController+ARSessionDelegate.swift in Sources */,
+				631E6911272C137900C713D0 /* SampleViewInfoComponentHelper.swift in Sources */,
+				6345D906272D9B4F00C44D45 /* RadarChart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,19 +883,30 @@
 			files = (
 				63EE70E127045087007C3BED /* AppMainView.swift in Sources */,
 				63281AF327147D4C004F79FF /* String+Extension.swift in Sources */,
+				632F5068272FDAC000166D18 /* StringExtension.swift in Sources */,
 				6351A17A2725124D00661A68 /* ImageGenerateHelper.swift in Sources */,
 				63EE70DF27045087007C3BED /* AugmentedVisApp.swift in Sources */,
 				6379DB252719A2840007FF21 /* NSView+Extension.swift in Sources */,
 				636AF7402715B8840027C825 /* PointScale.swift in Sources */,
-				63281ADC2714253F004F79FF /* LineChartContainerView.swift in Sources */,
+				63C3255A27256D9F006C8BBB /* ViewInfoComponent.swift in Sources */,
+				632F4FE2272FD55E00166D18 /* Color+Extension.swift in Sources */,
+				63281ADC2714253F004F79FF /* LineChart.swift in Sources */,
+				6345D912272EEB6800C44D45 /* PieChart.swift in Sources */,
+				6345D90D272DA48600C44D45 /* BarChart.swift in Sources */,
 				63281AE327144C67004F79FF /* Scale.swift in Sources */,
 				63281AF0271473B4004F79FF /* EdgeInsets+Extension.swift in Sources */,
 				630C94DA27170B5C0041897A /* SampleDataHelper.swift in Sources */,
 				636AF7452715B8890027C825 /* BandScale.swift in Sources */,
 				63281AE727145494004F79FF /* Axis.swift in Sources */,
+				630766E0272AB5B4008289DA /* ARVisInfoView.swift in Sources */,
+				631E6913272C137900C713D0 /* SampleViewInfoComponentHelper.swift in Sources */,
+				632F5062272FDAC000166D18 /* HexColorInputError.swift in Sources */,
+				632F5065272FDAC000166D18 /* UINSColorExtension.swift in Sources */,
 				63281AEA27145BEF004F79FF /* View+Extension.swift in Sources */,
 				63127A702715A16F0096D61C /* Assets.swift in Sources */,
+				6345D908272D9B4F00C44D45 /* RadarChart.swift in Sources */,
 				63281AE0271449DB004F79FF /* LinearScale.swift in Sources */,
+				630766DF272AAEA8008289DA /* Enums.swift in Sources */,
 				6396A20027185E5C004F7ABD /* LineChartContainerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

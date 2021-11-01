@@ -13,7 +13,6 @@ extension NSView {
     func makePNGFromView() {
         guard let rep = self.bitmapImageRepForCachingDisplay(in: self.bounds) else {
             fatalError("Save failed")
-            return
         }
         rep.size = self.bounds.size
         self.cacheDisplay(in: self.bounds, to: rep)
