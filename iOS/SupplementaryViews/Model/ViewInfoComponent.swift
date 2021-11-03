@@ -20,7 +20,7 @@ struct ViewInfoComponent: Equatable, Codable {
         viewInfo.view()
     }
 
-    static func text(content: String, multilineTextAlignment: TextAlignment = .center, fontStyle: FontStyle? = nil) -> ViewInfoComponent {
+    static func text(content: String, multilineTextAlignment: AVTextAlignment = .center, fontStyle: FontStyle? = nil) -> ViewInfoComponent {
         ViewInfoComponent(.text(content: content, multilineTextAlignment: multilineTextAlignment, fontStyle: fontStyle))
     }
     
@@ -61,7 +61,7 @@ fileprivate struct IdentifiableViewInfo: Identifiable {
 
 internal enum ViewInfo: Codable, Equatable {
     // font
-    case text(content: String, multilineTextAlignment: TextAlignment = .center, fontStyle: FontStyle? = nil)
+    case text(content: String, multilineTextAlignment: AVTextAlignment = .center, fontStyle: FontStyle? = nil)
     case image(url: String, contentMode: ContentMode = .fit)
     case video(url: String)
     case link(url: String) // how to integrate into text?
@@ -76,7 +76,7 @@ extension ViewInfo {
     fileprivate func view() -> some View {
         switch self {
         case .text(let content, let multilineTextAlignment, let fontStyle):
-            Text(content)
+            Text(LocalizedStringKey(content), tableName: nil)
                 .font(.init(fontStyle))
                 .foregroundColor(.init(fontStyle?.color))
                 .multilineTextAlignment(multilineTextAlignment)
@@ -90,7 +90,7 @@ extension ViewInfo {
             }
         case .video(let url):
             VideoPlayer(player: URL(string: url) != nil ? AVPlayer(url: URL(string: url)!) : nil)
-                .frame(minWidth: 100, minHeight: 100)
+                .frame(minHeight: 200, maxHeight: 900)
 //                .frame(width: 100.0, height: 100.0)
         case .hStack(let elements, let alignment, let spacing):
             HStack(alignment: .init(alignment), spacing: spacing) {

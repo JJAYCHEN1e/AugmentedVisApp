@@ -36,7 +36,7 @@ extension View {
 }
 
 // MARK: - TextAlignment
-enum TextAlignment: String, Codable {
+enum AVTextAlignment: String, Codable {
     case center
     case leading
     case trailing
@@ -54,13 +54,13 @@ enum TextAlignment: String, Codable {
 }
 
 extension SwiftUI.TextAlignment {
-    init(_ textAlignment: TextAlignment) {
+    init(_ textAlignment: AVTextAlignment) {
         self = textAlignment.toSwiftUITextAlignment()
     }
 }
 
 extension View {
-    func multilineTextAlignment(_ alignment: TextAlignment) -> some View {
+    func multilineTextAlignment(_ alignment: AVTextAlignment) -> some View {
         self.multilineTextAlignment(.init(alignment))
     }
 }
@@ -234,7 +234,7 @@ enum AVColor: Equatable {
     case yellow
     case rgba(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1.0)
     case rgba256(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 255.0)
-    case rgbaString(string: String)
+    case rgbaHex(string: String)
 
     fileprivate func toSwiftUIColor() -> SwiftUI.Color {
         switch self {
@@ -274,9 +274,14 @@ enum AVColor: Equatable {
             return .init(.sRGB, red: min(1, r), green: min(1, g), blue: min(1, b), opacity: min(1, a))
         case .rgba256(let r, let g, let b, let a):
             return .init(.sRGB, red: min(1, r / 255), green: min(1, g / 255), blue: min(1, b / 255), opacity: min(1, a / 255))
-        case .rgbaString(let string):
+        case .rgbaHex(let string):
             return Color(hex: string)
         }
+    }
+
+    init(_ color: Color) {
+        let components = color.components
+        self = .rgba(r: components.red, g: components.green, b: components.blue, a: components.opacity)
     }
 }
 
@@ -395,7 +400,7 @@ extension AVColor: Codable {
             try container.encode("\(self)")
         case .rgba, .rgba256:
             try container.encode(DumbAVColor(self))
-        case .rgbaString(let string):
+        case .rgbaHex(let string):
             try container.encode(string)
         }
     }
@@ -428,7 +433,7 @@ extension AVColor: Codable {
                 // blue, white, gray...
                 self = decodeResult
             } else if try AVColor.checkHexStringValidity(string: decodeResultString) {
-                self = .rgbaString(string: decodeResultString)
+                self = .rgbaHex(string: decodeResultString)
             } else {
                 let context = DecodingError.Context(
                     codingPath: container.codingPath,
@@ -450,5 +455,9 @@ extension SwiftUI.Color {
         } else {
             return nil
         }
+    }
+
+    init(_ color: AVColor) {
+        self = color.toSwiftUIColor()
     }
 }

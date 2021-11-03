@@ -22,8 +22,10 @@ struct ARVisInfoView: View {
     var body: some View {
         ScrollView {
             resultView
-                .padding()
+                .padding(.horizontal)
         }
+        .padding(.vertical)
+        .padding(.horizontal, 6)
         .background(.ultraThinMaterial)
         .cornerRadius(25)
     }

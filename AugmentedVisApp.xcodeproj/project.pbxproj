@@ -10,7 +10,6 @@
 		36AE5B864306DB5C48304379 /* libPods-AugmentedVisAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4662A7CF73B64D504930CDC /* libPods-AugmentedVisAppTests.a */; };
 		470D0E2D084011398422BF37 /* Pods_AugmentedVisApp__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C692FC43CC10537CCE51A24 /* Pods_AugmentedVisApp__iOS_.framework */; };
 		6305D511271817FC00583480 /* Storyboard Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588C72716A22100867F16 /* Storyboard Scenes.swift */; };
-		6305D5122718180600583480 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A941E02716C14F00636EFB /* AppDelegate.swift */; };
 		630766DD272AAEA8008289DA /* ViewInfoEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630766DC272AAEA8008289DA /* ViewInfoEnums.swift */; };
 		630766DE272AAEA8008289DA /* ViewInfoEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630766DC272AAEA8008289DA /* ViewInfoEnums.swift */; };
 		630766DF272AAEA8008289DA /* ViewInfoEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630766DC272AAEA8008289DA /* ViewInfoEnums.swift */; };
@@ -40,8 +39,6 @@
 		63281AF0271473B4004F79FF /* EdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AEE271473B4004F79FF /* EdgeInsets+Extension.swift */; };
 		63281AF227147D4C004F79FF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AF127147D4C004F79FF /* String+Extension.swift */; };
 		63281AF327147D4C004F79FF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AF127147D4C004F79FF /* String+Extension.swift */; };
-		632F4FE0272FD38A00166D18 /* ARVisViewController+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588BF27169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift */; };
-		632F4FE1272FD38A00166D18 /* ARVisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588BC27169AD700867F16 /* ARVisViewController.swift */; };
 		632F4FE2272FD55E00166D18 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A732715A6CA0096D61C /* Color+Extension.swift */; };
 		632F5060272FDAC000166D18 /* HexColorInputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632F505D272FDABF00166D18 /* HexColorInputError.swift */; };
 		632F5061272FDAC000166D18 /* HexColorInputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632F505D272FDABF00166D18 /* HexColorInputError.swift */; };
@@ -73,11 +70,31 @@
 		6345D910272EEB6800C44D45 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345D90F272EEB6800C44D45 /* PieChart.swift */; };
 		6345D911272EEB6800C44D45 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345D90F272EEB6800C44D45 /* PieChart.swift */; };
 		6345D912272EEB6800C44D45 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345D90F272EEB6800C44D45 /* PieChart.swift */; };
-		6351A16D2723CE7300661A68 /* ARVisViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634588BB27169AD700867F16 /* ARVisViewController.storyboard */; };
 		6351A16F2723F92500661A68 /* ARVisInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A16E2723F92500661A68 /* ARVisInfoView.swift */; };
 		6351A1722723F93E00661A68 /* ViewInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A1712723F93E00661A68 /* ViewInfoComponent.swift */; };
 		6351A1792725124D00661A68 /* ImageGenerateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A1782725124D00661A68 /* ImageGenerateHelper.swift */; };
 		6351A17A2725124D00661A68 /* ImageGenerateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A1782725124D00661A68 /* ImageGenerateHelper.swift */; };
+		6361D47927322986005F7D74 /* PieSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D47827322986005F7D74 /* PieSlice.swift */; };
+		6361D47A27322986005F7D74 /* PieSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D47827322986005F7D74 /* PieSlice.swift */; };
+		6361D47B27322986005F7D74 /* PieSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D47827322986005F7D74 /* PieSlice.swift */; };
+		6361D47D273229B4005F7D74 /* PieChartLegends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D47C273229B4005F7D74 /* PieChartLegends.swift */; };
+		6361D47E273229B4005F7D74 /* PieChartLegends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D47C273229B4005F7D74 /* PieChartLegends.swift */; };
+		6361D47F273229B4005F7D74 /* PieChartLegends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D47C273229B4005F7D74 /* PieChartLegends.swift */; };
+		6361D481273229D4005F7D74 /* PieChartTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D480273229D4005F7D74 /* PieChartTool.swift */; };
+		6361D482273229D4005F7D74 /* PieChartTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D480273229D4005F7D74 /* PieChartTool.swift */; };
+		6361D483273229D4005F7D74 /* PieChartTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D480273229D4005F7D74 /* PieChartTool.swift */; };
+		6361D48627322A0A005F7D74 /* PieChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D48527322A0A005F7D74 /* PieChartViewModel.swift */; };
+		6361D48727322A0A005F7D74 /* PieChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D48527322A0A005F7D74 /* PieChartViewModel.swift */; };
+		6361D48827322A0A005F7D74 /* PieChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D48527322A0A005F7D74 /* PieChartViewModel.swift */; };
+		6361D48A27322A24005F7D74 /* PieChartItemSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D48927322A24005F7D74 /* PieChartItemSummary.swift */; };
+		6361D48B27322A24005F7D74 /* PieChartItemSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D48927322A24005F7D74 /* PieChartItemSummary.swift */; };
+		6361D48C27322A24005F7D74 /* PieChartItemSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D48927322A24005F7D74 /* PieChartItemSummary.swift */; };
+		6361D48E27322AEF005F7D74 /* PieChartTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D48D27322AEF005F7D74 /* PieChartTitle.swift */; };
+		6361D48F27322AEF005F7D74 /* PieChartTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D48D27322AEF005F7D74 /* PieChartTitle.swift */; };
+		6361D49027322AEF005F7D74 /* PieChartTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D48D27322AEF005F7D74 /* PieChartTitle.swift */; };
+		6361D49527324699005F7D74 /* ARVisViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634588BB27169AD700867F16 /* ARVisViewController.storyboard */; };
+		6361D498273246BA005F7D74 /* ARVisViewControllerMockForPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EAB7D32723CAE90015E839 /* ARVisViewControllerMockForPreview.swift */; };
+		6361D499273246BC005F7D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A941E02716C14F00636EFB /* AppDelegate.swift */; };
 		636AF72A2715AF920027C825 /* BandScaleXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636AF7292715AF920027C825 /* BandScaleXCTest.swift */; };
 		636AF72F2715B16D0027C825 /* BandScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A712715A5E00096D61C /* BandScale.swift */; };
 		636AF73C2715B8240027C825 /* PointScaleXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636AF73B2715B8240027C825 /* PointScaleXCTest.swift */; };
@@ -107,6 +124,18 @@
 		6396A1FE27185E5C004F7ABD /* LineChartContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6396A1FD27185E5C004F7ABD /* LineChartContainerViewModel.swift */; };
 		6396A1FF27185E5C004F7ABD /* LineChartContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6396A1FD27185E5C004F7ABD /* LineChartContainerViewModel.swift */; };
 		6396A20027185E5C004F7ABD /* LineChartContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6396A1FD27185E5C004F7ABD /* LineChartContainerViewModel.swift */; };
+		63C1A59F2733AF2300342270 /* Telegram_Submodules.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63C1A59E2733AF2300342270 /* Telegram_Submodules.csv */; };
+		63C1A5A02733AF2300342270 /* Telegram_Submodules.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63C1A59E2733AF2300342270 /* Telegram_Submodules.csv */; };
+		63C1A5A12733AF2300342270 /* Telegram_Submodules.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63C1A59E2733AF2300342270 /* Telegram_Submodules.csv */; };
+		63C1F9812732809C00F960E7 /* PieChartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1F9802732809C00F960E7 /* PieChartItem.swift */; };
+		63C1F9822732809C00F960E7 /* PieChartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1F9802732809C00F960E7 /* PieChartItem.swift */; };
+		63C1F9832732809C00F960E7 /* PieChartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1F9802732809C00F960E7 /* PieChartItem.swift */; };
+		63C1F9852732B2F700F960E7 /* PieChartItemGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1F9842732B2F700F960E7 /* PieChartItemGroup.swift */; };
+		63C1F9862732B2F700F960E7 /* PieChartItemGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1F9842732B2F700F960E7 /* PieChartItemGroup.swift */; };
+		63C1F9872732B2F700F960E7 /* PieChartItemGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1F9842732B2F700F960E7 /* PieChartItemGroup.swift */; };
+		63C1F9892732B84F00F960E7 /* SamplePieChartDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1F9882732B84F00F960E7 /* SamplePieChartDataHelper.swift */; };
+		63C1F98A2732B84F00F960E7 /* SamplePieChartDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1F9882732B84F00F960E7 /* SamplePieChartDataHelper.swift */; };
+		63C1F98B2732B84F00F960E7 /* SamplePieChartDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1F9882732B84F00F960E7 /* SamplePieChartDataHelper.swift */; };
 		63C3255827256D17006C8BBB /* ViewInfoJSONTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3255727256D17006C8BBB /* ViewInfoJSONTest.swift */; };
 		63C3255927256D99006C8BBB /* ViewInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A1712723F93E00661A68 /* ViewInfoComponent.swift */; };
 		63C3255A27256D9F006C8BBB /* ViewInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A1712723F93E00661A68 /* ViewInfoComponent.swift */; };
@@ -163,6 +192,12 @@
 		6351A16E2723F92500661A68 /* ARVisInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVisInfoView.swift; sourceTree = "<group>"; };
 		6351A1712723F93E00661A68 /* ViewInfoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInfoComponent.swift; sourceTree = "<group>"; };
 		6351A1782725124D00661A68 /* ImageGenerateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerateHelper.swift; sourceTree = "<group>"; };
+		6361D47827322986005F7D74 /* PieSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSlice.swift; sourceTree = "<group>"; };
+		6361D47C273229B4005F7D74 /* PieChartLegends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartLegends.swift; sourceTree = "<group>"; };
+		6361D480273229D4005F7D74 /* PieChartTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTool.swift; sourceTree = "<group>"; };
+		6361D48527322A0A005F7D74 /* PieChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewModel.swift; sourceTree = "<group>"; };
+		6361D48927322A24005F7D74 /* PieChartItemSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartItemSummary.swift; sourceTree = "<group>"; };
+		6361D48D27322AEF005F7D74 /* PieChartTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTitle.swift; sourceTree = "<group>"; };
 		636AF7222715AEE30027C825 /* AugmentedVisAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AugmentedVisAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		636AF7292715AF920027C825 /* BandScaleXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandScaleXCTest.swift; sourceTree = "<group>"; };
 		636AF73B2715B8240027C825 /* PointScaleXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointScaleXCTest.swift; sourceTree = "<group>"; };
@@ -174,6 +209,10 @@
 		6396A1FD27185E5C004F7ABD /* LineChartContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartContainerViewModel.swift; sourceTree = "<group>"; };
 		639B5CBB0BC0B5EF1EF6B930 /* Pods-AugmentedVisApp (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisApp (iOS).debug.xcconfig"; path = "Target Support Files/Pods-AugmentedVisApp (iOS)/Pods-AugmentedVisApp (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		63A941E02716C14F00636EFB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		63C1A59E2733AF2300342270 /* Telegram_Submodules.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Telegram_Submodules.csv; sourceTree = "<group>"; };
+		63C1F9802732809C00F960E7 /* PieChartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartItem.swift; sourceTree = "<group>"; };
+		63C1F9842732B2F700F960E7 /* PieChartItemGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartItemGroup.swift; sourceTree = "<group>"; };
+		63C1F9882732B84F00F960E7 /* SamplePieChartDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePieChartDataHelper.swift; sourceTree = "<group>"; };
 		63C3255727256D17006C8BBB /* ViewInfoJSONTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInfoJSONTest.swift; sourceTree = "<group>"; };
 		63C5BE68271C65FE006D791B /* Demo_Vis_1920x1080.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Demo_Vis_1920x1080.png; sourceTree = "<group>"; };
 		63EAB7D32723CAE90015E839 /* ARVisViewControllerMockForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVisViewControllerMockForPreview.swift; sourceTree = "<group>"; };
@@ -232,12 +271,14 @@
 		630C94D727170AF60041897A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				63C1A59E2733AF2300342270 /* Telegram_Submodules.csv */,
 				63127A67271573340096D61C /* CatSevNumOrdered.csv */,
 				637C457C27171DC700BC2484 /* CatSevNumOrderedMock.csv */,
 				6371F9652717C71C00BA9025 /* CatSevNumOrderedMock2.csv */,
 				6379DB20271994820007FF21 /* CatSevNumOrderedMock3.csv */,
 				630C94D827170B030041897A /* SampleDataHelper.swift */,
 				631E6910272C137900C713D0 /* SampleViewInfoComponentHelper.swift */,
+				63C1F9882732B84F00F960E7 /* SamplePieChartDataHelper.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -368,6 +409,8 @@
 		6345D90E272EEB5A00C44D45 /* PieChart */ = {
 			isa = PBXGroup;
 			children = (
+				6361D49127324057005F7D74 /* Components */,
+				6361D48427322A00005F7D74 /* Model */,
 				6345D90F272EEB6800C44D45 /* PieChart.swift */,
 			);
 			path = PieChart;
@@ -390,6 +433,28 @@
 				630766DC272AAEA8008289DA /* ViewInfoEnums.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		6361D48427322A00005F7D74 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6361D48527322A0A005F7D74 /* PieChartViewModel.swift */,
+				63C1F9802732809C00F960E7 /* PieChartItem.swift */,
+				63C1F9842732B2F700F960E7 /* PieChartItemGroup.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6361D49127324057005F7D74 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6361D47827322986005F7D74 /* PieSlice.swift */,
+				6361D47C273229B4005F7D74 /* PieChartLegends.swift */,
+				6361D480273229D4005F7D74 /* PieChartTool.swift */,
+				6361D48927322A24005F7D74 /* PieChartItemSummary.swift */,
+				6361D48D27322AEF005F7D74 /* PieChartTitle.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		636AF7232715AEE30027C825 /* AugmentedVisAppTests */ = {
@@ -601,6 +666,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63C1A5A02733AF2300342270 /* Telegram_Submodules.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,10 +675,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				63127A68271573340096D61C /* CatSevNumOrdered.csv in Resources */,
-				6351A16D2723CE7300661A68 /* ARVisViewController.storyboard in Resources */,
+				6361D49527324699005F7D74 /* ARVisViewController.storyboard in Resources */,
 				63EE70E227045087007C3BED /* Assets.xcassets in Resources */,
 				637C457D27171DC700BC2484 /* CatSevNumOrderedMock.csv in Resources */,
 				6371F9662717C71C00BA9025 /* CatSevNumOrderedMock2.csv in Resources */,
+				63C1A59F2733AF2300342270 /* Telegram_Submodules.csv in Resources */,
 				6379DB21271994820007FF21 /* CatSevNumOrderedMock3.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -625,6 +692,7 @@
 				637C457E27171DC700BC2484 /* CatSevNumOrderedMock.csv in Resources */,
 				6379DB22271994870007FF21 /* CatSevNumOrderedMock3.csv in Resources */,
 				6371F9672717C71C00BA9025 /* CatSevNumOrderedMock2.csv in Resources */,
+				63C1A5A12733AF2300342270 /* Telegram_Submodules.csv in Resources */,
 				63EE70E327045087007C3BED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -809,10 +877,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63C1F9862732B2F700F960E7 /* PieChartItemGroup.swift in Sources */,
+				6361D48F27322AEF005F7D74 /* PieChartTitle.swift in Sources */,
+				6361D47A27322986005F7D74 /* PieSlice.swift in Sources */,
+				6361D47E273229B4005F7D74 /* PieChartLegends.swift in Sources */,
+				6361D48727322A0A005F7D74 /* PieChartViewModel.swift in Sources */,
 				633774C32718545200070358 /* LinearScaleXCTest.swift in Sources */,
 				633774CA271855EE00070358 /* Axis.swift in Sources */,
 				631E6912272C137900C713D0 /* SampleViewInfoComponentHelper.swift in Sources */,
 				63C3255827256D17006C8BBB /* ViewInfoJSONTest.swift in Sources */,
+				6361D482273229D4005F7D74 /* PieChartTool.swift in Sources */,
 				636AF72A2715AF920027C825 /* BandScaleXCTest.swift in Sources */,
 				6345D911272EEB6800C44D45 /* PieChart.swift in Sources */,
 				633774C5271855D500070358 /* View+Extension.swift in Sources */,
@@ -824,12 +898,15 @@
 				632F5061272FDAC000166D18 /* HexColorInputError.swift in Sources */,
 				632F5064272FDAC000166D18 /* UINSColorExtension.swift in Sources */,
 				633774C7271855D500070358 /* String+Extension.swift in Sources */,
+				63C1F98A2732B84F00F960E7 /* SamplePieChartDataHelper.swift in Sources */,
 				636AF7412715B8840027C825 /* PointScale.swift in Sources */,
 				636AF72F2715B16D0027C825 /* BandScale.swift in Sources */,
 				636AF7442715B8890027C825 /* LinearScale.swift in Sources */,
 				633774CB2718567B00070358 /* Assets.swift in Sources */,
 				636AF7432715B8890027C825 /* Scale.swift in Sources */,
+				63C1F9822732809C00F960E7 /* PieChartItem.swift in Sources */,
 				633774C9271855D500070358 /* EdgeInsets+Extension.swift in Sources */,
+				6361D48B27322A24005F7D74 /* PieChartItemSummary.swift in Sources */,
 				636AF73C2715B8240027C825 /* PointScaleXCTest.swift in Sources */,
 				630766DE272AAEA8008289DA /* ViewInfoEnums.swift in Sources */,
 				6345D90C272DA48600C44D45 /* BarChart.swift in Sources */,
@@ -847,31 +924,39 @@
 				630766DD272AAEA8008289DA /* ViewInfoEnums.swift in Sources */,
 				632F5060272FDAC000166D18 /* HexColorInputError.swift in Sources */,
 				6351A1722723F93E00661A68 /* ViewInfoComponent.swift in Sources */,
-				6305D5122718180600583480 /* AppDelegate.swift in Sources */,
+				6361D498273246BA005F7D74 /* ARVisViewControllerMockForPreview.swift in Sources */,
+				6361D47D273229B4005F7D74 /* PieChartLegends.swift in Sources */,
 				63281ADB2714253F004F79FF /* LineChart.swift in Sources */,
 				63281AE227144C67004F79FF /* Scale.swift in Sources */,
 				636AF7462715B8890027C825 /* BandScale.swift in Sources */,
 				636AF7422715B8840027C825 /* PointScale.swift in Sources */,
 				63281AEF271473B4004F79FF /* EdgeInsets+Extension.swift in Sources */,
 				634588BA27169A3600867F16 /* SCNVector3+Extension.swift in Sources */,
+				6361D499273246BC005F7D74 /* AppDelegate.swift in Sources */,
+				6361D48E27322AEF005F7D74 /* PieChartTitle.swift in Sources */,
 				6351A1792725124D00661A68 /* ImageGenerateHelper.swift in Sources */,
 				634588C327169BD700867F16 /* StatusViewController.swift in Sources */,
 				634588CC2716A22500867F16 /* Storyboard Segues.swift in Sources */,
 				632F5063272FDAC000166D18 /* UINSColorExtension.swift in Sources */,
+				6361D48A27322A24005F7D74 /* PieChartItemSummary.swift in Sources */,
 				630C94D927170B030041897A /* SampleDataHelper.swift in Sources */,
-				632F4FE0272FD38A00166D18 /* ARVisViewController+ARSessionDelegate.swift in Sources */,
-				632F4FE1272FD38A00166D18 /* ARVisViewController.swift in Sources */,
+				63C1F9892732B84F00F960E7 /* SamplePieChartDataHelper.swift in Sources */,
+				63C1F9852732B2F700F960E7 /* PieChartItemGroup.swift in Sources */,
 				632F5066272FDAC000166D18 /* StringExtension.swift in Sources */,
 				63281AE627145494004F79FF /* Axis.swift in Sources */,
 				63127A742715A6CA0096D61C /* Color+Extension.swift in Sources */,
 				6345D910272EEB6800C44D45 /* PieChart.swift in Sources */,
 				63281AE927145BEF004F79FF /* View+Extension.swift in Sources */,
+				6361D47927322986005F7D74 /* PieSlice.swift in Sources */,
 				6345D90B272DA48600C44D45 /* BarChart.swift in Sources */,
 				6305D511271817FC00583480 /* Storyboard Scenes.swift in Sources */,
 				6351A16F2723F92500661A68 /* ARVisInfoView.swift in Sources */,
+				63C1F9812732809C00F960E7 /* PieChartItem.swift in Sources */,
 				630ED28B2723B619006B7360 /* ARVisSettingView.swift in Sources */,
 				63281ADF271449DB004F79FF /* LinearScale.swift in Sources */,
 				6396A1FE27185E5C004F7ABD /* LineChartContainerViewModel.swift in Sources */,
+				6361D481273229D4005F7D74 /* PieChartTool.swift in Sources */,
+				6361D48627322A0A005F7D74 /* PieChartViewModel.swift in Sources */,
 				631E6911272C137900C713D0 /* SampleViewInfoComponentHelper.swift in Sources */,
 				6345D906272D9B4F00C44D45 /* RadarChart.swift in Sources */,
 			);
@@ -882,25 +967,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				63EE70E127045087007C3BED /* AppMainView.swift in Sources */,
+				6361D48C27322A24005F7D74 /* PieChartItemSummary.swift in Sources */,
 				63281AF327147D4C004F79FF /* String+Extension.swift in Sources */,
 				632F5068272FDAC000166D18 /* StringExtension.swift in Sources */,
+				6361D47B27322986005F7D74 /* PieSlice.swift in Sources */,
 				6351A17A2725124D00661A68 /* ImageGenerateHelper.swift in Sources */,
+				63C1F9832732809C00F960E7 /* PieChartItem.swift in Sources */,
 				63EE70DF27045087007C3BED /* AugmentedVisApp.swift in Sources */,
 				6379DB252719A2840007FF21 /* NSView+Extension.swift in Sources */,
+				6361D49027322AEF005F7D74 /* PieChartTitle.swift in Sources */,
 				636AF7402715B8840027C825 /* PointScale.swift in Sources */,
 				63C3255A27256D9F006C8BBB /* ViewInfoComponent.swift in Sources */,
 				632F4FE2272FD55E00166D18 /* Color+Extension.swift in Sources */,
+				63C1F98B2732B84F00F960E7 /* SamplePieChartDataHelper.swift in Sources */,
 				63281ADC2714253F004F79FF /* LineChart.swift in Sources */,
 				6345D912272EEB6800C44D45 /* PieChart.swift in Sources */,
 				6345D90D272DA48600C44D45 /* BarChart.swift in Sources */,
+				6361D483273229D4005F7D74 /* PieChartTool.swift in Sources */,
 				63281AE327144C67004F79FF /* Scale.swift in Sources */,
 				63281AF0271473B4004F79FF /* EdgeInsets+Extension.swift in Sources */,
 				630C94DA27170B5C0041897A /* SampleDataHelper.swift in Sources */,
 				636AF7452715B8890027C825 /* BandScale.swift in Sources */,
 				63281AE727145494004F79FF /* Axis.swift in Sources */,
 				630766E0272AB5B4008289DA /* ARVisInfoView.swift in Sources */,
+				6361D47F273229B4005F7D74 /* PieChartLegends.swift in Sources */,
+				63C1F9872732B2F700F960E7 /* PieChartItemGroup.swift in Sources */,
 				631E6913272C137900C713D0 /* SampleViewInfoComponentHelper.swift in Sources */,
 				632F5062272FDAC000166D18 /* HexColorInputError.swift in Sources */,
+				6361D48827322A0A005F7D74 /* PieChartViewModel.swift in Sources */,
 				632F5065272FDAC000166D18 /* UINSColorExtension.swift in Sources */,
 				63281AEA27145BEF004F79FF /* View+Extension.swift in Sources */,
 				63127A702715A16F0096D61C /* Assets.swift in Sources */,
