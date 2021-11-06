@@ -80,10 +80,11 @@ struct Pie: View {
 
         let isTouched = index == viewModel.selectedIndex
         let pieSliceShape = PieSliceShape(startAngle: startAngle, endAngle: endAngle)
+        let strokeLineWidth = endAngle - startAngle < .pi / 90 ? 0.1 : endAngle - startAngle < .pi / 180 ? 0 : 1
 
         pieSliceShape
             .fill(viewModel.colors[index % viewModel.colors.count])
-            .overlay(pieSliceShape.stroke(viewModel.borderColor, lineWidth: 1.5))
+            .overlay(pieSliceShape.stroke(viewModel.borderColor, lineWidth: strokeLineWidth))
             .opacity(dumb ? 0.0 : 1.0)
             .scaleEffect(isTouched ? 1.03 : 1)
             .zIndex(viewModel.selectedIndex == index ? 2 : 0)

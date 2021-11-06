@@ -20,11 +20,16 @@ struct PieChart: View {
             }
             HStack {
                 Spacer()
-                VStack(alignment: .trailing, spacing: 24) {
+                VStack(alignment: .trailing) {
                     PieChartLegends()
+                        .layoutPriority(2)
+                        .padding(.bottom, 6)
                     PieChartItemSummary()
+                        .padding(.bottom, 6)
+                        .layoutPriority(3)
                     Spacer()
                     PieChartTool()
+                        .padding(.bottom, 6)
                 }
             }
             .frame(maxWidth: 250)

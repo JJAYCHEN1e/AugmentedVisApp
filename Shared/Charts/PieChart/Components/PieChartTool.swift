@@ -26,31 +26,42 @@ struct PieChartTool: View {
         }
     }
 
+    @State private var contentHeight: CGFloat = 0.0
+
     var body: some View {
         VStack(alignment: .trailing) {
-            VStack {
-                ForEach(viewModel.itemGroups) { element in
-                    let index = viewModel.itemGroups.firstIndex(of: element)!
-                    let isSelected = viewModel.groupIndex == index
-                    HStack {
-                        RoundedRectangle(cornerRadius: isSelected ? 5 : 3)
-                            .frame(width: isSelected ? 14 : 10, height: isSelected ? 14 : 10)
-                            .foregroundColor(.red)
-                        Text(viewModel.itemGroups[index].title)
-                            .font(.title3)
-                            .fontWeight(isSelected ? .bold : .regular)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
+            ScrollView {
+                VStack {
+                    ForEach(viewModel.itemGroups) { element in
+                        let index = viewModel.itemGroups.firstIndex(of: element)!
+                        let isSelected = viewModel.groupIndex == index
+                        HStack {
+                            RoundedRectangle(cornerRadius: isSelected ? 5 : 3)
+                                .frame(width: isSelected ? 14 : 10, height: isSelected ? 14 : 10)
+                                .foregroundColor(.red)
+                            Text(viewModel.itemGroups[index].title)
+                                .font(.title3)
+                                .fontWeight(isSelected ? .bold : .regular)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                        }
 
-                    .padding(.horizontal, isSelected ? 0 : 2)
-                    .onTapGesture {
-                        withAnimation(.easeInOut(duration: 1.0)) {
-                            viewModel.groupIndex = index
+                        .padding(.horizontal, isSelected ? 0 : 2)
+                        .onTapGesture {
+                            withAnimation(.easeInOut(duration: 1.0)) {
+                                viewModel.groupIndex = index
+                            }
                         }
                     }
                 }
+                .padding()
+                .overlay(GeometryReader { geo in
+                    executeAsync {
+                        withAnimation(.spring()) {
+                            contentHeight = geo.frame(in: .local).height
+                        }
+                    }
+                })
             }
-            .padding()
             .background(
                 Rectangle()
                     .foregroundColor(.clear)
@@ -59,6 +70,7 @@ struct PieChartTool: View {
                     .shadow(radius: 3)
             )
             .animation(.spring(), value: viewModel.groupIndex)
+            .frame(maxHeight: contentHeight)
 
             HStack {
                 if viewModel.historyItemGroups.count > 0 {

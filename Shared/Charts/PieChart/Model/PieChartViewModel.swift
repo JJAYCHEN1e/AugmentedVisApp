@@ -70,10 +70,11 @@ extension PieChartViewModel {
 }
 
 extension PieChartViewModel {
+    static private let maxItemCount = 100
     private class IDPool {
         static var ids: [UUID] = {
             var result: [UUID] = []
-            for _ in 0..<100 {
+            for _ in 0..<maxItemCount {
                 result.append(UUID())
             }
 
@@ -90,23 +91,23 @@ extension PieChartViewModel {
     }
 
     var data: [Double] {
-        itemGroups[groupIndex].items.map { $0.data }
+        Array(itemGroups[groupIndex].items.map { $0.data }.prefix(PieChartViewModel.maxItemCount))
     }
 
     var labels: [String] {
-        itemGroups[groupIndex].items.map { $0.label }
+        Array(itemGroups[groupIndex].items.map { $0.label }.prefix(PieChartViewModel.maxItemCount))
     }
 
     var colors: [Color] {
-        itemGroups[groupIndex].items.map { Color($0.color) }
+        Array(itemGroups[groupIndex].items.map { Color($0.color) }.prefix(PieChartViewModel.maxItemCount))
     }
 
     var additionalViewInfos: [ViewInfoComponent?] {
-        itemGroups[groupIndex].items.map { $0.additionalViewInfo }
+        Array(itemGroups[groupIndex].items.map { $0.additionalViewInfo }.prefix(PieChartViewModel.maxItemCount))
     }
 
     var itemDetailPieChartItemGroups: [[PieChartItemGroup]] {
-        itemGroups[groupIndex].items.map { $0.itemDetailPieChartItemGroup }
+        Array(itemGroups[groupIndex].items.map { $0.itemDetailPieChartItemGroup }.prefix(PieChartViewModel.maxItemCount))
     }
 
     var dataDescriptionPrefix: String? {
@@ -122,7 +123,7 @@ extension PieChartViewModel {
     }
 
     var items: [PieChartItem] {
-        itemGroups[groupIndex].items
+        Array(itemGroups[groupIndex].items.prefix(PieChartViewModel.maxItemCount))
     }
 
     var idConsistentItems: [PieChartItem] {

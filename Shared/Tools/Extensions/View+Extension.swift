@@ -13,6 +13,13 @@ extension View {
         return Circle().fill().opacity(0)
     }
 
+    func executeAsync(closure: @escaping () -> Void) -> some View {
+        DispatchQueue.main.async {
+            closure()
+        }
+        return Circle().fill().opacity(0)
+    }
+
     /// Applies the given transform if the given condition evaluates to `true`.
     /// - Parameters:
     ///   - condition: The condition to evaluate.

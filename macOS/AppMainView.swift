@@ -9,21 +9,36 @@ import SwiftCSV
 import SwiftUI
 
 struct AppMainView: View {
-    let viewModel = LineChartContainerViewModel(dataSources: SampleDataHelper.catSevNumOrderedSeries)
     var body: some View {
-        VStack {
-            LineChart(viewModel: viewModel)
+//        let viewModel = LineChartContainerViewModel(dataSources: SampleDataHelper.catSevNumOrderedSeries)
+//        VStack {
+//            LineChart(viewModel: viewModel)
+//
+//            Button {
+//                LineChart(viewModel: viewModel, animationDisabled: true).snapshotMock()
+//            } label: {
+//                Text("Save")
+//            }
+//            .padding(.bottom)
+//
+//        }
+//        #if os(macOS)
+//            .frame(minWidth: 500, minHeight: 250)
+//        #endif
 
-            Button {
-                LineChart(viewModel: viewModel, animationDisabled: true).snapshotMock()
-            } label: {
-                Text("Save")
-            }
-            .padding(.bottom)
+        VStack {
+            PieChart_Previews.previews
+
+//            Button {
+//                PieChart_Previews.previews.snapshotMock()
+//            } label: {
+//                Text("Save")
+//            }
+//            .padding(.bottom)
 
         }
-        #if os(macOS)
-            .frame(minWidth: 500, minHeight: 250)
-        #endif
+//        #if os(macOS)
+//        .frame(minWidth: 1280, minHeight: 720)
+//        #endif
     }
 }

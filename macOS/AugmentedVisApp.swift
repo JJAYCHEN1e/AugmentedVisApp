@@ -11,8 +11,7 @@ import SwiftUI
 struct AugmentedVisApp: App {
     var body: some Scene {
         WindowGroup {
-//            AppMainView()
-            PieChart_Previews.previews
+            AppMainView()
         }
     }
 }

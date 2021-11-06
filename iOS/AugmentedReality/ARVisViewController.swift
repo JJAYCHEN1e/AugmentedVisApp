@@ -105,8 +105,9 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
             viewController.view.isOpaque = false
             viewController.view.backgroundColor = .clear
 
-            let lineChartHostingVC = UIHostingController(rootView: LineChart(viewModel: self.viewModel))
-            lineChartHostingVC.view.backgroundColor = .clear
+//            let lineChartHostingVC = UIHostingController(rootView: LineChart(viewModel: self.viewModel))
+            let lineChartHostingVC = UIHostingController(rootView: PieChart_Previews.previews)
+            lineChartHostingVC.view.backgroundColor = .white
             lineChartHostingVC.view.frame = CGRect(x: 0, y: (self.maxAugmentedViewWH - self.augmentedViewHeight) / 2, width: self.augmentedViewWidth, height: self.augmentedViewHeight)
 
             viewController.view.addSubview(lineChartHostingVC.view)

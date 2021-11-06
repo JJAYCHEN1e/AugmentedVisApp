@@ -80,6 +80,7 @@ extension ViewInfo {
                 .font(.init(fontStyle))
                 .foregroundColor(.init(fontStyle?.color))
                 .multilineTextAlignment(multilineTextAlignment)
+                .frame(maxWidth: .infinity, alignment: .leading)
         case .image(let url, let contentMode):
             AsyncImage(url: URL(string: url)) { image in
                 image
