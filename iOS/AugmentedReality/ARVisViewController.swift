@@ -111,6 +111,14 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
             lineChartHostingVC.view.frame = CGRect(x: 0, y: (self.maxAugmentedViewWH - self.augmentedViewHeight) / 2, width: self.augmentedViewWidth, height: self.augmentedViewHeight)
 
             viewController.view.addSubview(lineChartHostingVC.view)
+//            lineChartHostingVC.willMove(toParent: viewController)
+//            viewController.addChild(lineChartHostingVC)
+//            lineChartHostingVC.didMove(toParent: viewController)
+//
+//            self.view.addSubview(viewController.view)
+//            viewController.willMove(toParent: self)
+//            self.addChild(viewController)
+//            viewController.didMove(toParent: self)
 
             self.show(viewController: viewController, on: node)
         }

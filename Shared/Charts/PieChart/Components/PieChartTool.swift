@@ -31,17 +31,18 @@ struct PieChartTool: View {
     var body: some View {
         VStack(alignment: .trailing) {
             ScrollView {
-                VStack {
+                VStack(alignment: .leading, spacing: 0) {
                     ForEach(viewModel.itemGroups) { element in
                         let index = viewModel.itemGroups.firstIndex(of: element)!
                         let isSelected = viewModel.groupIndex == index
+                        
                         HStack {
                             RoundedRectangle(cornerRadius: isSelected ? 5 : 3)
                                 .frame(width: isSelected ? 14 : 10, height: isSelected ? 14 : 10)
                                 .foregroundColor(.red)
                             Text(viewModel.itemGroups[index].title)
                                 .font(.title3)
-                                .fontWeight(isSelected ? .bold : .regular)
+                                .fontWeight(isSelected ? .medium : .regular)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
 
@@ -69,8 +70,8 @@ struct PieChartTool: View {
                     .cornerRadius(16)
                     .shadow(radius: 3)
             )
-            .animation(.spring(), value: viewModel.groupIndex)
             .frame(maxHeight: contentHeight)
+            .animation(.spring(), value: viewModel.groupIndex)
 
             HStack {
                 if viewModel.historyItemGroups.count > 0 {
