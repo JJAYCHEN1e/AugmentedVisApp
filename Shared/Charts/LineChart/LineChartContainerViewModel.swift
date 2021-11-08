@@ -29,7 +29,7 @@ struct ChartData<X: Hashable & Comparable>: Identifiable, Hashable, Hiddeable, H
     var isHidden = false
 }
 
-class LineChartContainerViewModel<X: Hashable & Comparable>: ObservableObject {
+class LineChartContainerViewModel<X: Hashable & Comparable>: ObservableObject, ChartViewModel {
     var fixedSize: CGSize?
 
     @Published var percentage: CGFloat = .zero

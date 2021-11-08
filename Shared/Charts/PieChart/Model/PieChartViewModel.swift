@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class PieChartViewModel: ObservableObject {
+class PieChartViewModel: ObservableObject, ChartViewModel {
     private(set) var historyItemGroups: [(groups: [PieChartItemGroup], groupIndex: Int, selectedIndex: Int)]
 
     private var _groupIndex: Int
@@ -26,11 +26,19 @@ class PieChartViewModel: ObservableObject {
     }
 
     @Published var itemGroups: [PieChartItemGroup]
-    @Published public var selectedIndex: Int = -1
+    @Published var selectedIndex: Int = -1
+
+    @Published var showLabelEnabled = true
+
+    var itemLabelShowingToggleableSection: ToggleableSection {
+        .init(section: "Item label showing", items: [
+            .init(name: "Show item labels", value: .init(get: { self.showLabelEnabled }, set: { self.showLabelEnabled = $0 }))
+        ])
+
+    }
 
     let borderColor: Color
     let sliceOffset: Double = -.pi / 2
-
 
     internal init(
         itemGroups: [PieChartItemGroup],

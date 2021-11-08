@@ -6,6 +6,10 @@ import UIKit
 import DequeModule
 import Combine
 
+class ARVisViewControllerViewModel: ObservableObject {
+    @Published var realTimeTrackingEnabled = true
+}
+
 class ARVisViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
 
@@ -32,7 +36,11 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session
     }
 
-    @ObservedObject var viewModel = LineChartContainerViewModel(dataSources: SampleDataHelper.catSevNumOrderedSeries)
+    @ObservedObject var arViewModel = ARVisViewControllerViewModel()
+
+    private var chartViewModel: ChartViewModel? = nil
+
+//    var viewModel = LineChartContainerViewModel(dataSources: SampleDataHelper.catSevNumOrderedSeries)
 
     private var subscribers: Set<AnyCancellable> = []
 
@@ -49,22 +57,24 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
             self.restartExperience()
         }
 
-        subscribers.insert(viewModel.$realTimeTrackingEnabled.sink(receiveValue: {
-            if !$0 {
-                if self.planeNode.parent != self.dumbNode {
-                    self.updateQueue.async {
-                        self.planeNode.removeFromParentNode()
-                        self.dumbNode.addChildNode(self.planeNode)
+        arViewModel.$realTimeTrackingEnabled
+            .sink {
+                if !$0 {
+                    if self.planeNode.parent != self.dumbNode {
+                        self.updateQueue.async {
+                            self.planeNode.removeFromParentNode()
+                            self.dumbNode.addChildNode(self.planeNode)
+                        }
                     }
                 }
             }
-        }))
+            .store(in: &subscribers)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        // Prevent the screen from being dimmed to avoid interuppting the AR experience.
+        // Prevent the screen from being dimmed to avoid interrupting the AR experience.
         UIApplication.shared.isIdleTimerDisabled = true
 
         // Start the AR experience
@@ -95,6 +105,9 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         configuration.maximumNumberOfTrackedImages = 1
         session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
 
+        dumbNodeLastPositionDeque = []
+        dumbNodeLastEulerAnglesDeque = []
+
         statusViewController.scheduleMessage("Look around to detect images", inSeconds: 7.5, messageType: .contentPlacement)
     }
 
@@ -105,15 +118,24 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
             viewController.view.isOpaque = false
             viewController.view.backgroundColor = .clear
 
-//            let lineChartHostingVC = UIHostingController(rootView: LineChart(viewModel: self.viewModel))
-            let lineChartHostingVC = UIHostingController(rootView: PieChart_Previews.previews)
-            lineChartHostingVC.view.backgroundColor = .white
-            lineChartHostingVC.view.frame = CGRect(x: 0, y: (self.maxAugmentedViewWH - self.augmentedViewHeight) / 2, width: self.augmentedViewWidth, height: self.augmentedViewHeight)
+//            let chartHostingVC = UIHostingController(rootView: LineChart(viewModel: self.viewModel))
 
-            viewController.view.addSubview(lineChartHostingVC.view)
-//            lineChartHostingVC.willMove(toParent: viewController)
-//            viewController.addChild(lineChartHostingVC)
-//            lineChartHostingVC.didMove(toParent: viewController)
+            let pieChartViewModel = PieChartViewModel(itemGroups: [
+                SamplePieChartDataHelper.SamplePieChartDataTGCategoryLocItemGroup(),
+                SamplePieChartDataHelper.SamplePieChartDataTGCategoryFileCountItemGroup(),
+                SamplePieChartDataHelper.SamlePieChartDataTGCategorySubmoduleItemGroup()
+            ],
+                                              defaultItemGroupIndex: 0,
+                                              borderColor: .white)
+            self.chartViewModel = pieChartViewModel
+            let chartHostingVC = UIHostingController(rootView: PieChart().environmentObject(pieChartViewModel))
+            chartHostingVC.view.backgroundColor = .white
+            chartHostingVC.view.frame = CGRect(x: 0, y: (self.maxAugmentedViewWH - self.augmentedViewHeight) / 2, width: self.augmentedViewWidth, height: self.augmentedViewHeight)
+
+            viewController.view.addSubview(chartHostingVC.view)
+//            chartHostingVC.willMove(toParent: viewController)
+//            viewController.addChild(chartHostingVC)
+//            chartHostingVC.didMove(toParent: viewController)
 //
 //            self.view.addSubview(viewController.view)
 //            viewController.willMove(toParent: self)
@@ -121,6 +143,12 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
 //            viewController.didMove(toParent: self)
 
             self.show(viewController: viewController, on: node)
+
+            // fetch ARImageAnchor's corresponding node.
+            let projectedPosition = self.sceneView.projectPoint(node.parent!.position)
+            DispatchQueue.main.async {
+                self.setupSupplementaryViews(initPosition: projectedPosition)
+            }
         }
     }
 
@@ -189,10 +217,22 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
 
         supplementaryViewsAdded = true
         
-        let generatedViewInfoComponent = SampleViewInfoComponentHelper.sampleViewInfoComponent
-        let settingViewController = UIHostingController(rootView: generatedViewInfoComponent.view)
-        
-//        let settingViewController = UIHostingController(rootView: ARVisSettingView(items: $viewModel.dataSources, realTimeTrackingEnabled: $viewModel.realTimeTrackingEnabled))
+//        let generatedViewInfoComponent = SampleViewInfoComponentHelper.sampleViewInfoComponent
+//        let settingViewController = UIHostingController(rootView: generatedViewInfoComponent.view)
+
+        var settingComponents: [AnyARVisSettingViewComponent] = [
+            .trackingComponent(realTimeTrackingEnabled: $arViewModel.realTimeTrackingEnabled)
+        ]
+
+        if let chartViewModel = chartViewModel {
+            if let pieChartViewModel = chartViewModel as? PieChartViewModel {
+                settingComponents.append(.toggleableComponent(sectionName: pieChartViewModel.itemLabelShowingToggleableSection.section,
+                                                              toggleableItems: pieChartViewModel.itemLabelShowingToggleableSection.items))
+            }
+        }
+
+        let settingViewController = UIHostingController(rootView: ARVisSettingView(sectionComponents: settingComponents))
+
         settingViewController.view.backgroundColor = .clear
         view.addSubview(settingViewController.view)
 
@@ -246,23 +286,26 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         node.eulerAngles = eulerAngles
     }
 
+    private var isFirstTrack = true
     /// - Tag: ARImageAnchor-Visualizing
     func renderer(_: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let imageAnchor = anchor as? ARImageAnchor else { return }
 
         let referenceImage = imageAnchor.referenceImage
-
         self.dumbNodeLastPositionDeque.append(node.position)
         self.dumbNodeLastEulerAnglesDeque.append(node.eulerAngles)
         self.dumbNodeLastStablePositionSample = node.position
         self.dumbNodeLastStableEulerAnglesSample = node.eulerAngles
 
         updateQueue.async {
-            self.planeNode.geometry = self.plane
-            self.createHostingController(for: self.planeNode)
-
             node.addChildNode(self.planeNode)
             node.parent?.addChildNode(self.dumbNode)
+
+            if self.isFirstTrack {
+                self.planeNode.geometry = self.plane
+                self.createHostingController(for: self.planeNode)
+                self.isFirstTrack = false
+            }
 
             self.updatePosAndRot(for: self.planeNode, imageAnchor: imageAnchor)
         }
@@ -271,15 +314,12 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
             let imageName = referenceImage.name ?? ""
             self.statusViewController.cancelAllScheduledMessages()
             self.statusViewController.showMessage("Detected image “\(imageName)”")
-
-            let projectedPosition = self.sceneView.projectPoint(node.position)
-            self.setupSupplementaryViews(initPosition: projectedPosition)
         }
     }
 
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let imageAnchor = anchor as? ARImageAnchor else { return }
-        guard viewModel.realTimeTrackingEnabled else { return }
+        guard arViewModel.realTimeTrackingEnabled else { return }
 
         if imageAnchor.isTracked {
             if dumbNodeLastEulerAnglesDeque.count == 5 {
