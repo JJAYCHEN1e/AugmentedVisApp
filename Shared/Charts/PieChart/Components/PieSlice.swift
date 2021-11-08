@@ -98,7 +98,7 @@ struct Pie: View {
                 }
             }
 
-        if index < viewModel.items.count, (viewModel.showLabelEnabled || index == viewModel.selectedIndex) {
+        if index < viewModel.items.count {
             PieSliceText(
                 title: "\(viewModel.labels[index])",
                 description: String(format: viewModel.dataDescription ?? "%.2f", viewModel.data[index]).appending(viewModel.dataDescriptionSuffix ?? "")
@@ -113,9 +113,8 @@ struct Pie: View {
                 )
                 .offset(textOffset)
                 .scaleEffect(isTouched ? 1.03 : 1)
-                .opacity(viewModel.selectedIndex == index || endAngle - startAngle > .pi / 15 ? 1.0 : 0.0)
+                .opacity(viewModel.selectedIndex == index || viewModel.showLabelEnabled && endAngle - startAngle > .pi / 15 ? 1.0 : 0.0)
                 .zIndex(viewModel.selectedIndex == index ? 3 : 1)
-                .transition(.opacity)
                 .allowsHitTesting(false)
         }
     }

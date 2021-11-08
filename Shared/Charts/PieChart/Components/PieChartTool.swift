@@ -38,15 +38,15 @@ struct PieChartTool: View {
                         
                         HStack {
                             RoundedRectangle(cornerRadius: isSelected ? 5 : 3)
-                                .frame(width: isSelected ? 14 : 10, height: isSelected ? 14 : 10)
+                                .frame(width: isSelected ? 12 : 10, height: isSelected ? 12 : 10)
                                 .foregroundColor(.red)
-                            Text(viewModel.itemGroups[index].title)
-                                .font(.title3)
-                                .fontWeight(isSelected ? .medium : .regular)
+                            Text(viewModel.itemGroups[index].subtitle ?? viewModel.itemGroups[index].title)
+                                .font(.system(size: 16))
                                 .frame(maxWidth: .infinity, alignment: .leading)
+                                .allowsTightening(true)
                         }
-
-                        .padding(.horizontal, isSelected ? 0 : 2)
+                        .opacity(isSelected ? 1.0 : 0.5)
+                        .padding(.horizontal, isSelected ? 0 : 1)
                         .onTapGesture {
                             withAnimation(.easeInOut(duration: 1.0)) {
                                 viewModel.groupIndex = index

@@ -22,7 +22,7 @@ struct ARVisSettingView: View {
                     } header: {
                         Text(component.sectionName)
                     }
-                    .listRowBackground(Color.white.opacity(0.5))
+                    .listRowBackground(Color(Asset.dynamicWhite.color).opacity(0.5))
 
                 }
             }

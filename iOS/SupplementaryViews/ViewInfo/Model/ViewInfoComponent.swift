@@ -20,7 +20,7 @@ struct ViewInfoComponent: Equatable, Codable {
         viewInfo.view()
     }
 
-    static func text(content: String, multilineTextAlignment: AVTextAlignment = .center, fontStyle: FontStyle? = nil) -> ViewInfoComponent {
+    static func text(content: String, multilineTextAlignment: AVTextAlignment = .leading, fontStyle: FontStyle? = nil) -> ViewInfoComponent {
         ViewInfoComponent(.text(content: content, multilineTextAlignment: multilineTextAlignment, fontStyle: fontStyle))
     }
     
@@ -61,7 +61,7 @@ fileprivate struct IdentifiableViewInfo: Identifiable {
 
 internal enum ViewInfo: Codable, Equatable {
     // font
-    case text(content: String, multilineTextAlignment: AVTextAlignment = .center, fontStyle: FontStyle? = nil)
+    case text(content: String, multilineTextAlignment: AVTextAlignment = .leading, fontStyle: FontStyle? = nil)
     case image(url: String, contentMode: ContentMode = .fit)
     case video(url: String)
     case link(url: String) // how to integrate into text?

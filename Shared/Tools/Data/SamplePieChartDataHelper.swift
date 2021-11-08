@@ -105,7 +105,7 @@ class SamplePieChartDataHelper {
 
         locItems.sort { $0.data > $1.data }
 
-        let tgLocGroup = PieChartItemGroup(items: locItems, title: "Telegram iOS Source Code. LOC per Category.", dataDescription: "%.0f", dataDescriptionSuffix: " Lines")
+        let tgLocGroup = PieChartItemGroup(items: locItems, title: "Telegram iOS Source Code", subtitle: "LOC per Category", dataDescription: "%.0f", dataDescriptionSuffix: " Lines")
 
         return tgLocGroup
     }
@@ -136,7 +136,7 @@ class SamplePieChartDataHelper {
 
         fileCountItems.sort { $0.data > $1.data }
 
-        let tgFileCountGroup = PieChartItemGroup(items: fileCountItems, title: "Telegram iOS Source Code. File count per Category.", dataDescription: "%.0f", dataDescriptionSuffix: " Files")
+        let tgFileCountGroup = PieChartItemGroup(items: fileCountItems, title: "Telegram iOS Source Code", subtitle: "File Count per Category", dataDescription: "%.0f", dataDescriptionSuffix: " Files")
 
         return tgFileCountGroup
     }
@@ -163,7 +163,7 @@ class SamplePieChartDataHelper {
 
         submoduleItems.sort { $0.data > $1.data }
 
-        let tgSubmoduleGroup = PieChartItemGroup(items: submoduleItems, title: "Telegram iOS Source Code. Submodules per Category.", dataDescription: "%.0f", dataDescriptionSuffix: " Submodules")
+        let tgSubmoduleGroup = PieChartItemGroup(items: submoduleItems, title: "Telegram iOS Source Code", subtitle: "Submodules per Category", dataDescription: "%.0f", dataDescriptionSuffix: " Submodules")
 
         return tgSubmoduleGroup
     }
@@ -183,7 +183,7 @@ class SamplePieChartDataHelper {
 
         submoduleItems.sort { $0.data > $1.data }
 
-        let tgSubmoduleGroup = PieChartItemGroup(items: submoduleItems, title: "Telegram iOS Source Code. Submodules Files for Category \(category).", dataDescription: "%.0f", dataDescriptionSuffix: " Files")
+        let tgSubmoduleGroup = PieChartItemGroup(items: submoduleItems, title: "Telegram iOS Source Code", subtitle: "Submodules Files for Category \(category).", dataDescription: "%.0f", dataDescriptionSuffix: " Files")
 
         return tgSubmoduleGroup
     }
@@ -203,7 +203,7 @@ class SamplePieChartDataHelper {
 
         submoduleLocItems.sort { $0.data > $1.data }
 
-        let tgSubmoduleGroup = PieChartItemGroup(items: submoduleLocItems, title: "Telegram iOS Source Code. Submodules Loc for Category \(category).", dataDescription: "%.0f", dataDescriptionSuffix: " Files")
+        let tgSubmoduleGroup = PieChartItemGroup(items: submoduleLocItems, title: "Telegram iOS Source Code", subtitle: "Submodules Loc for Category \(category).", dataDescription: "%.0f", dataDescriptionSuffix: " Files")
 
         return tgSubmoduleGroup
     }

@@ -32,7 +32,12 @@ class PieChartViewModel: ObservableObject, ChartViewModel {
 
     var itemLabelShowingToggleableSection: ToggleableSection {
         .init(section: "Item label showing", items: [
-            .init(name: "Show item labels", value: .init(get: { self.showLabelEnabled }, set: { self.showLabelEnabled = $0 }))
+            .init(name: "Show item labels", value: .init(get: { self.showLabelEnabled },
+                                                         set: { value in
+                                                             withAnimation(.linear(duration: 0.3)) {
+                                                                 self.showLabelEnabled = value
+                                                             }
+                                                         }))
         ])
 
     }
@@ -96,6 +101,10 @@ extension PieChartViewModel {
 
     var title: String {
         itemGroups[groupIndex].title
+    }
+
+    var subtitle: String? {
+        itemGroups[groupIndex].subtitle
     }
 
     var data: [Double] {

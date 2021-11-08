@@ -10,6 +10,20 @@ import SwiftUI
 
 struct AppMainView: View {
     var body: some View {
+        let qrCodeSize = ImageGenerateHelper.qrCodeSize
+        let graphWidth = ImageGenerateHelper.graphWidth
+        let graphHeight = ImageGenerateHelper.graphHeight
+        let padding = ImageGenerateHelper.padding
+
+        let chartView =
+            VStack {
+                PieChart_Previews.previews
+            }
+            .preferredColorScheme(.light)
+
+        PreviewContainerViewControllerRepresentable(chartView: chartView)
+            .frame(width: graphWidth + padding + qrCodeSize, height: graphHeight)
+
 //        let viewModel = LineChartContainerViewModel(dataSources: SampleDataHelper.catSevNumOrderedSeries)
 //        VStack {
 //            LineChart(viewModel: viewModel)
@@ -24,21 +38,6 @@ struct AppMainView: View {
 //        }
 //        #if os(macOS)
 //            .frame(minWidth: 500, minHeight: 250)
-//        #endif
-
-        VStack {
-            PieChart_Previews.previews
-
-//            Button {
-//                PieChart_Previews.previews.snapshotMock()
-//            } label: {
-//                Text("Save")
-//            }
-//            .padding(.bottom)
-
-        }
-//        #if os(macOS)
-//        .frame(minWidth: 1280, minHeight: 720)
 //        #endif
     }
 }

@@ -115,6 +115,7 @@
 		636F53B7273636CE006BA7E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A941E02716C14F00636EFB /* AppDelegate.swift */; };
 		6371F9662717C71C00BA9025 /* CatSevNumOrderedMock2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6371F9652717C71C00BA9025 /* CatSevNumOrderedMock2.csv */; };
 		6371F9672717C71C00BA9025 /* CatSevNumOrderedMock2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6371F9652717C71C00BA9025 /* CatSevNumOrderedMock2.csv */; };
+		6377BD282739622200DE7FA7 /* PreviewContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6377BD272739622200DE7FA7 /* PreviewContainerViewController.swift */; };
 		6379DB21271994820007FF21 /* CatSevNumOrderedMock3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6379DB20271994820007FF21 /* CatSevNumOrderedMock3.csv */; };
 		6379DB22271994870007FF21 /* CatSevNumOrderedMock3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6379DB20271994820007FF21 /* CatSevNumOrderedMock3.csv */; };
 		6379DB252719A2840007FF21 /* NSView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379DB232719A19A0007FF21 /* NSView+Extension.swift */; };
@@ -212,6 +213,7 @@
 		636AF73B2715B8240027C825 /* PointScaleXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointScaleXCTest.swift; sourceTree = "<group>"; };
 		636AF73D2715B83A0027C825 /* PointScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointScale.swift; sourceTree = "<group>"; };
 		6371F9652717C71C00BA9025 /* CatSevNumOrderedMock2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CatSevNumOrderedMock2.csv; sourceTree = "<group>"; };
+		6377BD272739622200DE7FA7 /* PreviewContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainerViewController.swift; sourceTree = "<group>"; };
 		6379DB20271994820007FF21 /* CatSevNumOrderedMock3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CatSevNumOrderedMock3.csv; sourceTree = "<group>"; };
 		6379DB232719A19A0007FF21 /* NSView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Extension.swift"; sourceTree = "<group>"; };
 		637C457C27171DC700BC2484 /* CatSevNumOrderedMock.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CatSevNumOrderedMock.csv; sourceTree = "<group>"; };
@@ -578,6 +580,7 @@
 				63EE70CE27045085007C3BED /* AugmentedVisApp.swift */,
 				63EE70DD27045087007C3BED /* macOS.entitlements */,
 				63EE70CF27045085007C3BED /* AppMainView.swift */,
+				6377BD272739622200DE7FA7 /* PreviewContainerViewController.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -1034,6 +1037,7 @@
 				632F5068272FDAC000166D18 /* StringExtension.swift in Sources */,
 				6361D47B27322986005F7D74 /* PieSlice.swift in Sources */,
 				63E023472738C7AF00D004C3 /* ChartViewModel.swift in Sources */,
+				6377BD282739622200DE7FA7 /* PreviewContainerViewController.swift in Sources */,
 				6351A17A2725124D00661A68 /* ImageGenerateHelper.swift in Sources */,
 				63C1F9832732809C00F960E7 /* PieChartItem.swift in Sources */,
 				63EE70DF27045087007C3BED /* AugmentedVisApp.swift in Sources */,

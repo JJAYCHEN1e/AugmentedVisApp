@@ -27,36 +27,3 @@ extension NSView {
         }
     }
 }
-
-extension View {
-    func snapshot() {
-        DispatchQueue.main.async {
-            let vc = NSHostingController(rootView: self)
-            vc.view.frame = .init(x: 0, y: 0, width: 1920 / 2, height: 1080 / 2)
-            vc.view.makePNGFromView()
-        }
-    }
-
-    func snapshotMock() {
-        DispatchQueue.main.async {
-            let qrCodeSize = ImageGenerateHelper.qrCodeSize
-            let graphWidth = ImageGenerateHelper.graphWidth
-            let graphHeight = ImageGenerateHelper.graphHeight
-            let padding = ImageGenerateHelper.padding
-
-            let rootVC = NSViewController()
-            rootVC.view = NSView()
-            rootVC.view.frame = .init(x: 0, y: 0, width: graphWidth + padding + qrCodeSize, height: graphHeight)
-
-            let vc = NSHostingController(rootView: self)
-            vc.view.frame = .init(x: 0, y: 0, width: graphWidth, height: graphHeight)
-            rootVC.view.addSubview(vc.view)
-
-            let qrCodeView = NSImageView(image: NSImage(named: "flower2")!)
-            rootVC.view.addSubview(qrCodeView)
-            qrCodeView.frame = .init(x: graphWidth + padding, y: 0, width: qrCodeSize, height: qrCodeSize)
-
-            rootVC.view.makePNGFromView()
-        }
-    }
-}

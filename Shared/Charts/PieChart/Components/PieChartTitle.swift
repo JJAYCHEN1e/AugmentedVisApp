@@ -11,7 +11,13 @@ struct PieChartTitle: View {
     @EnvironmentObject var viewModel: PieChartViewModel
 
     var body: some View {
-        Text(viewModel.title)
-            .font(.title)
+        VStack {
+            Text(viewModel.title)
+                .font(.title)
+            if viewModel.subtitle != nil {
+                Text(viewModel.subtitle!)
+                    .font(.title3)
+            }
+        }
     }
 }

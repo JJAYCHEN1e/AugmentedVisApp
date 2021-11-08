@@ -15,13 +15,6 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var blurView: UIVisualEffectView!
 
-    let augmentedViewWidth: CGFloat = ImageGenerateHelper.graphWidth
-    let augmentedViewHeight: CGFloat = ImageGenerateHelper.graphHeight
-
-    var maxAugmentedViewWH: CGFloat {
-        max(augmentedViewWidth, augmentedViewHeight)
-    }
-
     /// The view controller that displays the status and "restart experience" UI.
     lazy var statusViewController: StatusViewController = {
         children.lazy.compactMap { $0 as? StatusViewController }.first!
@@ -36,14 +29,6 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session
     }
 
-    @ObservedObject var arViewModel = ARVisViewControllerViewModel()
-
-    private var chartViewModel: ChartViewModel? = nil
-
-//    var viewModel = LineChartContainerViewModel(dataSources: SampleDataHelper.catSevNumOrderedSeries)
-
-    private var subscribers: Set<AnyCancellable> = []
-
     // MARK: - View Controller Life Cycle
 
     override func viewDidLoad() {
@@ -57,6 +42,7 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
             self.restartExperience()
         }
 
+        // Combine Subscribers
         arViewModel.$realTimeTrackingEnabled
             .sink {
                 if !$0 {
@@ -111,6 +97,41 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         statusViewController.scheduleMessage("Look around to detect images", inSeconds: 7.5, messageType: .contentPlacement)
     }
 
+    // MARK: - Properties
+
+    let augmentedViewWidth: CGFloat = ImageGenerateHelper.graphWidth
+    let augmentedViewHeight: CGFloat = ImageGenerateHelper.graphHeight
+
+    var maxAugmentedViewWH: CGFloat {
+        max(augmentedViewWidth, augmentedViewHeight)
+    }
+
+    private var plane = SCNPlane()
+    private var planeNode = SCNNode()
+    // 当 `ARImageAnchor` 对应的 `SCNNode` 被隐藏时，将图表节点转移至该节点下。
+    private var dumbNode = SCNNode()
+
+    private var dumbNodeLastEulerAnglesDeque = Deque<SCNVector3>()
+    private var dumbNodeLastPositionDeque = Deque<SCNVector3>()
+    private var dumbNodeLastStableEulerAnglesSample = SCNVector3()
+    private var dumbNodeLastStablePositionSample = SCNVector3()
+
+
+    private var isFirstTrack = true
+    private var isSupplementaryViewSettle = false
+
+    @ObservedObject var arViewModel = ARVisViewControllerViewModel()
+
+    private var chartViewModel: ChartViewModel? = nil
+
+    private var subscribers: Set<AnyCancellable> = []
+
+}
+
+// MARK: - Create Chart View Controller and Render into Material
+
+extension ARVisViewController {
+
     private func createHostingController(for node: SCNNode) {
         DispatchQueue.main.async {
             let viewController = UIViewController()
@@ -118,35 +139,35 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
             viewController.view.isOpaque = false
             viewController.view.backgroundColor = .clear
 
-//            let chartHostingVC = UIHostingController(rootView: LineChart(viewModel: self.viewModel))
+            //            let chartHostingVC = UIHostingController(rootView: LineChart(viewModel: self.viewModel))
 
             let pieChartViewModel = PieChartViewModel(itemGroups: [
                 SamplePieChartDataHelper.SamplePieChartDataTGCategoryLocItemGroup(),
                 SamplePieChartDataHelper.SamplePieChartDataTGCategoryFileCountItemGroup(),
                 SamplePieChartDataHelper.SamlePieChartDataTGCategorySubmoduleItemGroup()
             ],
-                                              defaultItemGroupIndex: 0,
-                                              borderColor: .white)
+                                                      defaultItemGroupIndex: 0,
+                                                      borderColor: .white)
             self.chartViewModel = pieChartViewModel
             let chartHostingVC = UIHostingController(rootView: PieChart().environmentObject(pieChartViewModel))
             chartHostingVC.view.backgroundColor = .white
             chartHostingVC.view.frame = CGRect(x: 0, y: (self.maxAugmentedViewWH - self.augmentedViewHeight) / 2, width: self.augmentedViewWidth, height: self.augmentedViewHeight)
 
             viewController.view.addSubview(chartHostingVC.view)
-//            chartHostingVC.willMove(toParent: viewController)
-//            viewController.addChild(chartHostingVC)
-//            chartHostingVC.didMove(toParent: viewController)
-//
-//            self.view.addSubview(viewController.view)
-//            viewController.willMove(toParent: self)
-//            self.addChild(viewController)
-//            viewController.didMove(toParent: self)
+            //            chartHostingVC.willMove(toParent: viewController)
+            //            viewController.addChild(chartHostingVC)
+            //            chartHostingVC.didMove(toParent: viewController)
+            //
+            //            self.view.addSubview(viewController.view)
+            //            viewController.willMove(toParent: self)
+            //            self.addChild(viewController)
+            //            viewController.didMove(toParent: self)
 
             self.show(viewController: viewController, on: node)
 
             // fetch ARImageAnchor's corresponding node.
             let projectedPosition = self.sceneView.projectPoint(node.parent!.position)
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 self.setupSupplementaryViews(initPosition: projectedPosition)
             }
         }
@@ -158,28 +179,23 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         node.geometry?.materials = [material]
     }
 
-    private var plane = SCNPlane()
-    private var planeNode = SCNNode()
+}
 
-    // 当 `ARImageAnchor` 对应的 `SCNNode` 被隐藏时，将图表节点转移至该节点下。
-    private var dumbNode = SCNNode()
+// MARK: - ARSCNViewDelegate (Image detection results)
 
-    private var dumbNodeLastEulerAnglesDeque = Deque<SCNVector3>()
-    private var dumbNodeLastPositionDeque = Deque<SCNVector3>()
-    private var dumbNodeLastStableEulerAnglesSample = SCNVector3()
-    private var dumbNodeLastStablePositionSample = SCNVector3()
+extension ARVisViewController {
 
     private func updateDumbNodeSample() {
-//        print("Euler angle: \(dumbNodeLastEulerAnglesDeque.last!)")
+        //        print("Euler angle: \(dumbNodeLastEulerAnglesDeque.last!)")
         if isEulerAnglesValid {
-//            print("👆满足")
+            //            print("👆满足")
             dumbNodeLastStableEulerAnglesSample = dumbNodeLastEulerAnglesDeque.last!
             dumbNode.eulerAngles = dumbNodeLastStableEulerAnglesSample
         }
 
-//        print("Position: \(dumbNodeLastPositionDeque.last!)")
+        //        print("Position: \(dumbNodeLastPositionDeque.last!)")
         if isPositionValid {
-//            print("👆满足")
+            //            print("👆满足")
             dumbNodeLastStablePositionSample = dumbNodeLastPositionDeque.last!
             dumbNode.position = dumbNodeLastStablePositionSample
         }
@@ -211,56 +227,6 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         return false
     }
 
-    private var supplementaryViewsAdded = false
-    private func setupSupplementaryViews(initPosition: SCNVector3) {
-        guard supplementaryViewsAdded == false else { return }
-
-        supplementaryViewsAdded = true
-        
-//        let generatedViewInfoComponent = SampleViewInfoComponentHelper.sampleViewInfoComponent
-//        let settingViewController = UIHostingController(rootView: generatedViewInfoComponent.view)
-
-        var settingComponents: [AnyARVisSettingViewComponent] = [
-            .trackingComponent(realTimeTrackingEnabled: $arViewModel.realTimeTrackingEnabled)
-        ]
-
-        if let chartViewModel = chartViewModel {
-            if let pieChartViewModel = chartViewModel as? PieChartViewModel {
-                settingComponents.append(.toggleableComponent(sectionName: pieChartViewModel.itemLabelShowingToggleableSection.section,
-                                                              toggleableItems: pieChartViewModel.itemLabelShowingToggleableSection.items))
-            }
-        }
-
-        let settingViewController = UIHostingController(rootView: ARVisSettingView(sectionComponents: settingComponents))
-
-        settingViewController.view.backgroundColor = .clear
-        view.addSubview(settingViewController.view)
-
-        let width: CGFloat = 325
-        let height: CGFloat = 280
-        let padding: CGFloat = 16
-        let originX = view.frame.size.width - width - padding
-        let originY = view.frame.size.height - height - padding
-        let rect = CGRect(x: originX, y: originY, width: width, height: height)
-        let transform: CGAffineTransform =
-            .identity
-            .translatedBy(x: CGFloat(initPosition.x) - originX - width / 2, y: CGFloat(initPosition.y) - originY - height / 2)
-            .scaledBy(x: 0.5, y: 0.5)
-
-        settingViewController.view.alpha = 0
-        settingViewController.view.frame = rect
-        settingViewController.view.transform = transform
-        DispatchQueue.main.async {
-            UIViewPropertyAnimator(duration: 0.7, curve: .easeInOut) {
-                settingViewController.view.alpha = 1
-                settingViewController.view.transform = .identity
-                settingViewController.view.layoutIfNeeded()
-            }.startAnimation()
-        }
-    }
-
-    // MARK: - ARSCNViewDelegate (Image detection results)
-
     private func updatePosAndRot(for node: SCNNode, imageAnchor: ARImageAnchor) {
         let referenceImage = imageAnchor.referenceImage
         let imageSize = referenceImage.physicalSize.width * imageAnchor.estimatedScaleFactor
@@ -286,7 +252,6 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
         node.eulerAngles = eulerAngles
     }
 
-    private var isFirstTrack = true
     /// - Tag: ARImageAnchor-Visualizing
     func renderer(_: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let imageAnchor = anchor as? ARImageAnchor else { return }
@@ -351,4 +316,77 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
             }
         }
     }
+
+}
+
+// MARK: - Setup Supplementary Views
+
+extension ARVisViewController {
+
+    private func setupSupplementaryViews(initPosition: SCNVector3) {
+        guard !isSupplementaryViewSettle else { return }
+        isSupplementaryViewSettle = true
+
+        setupSettingView(initPosition: initPosition)
+        setupAttachedViewInfoView(initPosition: initPosition)
+    }
+
+    private func setupAttachedViewInfoView(initPosition: SCNVector3) {
+        let generatedViewInfoComponent = SampleViewInfoComponentHelper.sampleViewInfoComponent
+        let viewInfoViewController = UIHostingController(rootView: ARVisInfoView(viewInfoComponents: [generatedViewInfoComponent]))
+
+        let width: CGFloat = 325
+        let height: CGFloat = 280
+        let padding: CGFloat = 16
+        let originX = padding
+        let originY = padding
+        let rect = CGRect(x: originX, y: originY, width: width, height: height)
+        showViewControllerWithMagicMoveAnimation(viewController: viewInfoViewController, in: rect, initPosition: initPosition)
+    }
+
+    private func setupSettingView(initPosition: SCNVector3) {
+        var settingComponents: [AnyARVisSettingViewComponent] = [
+            .trackingComponent(realTimeTrackingEnabled: $arViewModel.realTimeTrackingEnabled)
+        ]
+
+        if let chartViewModel = chartViewModel {
+            if let pieChartViewModel = chartViewModel as? PieChartViewModel {
+                settingComponents.append(.toggleableComponent(sectionName: pieChartViewModel.itemLabelShowingToggleableSection.section,
+                                                              toggleableItems: pieChartViewModel.itemLabelShowingToggleableSection.items))
+            }
+        }
+
+        let settingViewController = UIHostingController(rootView: ARVisSettingView(sectionComponents: settingComponents))
+
+        let width: CGFloat = 325
+        let height: CGFloat = 280
+        let padding: CGFloat = 16
+        let originX = view.frame.size.width - width - padding
+        let originY = view.frame.size.height - height - padding
+        let rect = CGRect(x: originX, y: originY, width: width, height: height)
+        showViewControllerWithMagicMoveAnimation(viewController: settingViewController, in: rect, initPosition: initPosition)
+    }
+
+    private func showViewControllerWithMagicMoveAnimation(viewController: UIViewController, in rect: CGRect, initPosition: SCNVector3) {
+        viewController.view.backgroundColor = .clear
+        view.addSubview(viewController.view)
+
+
+        let transform: CGAffineTransform =
+            .identity
+            .translatedBy(x: CGFloat(initPosition.x) - rect.minX - rect.width / 2, y: CGFloat(initPosition.y) - rect.minY - rect.height / 2)
+            .scaledBy(x: 0.5, y: 0.5)
+
+        viewController.view.alpha = 0
+        viewController.view.frame = rect
+        viewController.view.transform = transform
+        DispatchQueue.main.async {
+            UIViewPropertyAnimator(duration: 0.7, curve: .easeInOut) {
+                viewController.view.alpha = 1
+                viewController.view.transform = .identity
+                viewController.view.layoutIfNeeded()
+            }.startAnimation()
+        }
+    }
+
 }
