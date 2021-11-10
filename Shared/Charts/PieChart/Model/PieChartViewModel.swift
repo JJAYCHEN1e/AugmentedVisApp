@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// swiftlint:disable large_tuple
 class PieChartViewModel: ObservableObject, ChartViewModel {
     private(set) var historyItemGroups: [(groups: [PieChartItemGroup], groupIndex: Int, selectedIndex: Int)]
 

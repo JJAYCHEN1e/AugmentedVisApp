@@ -234,7 +234,6 @@ enum AVColor: Equatable {
     case rgba256(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 255.0)
     case rgbaHex(string: String)
 
-    // swiftlint:disable cyclomatic_complexity
     fileprivate func toSwiftUIColor() -> SwiftUI.Color {
         switch self {
         case .black:
