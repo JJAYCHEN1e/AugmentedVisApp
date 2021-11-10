@@ -8,13 +8,11 @@
 
 #if os(macOS)
 import Cocoa
-typealias UINSColor = NSColor
 #else
 import UIKit
-typealias UINSColor = UIColor
 #endif
 
-@objc extension UINSColor {
+@objc extension NativeColor {
     /**
      The shorthand three-digit hexadecimal representation of color.
      #RGB defines to the color #RRGGBB.
@@ -116,7 +114,7 @@ typealias UINSColor = UIColor
      */
 #if os(macOS)
     public convenience init?(_ rgba: String, defaultColor: NSColor = NSColor.clear) {
-        guard let color = try? UINSColor(rgba_throws: rgba) else {
+        guard let color = try? NativeColor(rgba_throws: rgba) else {
             self.init(cgColor: defaultColor.cgColor)
             return
         }

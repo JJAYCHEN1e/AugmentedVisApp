@@ -140,7 +140,7 @@ struct Pie: View {
     }
 
     var textOffset: CGSize {
-        let denominator: CGFloat = endAngle - startAngle > .pi / 15 ? 4.0 : 3.0
+        let denominator: CGFloat = endAngle - startAngle > .pi / 15 ? 3.0 : 2.5
         let radius = min(geo.size.width, geo.size.height) / denominator
         let dataRatio = (2 * viewModel.data[..<index].reduce(0, +) + viewModel.data[index]) / (2 * viewModel.data.reduce(0, +))
         let angle = CGFloat(viewModel.sliceOffset + 2 * .pi * dataRatio)

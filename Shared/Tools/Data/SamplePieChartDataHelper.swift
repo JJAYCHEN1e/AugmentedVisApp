@@ -83,7 +83,7 @@ class SamplePieChartDataHelper {
     static func SamplePieChartDataTGCategoryLocItemGroup() -> PieChartItemGroup {
         let tgCategoryItems = SamplePieChartDataTGCategoryItems()
 
-        let colors = Color.randomColors(count: tgCategoryItems.count)
+        let colors = Color.consistentColors(labels: tgCategoryItems.map { $0.category })
 
         var locItems: [PieChartItem] = tgCategoryItems.enumerated().map { index, item in
             .init(data: Double(item.line),
@@ -114,7 +114,7 @@ class SamplePieChartDataHelper {
     static func SamplePieChartDataTGCategoryFileCountItemGroup() -> PieChartItemGroup {
         let tgCategoryItems = SamplePieChartDataTGCategoryItems()
 
-        let colors = Color.randomColors(count: tgCategoryItems.count)
+        let colors = Color.consistentColors(labels: tgCategoryItems.map { $0.category })
 
         var fileCountItems: [PieChartItem] = tgCategoryItems.enumerated().map { index, item in
             .init(data: Double(item.fileCount),
@@ -145,7 +145,7 @@ class SamplePieChartDataHelper {
     static func SamlePieChartDataTGCategorySubmoduleItemGroup() -> PieChartItemGroup {
         let tgCategoryItems = SamplePieChartDataTGCategoryItems()
 
-        let colors = Color.randomColors(count: tgCategoryItems.count)
+        let colors = Color.consistentColors(labels: tgCategoryItems.map { $0.category })
 
         var submoduleItems: [PieChartItem] = tgCategoryItems.enumerated().map { index, item in
                 .init(data: Double(item.submodulesCount),
@@ -172,7 +172,7 @@ class SamplePieChartDataHelper {
     static func SamlePieChartDataTGCategorySubmoduleFilesItemGroup(in category: String) -> PieChartItemGroup {
         let submodules = tgSubmoduleItems(in: category)
 
-        let colors = Color.randomColors(count: submodules.count)
+        let colors = Color.consistentColors(labels: submodules.map { $0.submodule })
 
         var submoduleItems: [PieChartItem] = submodules.enumerated().map { index, item in
                 .init(data: Double(item.fileCount),
@@ -192,7 +192,7 @@ class SamplePieChartDataHelper {
     static func SamlePieChartDataTGCategorySubmoduleLocItemGroup(in category: String) -> PieChartItemGroup {
         let submodules = tgSubmoduleItems(in: category)
 
-        let colors = Color.randomColors(count: submodules.count)
+        let colors = Color.consistentColors(labels: submodules.map { $0.submodule })
 
         var submoduleLocItems: [PieChartItem] = submodules.enumerated().map { index, item in
                 .init(data: Double(item.line),
