@@ -13,7 +13,7 @@ class SampleDataHelper {
         [
             catSevNumOrdered,
             catSevNumOrderedMock,
-            catSevNumOrderedMock2,
+            catSevNumOrderedMock2
 //            catSevNumOrderedMock3
         ]
     }

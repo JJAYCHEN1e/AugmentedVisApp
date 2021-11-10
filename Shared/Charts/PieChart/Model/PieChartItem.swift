@@ -20,8 +20,7 @@ struct PieChartItem: Codable, Equatable, Identifiable {
          label: String,
          color: AVColor,
          additionalViewInfo: ViewInfoComponent? = nil,
-         itemDetailPieChartItemGroup: [PieChartItemGroup] = [])
-    {
+         itemDetailPieChartItemGroup: [PieChartItemGroup] = []) {
         self.data = data
         self.label = label
         self.color = color

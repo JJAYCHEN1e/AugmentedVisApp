@@ -35,7 +35,7 @@ struct PieChartTool: View {
                     ForEach(viewModel.itemGroups) { element in
                         let index = viewModel.itemGroups.firstIndex(of: element)!
                         let isSelected = viewModel.groupIndex == index
-                        
+
                         HStack {
                             RoundedRectangle(cornerRadius: isSelected ? 5 : 3)
                                 .frame(width: isSelected ? 12 : 10, height: isSelected ? 12 : 10)
@@ -104,4 +104,3 @@ struct PieChartTool: View {
         }
     }
 }
-

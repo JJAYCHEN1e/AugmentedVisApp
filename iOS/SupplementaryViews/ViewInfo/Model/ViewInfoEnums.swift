@@ -12,7 +12,7 @@ import SwiftUI
 enum ContentMode: String, Codable {
     case fit
     case fill
-    
+
     fileprivate func toSwiftUIContentMode() -> SwiftUI.ContentMode {
         switch self {
         case .fit:
@@ -70,7 +70,7 @@ enum HorizontalAlignment: String, Codable {
     case center
     case leading
     case trailing
-    
+
     fileprivate func toSwiftUIHorizontalAlignment() -> SwiftUI.HorizontalAlignment {
         switch self {
         case .center:
@@ -94,7 +94,7 @@ enum VerticalAlignment: String, Codable {
     case center
     case top
     case bottom
-    
+
     fileprivate func toSwiftUIVerticalAlignment() -> SwiftUI.VerticalAlignment {
         switch self {
         case .center:
@@ -141,7 +141,6 @@ extension SwiftUI.Font {
     }
 }
 
-
 extension FontStyle {
     enum Weight: String, Codable, Equatable {
         case black
@@ -153,7 +152,7 @@ extension FontStyle {
         case semibold
         case thin
         case ultraLight
-        
+
         fileprivate func toSwiftUIFontWeight() -> SwiftUI.Font.Weight {
             switch self {
             case .black:
@@ -191,7 +190,7 @@ extension FontStyle {
         case monospaced
         case rounded
         case serif
-        
+
         fileprivate func toSwiftUIFontDesign() -> SwiftUI.Font.Design {
             switch self {
             case .default:
@@ -212,7 +211,6 @@ extension SwiftUI.Font.Design {
         self = design.toSwiftUIFontDesign()
     }
 }
-
 
 // MARK: - AVColor
 enum AVColor: Equatable {
@@ -236,6 +234,7 @@ enum AVColor: Equatable {
     case rgba256(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 255.0)
     case rgbaHex(string: String)
 
+    // swiftlint:disable cyclomatic_complexity
     fileprivate func toSwiftUIColor() -> SwiftUI.Color {
         switch self {
         case .black:
@@ -376,8 +375,8 @@ extension AVColor: Codable {
             print(error.localizedDescription)
             throw error
         }
-        
-        switch (hexString.dropFirst().count) {
+
+        switch hexString.dropFirst().count {
         case 3:
             return true
         case 4:

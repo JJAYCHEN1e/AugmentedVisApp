@@ -57,7 +57,7 @@ struct RadarChartPath: Shape {
         for (index, entry) in data.enumerated() {
             let point = CGPoint(x: rect.midX + CGFloat(entry / maximum) * cos(CGFloat(index) * 2 * .pi / CGFloat(data.count) - .pi / 2) * radius,
                                 y: rect.midY + CGFloat(entry / maximum) * sin(CGFloat(index) * 2 * .pi / CGFloat(data.count) - .pi / 2) * radius)
-            
+
             switch index {
             case 0:
                 path.move(to: point)

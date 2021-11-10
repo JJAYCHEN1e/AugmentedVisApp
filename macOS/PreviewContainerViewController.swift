@@ -7,7 +7,7 @@
 
 import AppKit
 import SwiftUI
-
+// swiftlint:disable type_name
 struct PreviewContainerViewControllerRepresentable<V: View>: NSViewControllerRepresentable {
 
     let chartView: V
@@ -73,7 +73,7 @@ class PreviewContainerViewController<V: View>: NSViewController {
         buttonView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             buttonView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
-            buttonView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            buttonView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
     }
 }

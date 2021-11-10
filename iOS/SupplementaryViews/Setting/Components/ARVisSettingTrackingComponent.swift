@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ARVisSettingTrackingComponent: View {
     static let sectionName = "Real time tracking"
-    
+
     @Binding var realTimeTrackingEnabled: Bool
     var body: some View {
         Toggle("Real time tracking", isOn: $realTimeTrackingEnabled)

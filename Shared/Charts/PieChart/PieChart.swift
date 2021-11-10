@@ -35,6 +35,7 @@ struct PieChart: View {
             .frame(maxWidth: 250)
         }
         .padding()
+        .environment(\.colorScheme, .light)
     }
 }
 

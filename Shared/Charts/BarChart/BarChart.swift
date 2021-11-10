@@ -110,7 +110,7 @@ struct BarChart: View {
 
     private var minimum: Double {
         0
-        //(data.min() ?? 0) * 0.95
+        // (data.min() ?? 0) * 0.95
     }
     private var maximum: Double { (data.max() ?? 1) * 1.05 }
 

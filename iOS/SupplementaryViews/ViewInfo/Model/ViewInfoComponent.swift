@@ -15,7 +15,7 @@ struct ViewInfoComponent: Equatable, Codable {
     fileprivate init(_ viewInfo: ViewInfo) {
         self.viewInfo = viewInfo
     }
-    
+
     var view: some View {
         viewInfo.view()
     }
@@ -23,11 +23,11 @@ struct ViewInfoComponent: Equatable, Codable {
     static func text(content: String, multilineTextAlignment: AVTextAlignment = .leading, fontStyle: FontStyle? = nil) -> ViewInfoComponent {
         ViewInfoComponent(.text(content: content, multilineTextAlignment: multilineTextAlignment, fontStyle: fontStyle))
     }
-    
+
     static func image(url: String, contentMode: ContentMode = .fit) -> ViewInfoComponent {
         ViewInfoComponent(.image(url: url, contentMode: contentMode))
     }
-    
+
     static func video(url: String) -> ViewInfoComponent {
         ViewInfoComponent(.video(url: url))
     }
@@ -35,25 +35,25 @@ struct ViewInfoComponent: Equatable, Codable {
     static func hStack(elements: [ViewInfoComponent], alignment: VerticalAlignment = .center, spacing: CGFloat? = nil) -> ViewInfoComponent {
         ViewInfoComponent(.hStack(elements: elements.map { $0.viewInfo }, alignment: alignment, spacing: spacing))
     }
-    
+
     static func vStack(elements: [ViewInfoComponent], alignment: HorizontalAlignment = .center, spacing: CGFloat? = nil) -> ViewInfoComponent {
         ViewInfoComponent(.vStack(elements: elements.map { $0.viewInfo }, alignment: alignment, spacing: spacing))
     }
-    
+
     static func spacer() -> ViewInfoComponent {
         ViewInfoComponent(.spacer)
     }
-    
+
 }
 
-fileprivate struct IdentifiableViewInfo: Identifiable {
+private struct IdentifiableViewInfo: Identifiable {
     var id = UUID()
     let viewInfo: ViewInfo
-    
+
     fileprivate init(_ viewInfo: ViewInfo) {
         self.viewInfo = viewInfo
     }
-    
+
     var view: some View {
         viewInfo.view()
     }
@@ -111,9 +111,8 @@ extension ViewInfo {
             Text("Default")
         }
     }
-    
+
     fileprivate func wrappedInContainer() -> IdentifiableViewInfo {
         IdentifiableViewInfo(self)
     }
 }
-

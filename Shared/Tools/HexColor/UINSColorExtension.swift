@@ -14,7 +14,6 @@ import UIKit
 typealias UINSColor = UIColor
 #endif
 
-
 @objc extension UINSColor {
     /**
      The shorthand three-digit hexadecimal representation of color.
@@ -30,7 +29,7 @@ typealias UINSColor = UIColor
         let blue    = CGFloat( hex3 & 0x00F      ) / divisor
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
-    
+
     /**
      The shorthand four-digit hexadecimal representation of color with alpha.
      #RGBA defines to the color #RRGGBBAA.
@@ -45,7 +44,7 @@ typealias UINSColor = UIColor
         let alpha   = CGFloat( hex4 & 0x000F       ) / divisor
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
-    
+
     /**
      The six-digit hexadecimal representation of color of the form #RRGGBB.
      
@@ -58,7 +57,7 @@ typealias UINSColor = UIColor
         let blue    = CGFloat( hex6 & 0x0000FF       ) / divisor
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
-    
+
     /**
      The six-digit hexadecimal representation of color with alpha of the form #RRGGBBAA.
      
@@ -72,7 +71,7 @@ typealias UINSColor = UIColor
         let alpha   = CGFloat( hex8 & 0x000000FF       ) / divisor
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
-    
+
     /**
      The rgba string representation of color with alpha of the form #RRGGBBAA/#RRGGBB, throws error.
      
@@ -84,17 +83,17 @@ typealias UINSColor = UIColor
             print(error.localizedDescription)
             throw error
         }
-        
+
         let hexString: String = String(rgba[String.Index(utf16Offset: 1, in: rgba)...])
-        var hexValue:  UInt32 = 0
-        
+        var hexValue: UInt32 = 0
+
         guard Scanner(string: hexString).scanHexInt32(&hexValue) else {
             let error = HexColorInputError.unableToScanHexValue(rgba)
             print(error.localizedDescription)
             throw error
         }
-        
-        switch (hexString.count) {
+
+        switch hexString.count {
         case 3:
             self.init(hex3: UInt16(hexValue))
         case 4:
@@ -109,7 +108,7 @@ typealias UINSColor = UIColor
             throw error
         }
     }
-    
+
     /**
      The rgba string representation of color with alpha of the form #RRGGBBAA/#RRGGBB, fails to default color.
      
@@ -132,7 +131,7 @@ typealias UINSColor = UIColor
         self.init(cgColor: color.cgColor)
     }
 #endif
-    
+
     /**
      Hex string of a UIColor instance, throws error.
      
@@ -144,14 +143,14 @@ typealias UINSColor = UIColor
         var b: CGFloat = 0
         var a: CGFloat = 0
         self.getRed(&r, green: &g, blue: &b, alpha: &a)
-        
+
         guard r >= 0 && r <= 1 && g >= 0 && g <= 1 && b >= 0 && b <= 1 else {
             let error = HexColorInputError.unableToOutputHexStringForWideDisplayColor
             print(error.localizedDescription)
             throw error
         }
-        
-        if (includeAlpha) {
+
+        if includeAlpha {
             return String(format: "#%02X%02X%02X%02X",
                           Int(round(r * 255)), Int(round(g * 255)),
                           Int(round(b * 255)), Int(round(a * 255)))
@@ -160,13 +159,13 @@ typealias UINSColor = UIColor
                           Int(round(g * 255)), Int(round(b * 255)))
         }
     }
-    
+
     /**
      Hex string of a UIColor instance, fails to empty string.
      
      - parameter includeAlpha: Whether the alpha should be included.
      */
-    public func hexString(_ includeAlpha: Bool = true) -> String  {
+    public func hexString(_ includeAlpha: Bool = true) -> String {
         guard let hexString = try? hexStringThrows(includeAlpha) else {
             return ""
         }

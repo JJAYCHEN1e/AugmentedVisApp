@@ -130,8 +130,8 @@
 		639859C9273672F9007E10FB /* ARVisSettingTrackingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639859C7273672F9007E10FB /* ARVisSettingTrackingComponent.swift */; };
 		639859CB2736757C007E10FB /* ARVisSettingToggleableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639859CA2736757C007E10FB /* ARVisSettingToggleableComponent.swift */; };
 		639859CC2736757C007E10FB /* ARVisSettingToggleableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639859CA2736757C007E10FB /* ARVisSettingToggleableComponent.swift */; };
-		639859CD27367AC1007E10FB /* ARVisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588BC27169AD700867F16 /* ARVisViewController.swift */; };
-		639859CE27367AC1007E10FB /* ARVisViewController+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588BF27169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift */; };
+		639E97A3273A93E9006FDA5A /* VibrantTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E97A2273A93E9006FDA5A /* VibrantTextButton.swift */; };
+		639E97A7273A959C006FDA5A /* VibrantImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E97A6273A959C006FDA5A /* VibrantImageButton.swift */; };
 		63A991482737B5E20021E6FC /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A991472737B5E20021E6FC /* ChartViewModel.swift */; };
 		63C1A59F2733AF2300342270 /* Telegram_Submodules.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63C1A59E2733AF2300342270 /* Telegram_Submodules.csv */; };
 		63C1A5A02733AF2300342270 /* Telegram_Submodules.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63C1A59E2733AF2300342270 /* Telegram_Submodules.csv */; };
@@ -153,6 +153,8 @@
 		63EE70E127045087007C3BED /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE70CF27045085007C3BED /* AppMainView.swift */; };
 		63EE70E227045087007C3BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63EE70D027045087007C3BED /* Assets.xcassets */; };
 		63EE70E327045087007C3BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63EE70D027045087007C3BED /* Assets.xcassets */; };
+		63FE7A52273AA508006D7E3D /* ARVisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588BC27169AD700867F16 /* ARVisViewController.swift */; };
+		63FE7A53273AA508006D7E3D /* ARVisViewController+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634588BF27169BA400867F16 /* ARVisViewController+ARSessionDelegate.swift */; };
 		EDF226CC2F0FC33C0EC19C6A /* Pods_AugmentedVisApp__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FF56568C47D4F3241B3CEA /* Pods_AugmentedVisApp__macOS_.framework */; };
 /* End PBXBuildFile section */
 
@@ -222,6 +224,8 @@
 		639859C7273672F9007E10FB /* ARVisSettingTrackingComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVisSettingTrackingComponent.swift; sourceTree = "<group>"; };
 		639859CA2736757C007E10FB /* ARVisSettingToggleableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARVisSettingToggleableComponent.swift; sourceTree = "<group>"; };
 		639B5CBB0BC0B5EF1EF6B930 /* Pods-AugmentedVisApp (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedVisApp (iOS).debug.xcconfig"; path = "Target Support Files/Pods-AugmentedVisApp (iOS)/Pods-AugmentedVisApp (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		639E97A2273A93E9006FDA5A /* VibrantTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrantTextButton.swift; sourceTree = "<group>"; };
+		639E97A6273A959C006FDA5A /* VibrantImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrantImageButton.swift; sourceTree = "<group>"; };
 		63A941E02716C14F00636EFB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63A991472737B5E20021E6FC /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		63C1A59E2733AF2300342270 /* Telegram_Submodules.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Telegram_Submodules.csv; sourceTree = "<group>"; };
@@ -301,6 +305,7 @@
 		630ED2892723B360006B7360 /* SupplementaryViews */ = {
 			isa = PBXGroup;
 			children = (
+				639E97A1273A93BC006FDA5A /* Buttons */,
 				639859C12736725C007E10FB /* ViewInfo */,
 				639859C027367255007E10FB /* Setting */,
 			);
@@ -519,6 +524,15 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		639E97A1273A93BC006FDA5A /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				639E97A2273A93E9006FDA5A /* VibrantTextButton.swift */,
+				639E97A6273A959C006FDA5A /* VibrantImageButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		63A991462737B5D70021E6FC /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -635,7 +649,7 @@
 				63EE70D227045087007C3BED /* Frameworks */,
 				63EE70D327045087007C3BED /* Resources */,
 				EC33EB44A352D06116B0F070 /* [CP] Embed Pods Frameworks */,
-				6305D5152718451B00583480 /* ShellScript */,
+				6305D5152718451B00583480 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -777,7 +791,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AugmentedVisApp (macOS)/Pods-AugmentedVisApp (macOS)-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6305D5152718451B00583480 /* ShellScript */ = {
+		6305D5152718451B00583480 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -786,13 +800,14 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\nif [[ -f \"${PODS_ROOT}/SwiftLint/swiftlint\" ]]; then\n  \"${PODS_ROOT}/SwiftLint/swiftlint\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		6305D5162718452B00583480 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -809,7 +824,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftLint/swiftlint\" ]]; then\n  \"${PODS_ROOT}/SwiftLint/swiftlint\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		63127A6A27159CDD0096D61C /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -990,14 +1005,15 @@
 				6361D47D273229B4005F7D74 /* PieChartLegends.swift in Sources */,
 				63281ADB2714253F004F79FF /* LineChart.swift in Sources */,
 				63281AE227144C67004F79FF /* Scale.swift in Sources */,
+				63FE7A52273AA508006D7E3D /* ARVisViewController.swift in Sources */,
 				636AF7462715B8890027C825 /* BandScale.swift in Sources */,
 				636AF7422715B8840027C825 /* PointScale.swift in Sources */,
 				63281AEF271473B4004F79FF /* EdgeInsets+Extension.swift in Sources */,
+				639E97A7273A959C006FDA5A /* VibrantImageButton.swift in Sources */,
 				634588BA27169A3600867F16 /* SCNVector3+Extension.swift in Sources */,
 				63A991482737B5E20021E6FC /* ChartViewModel.swift in Sources */,
 				6361D48E27322AEF005F7D74 /* PieChartTitle.swift in Sources */,
 				6351A1792725124D00661A68 /* ImageGenerateHelper.swift in Sources */,
-				639859CE27367AC1007E10FB /* ARVisViewController+ARSessionDelegate.swift in Sources */,
 				634588C327169BD700867F16 /* StatusViewController.swift in Sources */,
 				634588CC2716A22500867F16 /* Storyboard Segues.swift in Sources */,
 				632F5063272FDAC000166D18 /* UINSColorExtension.swift in Sources */,
@@ -1015,12 +1031,13 @@
 				6345D90B272DA48600C44D45 /* BarChart.swift in Sources */,
 				6305D511271817FC00583480 /* Storyboard Scenes.swift in Sources */,
 				6351A16F2723F92500661A68 /* ARVisInfoView.swift in Sources */,
+				639E97A3273A93E9006FDA5A /* VibrantTextButton.swift in Sources */,
+				63FE7A53273AA508006D7E3D /* ARVisViewController+ARSessionDelegate.swift in Sources */,
 				63C1F9812732809C00F960E7 /* PieChartItem.swift in Sources */,
 				630ED28B2723B619006B7360 /* ARVisSettingView.swift in Sources */,
 				63281ADF271449DB004F79FF /* LinearScale.swift in Sources */,
 				6396A1FE27185E5C004F7ABD /* LineChartContainerViewModel.swift in Sources */,
 				6361D481273229D4005F7D74 /* PieChartTool.swift in Sources */,
-				639859CD27367AC1007E10FB /* ARVisViewController.swift in Sources */,
 				6361D48627322A0A005F7D74 /* PieChartViewModel.swift in Sources */,
 				631E6911272C137900C713D0 /* SampleViewInfoComponentHelper.swift in Sources */,
 				6345D906272D9B4F00C44D45 /* RadarChart.swift in Sources */,

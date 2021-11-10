@@ -9,6 +9,7 @@ import Foundation
 import SwiftCSV
 import SwiftUI
 
+// swiftlint:disable force_try
 class SamplePieChartDataHelper {
     private struct TGSubmoduleItem {
         let submodule: String
@@ -28,7 +29,6 @@ class SamplePieChartDataHelper {
         let code: Int
         let commentsLine: Int
         let blankLine: Int
-
 
         static let sourceCodeLink = "https://github.com/TelegramMessenger/Telegram-iOS"
     }
@@ -59,7 +59,7 @@ class SamplePieChartDataHelper {
     }
 
     static private func SamplePieChartDataTGCategoryItems() -> [TGCategoryItem] {
-        var tgCategoryItemsDictionary: [String : [TGSubmoduleItem]] = [:]
+        var tgCategoryItemsDictionary: [String: [TGSubmoduleItem]] = [:]
 
         for item in tgSubmoduleItems {
             if tgCategoryItemsDictionary[item.category] == nil {
@@ -129,7 +129,7 @@ class SamplePieChartDataHelper {
                                               alignment: .leading),
                   itemDetailPieChartItemGroup: [
                     SamlePieChartDataTGCategorySubmoduleFilesItemGroup(in: item.category),
-                    SamlePieChartDataTGCategorySubmoduleLocItemGroup(in: item.category),
+                    SamlePieChartDataTGCategorySubmoduleLocItemGroup(in: item.category)
                   ]
             )
         }
@@ -203,7 +203,7 @@ class SamplePieChartDataHelper {
 
         submoduleLocItems.sort { $0.data > $1.data }
 
-        let tgSubmoduleGroup = PieChartItemGroup(items: submoduleLocItems, title: "Telegram iOS Source Code", subtitle: "Submodules Loc for Category \(category).", dataDescription: "%.0f", dataDescriptionSuffix: " Files")
+        let tgSubmoduleGroup = PieChartItemGroup(items: submoduleLocItems, title: "Telegram iOS Source Code", subtitle: "Submodules LOC for Category \(category).", dataDescription: "%.0f", dataDescriptionSuffix: " Lines")
 
         return tgSubmoduleGroup
     }

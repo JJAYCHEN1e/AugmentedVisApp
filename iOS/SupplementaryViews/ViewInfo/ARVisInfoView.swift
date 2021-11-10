@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ARVisInfoView: View {
     let viewInfoComponents: [ViewInfoComponent]
-    
+
     @ViewBuilder
     private var resultView: some View {
         if viewInfoComponents.count > 0 {
@@ -34,7 +34,7 @@ struct ARVisInfoView: View {
 struct ARVisInfoView_Previews: PreviewProvider {
     static var previews: some View {
         let generatedViewInfoComponent = SampleViewInfoComponentHelper.sampleViewInfoComponent
-        
+
         return ARVisInfoView(viewInfoComponents: [generatedViewInfoComponent])
             .preferredColorScheme(.dark)
             .frame(width: 300, height: 200)

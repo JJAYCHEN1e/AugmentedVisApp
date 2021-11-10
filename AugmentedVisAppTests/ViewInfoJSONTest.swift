@@ -8,6 +8,7 @@
 import XCTest
 @testable import AugmentedVisApp
 
+// swiftlint:disable force_try
 class ViewInfoJSONTest: XCTestCase {
 
     func testSingleViewInfoEncodeDecodeConsistency() throws {
@@ -15,7 +16,7 @@ class ViewInfoJSONTest: XCTestCase {
             let viewInfoText = ViewInfo.text(content: "1")
             let encodedData = try JSONEncoder().encode(viewInfoText)
             let decodedViewInfo = try JSONDecoder().decode(ViewInfo.self, from: encodedData)
-            
+
             XCTAssertEqual(decodedViewInfo, viewInfoText)
         } catch {
             fatalError(error.localizedDescription)

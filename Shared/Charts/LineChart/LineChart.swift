@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-//struct LineChartGrid: View {
-//    var body: some View {
-//
-//    }
-//}
-
 // swiftlint:disable type_body_length
 struct LineChart<X: Hashable & Comparable>: View {
     let animationDisabled: Bool

@@ -5,6 +5,7 @@ import SwiftUI
 import UIKit
 import DequeModule
 import Combine
+import SnapKit
 
 class ARVisViewControllerViewModel: ObservableObject {
     @Published var realTimeTrackingEnabled = true
@@ -116,16 +117,20 @@ class ARVisViewController: UIViewController, ARSCNViewDelegate {
     private var dumbNodeLastStableEulerAnglesSample = SCNVector3()
     private var dumbNodeLastStablePositionSample = SCNVector3()
 
-
     private var isFirstTrack = true
     private var isSupplementaryViewSettle = false
 
     @ObservedObject var arViewModel = ARVisViewControllerViewModel()
 
-    private var chartViewModel: ChartViewModel? = nil
+    private var chartViewModel: ChartViewModel?
+    private var chartViewController: UIViewController?
+    private var chartViewDumbSuperViewController: UIViewController?
 
     private var subscribers: Set<AnyCancellable> = []
 
+    private var chartViewExpanded: Bool = false
+    private var chartViewExpansionAnimating: Bool = false
+    private var viewInfoExpanded: Bool = false
 }
 
 // MARK: - Create Chart View Controller and Render into Material
@@ -135,11 +140,12 @@ extension ARVisViewController {
     private func createHostingController(for node: SCNNode) {
         DispatchQueue.main.async {
             let viewController = UIViewController()
+            self.chartViewDumbSuperViewController = viewController
             viewController.view.frame = CGRect(x: 0, y: 0, width: self.maxAugmentedViewWH, height: self.maxAugmentedViewWH)
             viewController.view.isOpaque = false
             viewController.view.backgroundColor = .clear
 
-            //            let chartHostingVC = UIHostingController(rootView: LineChart(viewModel: self.viewModel))
+//            let chartHostingVC = UIHostingController(rootView: LineChart(viewModel: self.viewModel))
 
             let pieChartViewModel = PieChartViewModel(itemGroups: [
                 SamplePieChartDataHelper.SamplePieChartDataTGCategoryLocItemGroup(),
@@ -150,18 +156,11 @@ extension ARVisViewController {
                                                       borderColor: .white)
             self.chartViewModel = pieChartViewModel
             let chartHostingVC = UIHostingController(rootView: PieChart().environmentObject(pieChartViewModel))
+            self.chartViewController = chartHostingVC
             chartHostingVC.view.backgroundColor = .white
             chartHostingVC.view.frame = CGRect(x: 0, y: (self.maxAugmentedViewWH - self.augmentedViewHeight) / 2, width: self.augmentedViewWidth, height: self.augmentedViewHeight)
 
             viewController.view.addSubview(chartHostingVC.view)
-            //            chartHostingVC.willMove(toParent: viewController)
-            //            viewController.addChild(chartHostingVC)
-            //            chartHostingVC.didMove(toParent: viewController)
-            //
-            //            self.view.addSubview(viewController.view)
-            //            viewController.willMove(toParent: self)
-            //            self.addChild(viewController)
-            //            viewController.didMove(toParent: self)
 
             self.show(viewController: viewController, on: node)
 
@@ -329,22 +328,140 @@ extension ARVisViewController {
 
         setupSettingView(initPosition: initPosition)
         setupAttachedViewInfoView(initPosition: initPosition)
+        setupChartViewExpandButton()
     }
 
+    private func setupChartViewExpandButton() {
+        let buttonHeight: CGFloat = 50
+        let padding: CGFloat = 16
+        // ExpandButton declaration
+        let expandButtonViewController = vibrantButtonWith(systemImage: "arrow.up.left.and.arrow.down.right") {
+            guard !self.chartViewExpansionAnimating else { return }
+            if let chartView = self.chartViewController?.view, let chartViewDumbSuperViewController = self.chartViewDumbSuperViewController {
+                if !self.chartViewExpanded {
+                    self.planeNode.isHidden = true
+                    self.planeNode.geometry?.materials = []
+                    self.view.insertSubview(chartView, aboveSubview: self.sceneView)
+                    chartView.layer.cornerRadius = 20
+                    chartView.snp.makeConstraints { make in
+                        make.edges.equalToSuperview().inset(ConstraintInsets(top: 2 * padding + buttonHeight, left: padding, bottom: 2 * padding + buttonHeight, right: padding))
+                    }
+                    chartView.transform = .identity.translatedBy(x: 0, y: self.view.frame.height)
+                    UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0) {
+                        self.chartViewExpansionAnimating = true
+                        chartView.transform = .identity
+                    } completion: { completed in
+                        if completed {
+                            self.chartViewExpansionAnimating = false
+                        }
+                    }
+                } else {
+                    UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0) {
+                        self.chartViewExpansionAnimating = true
+                        chartView.transform = .identity.translatedBy(x: 0, y: self.view.frame.height)
+                    } completion: { completed in
+                        if completed {
+                            self.planeNode.isHidden = false
+                            chartView.snp.removeConstraints()
+                            chartView.translatesAutoresizingMaskIntoConstraints = true
+                            chartView.layer.cornerRadius = 0
+                            chartView.removeFromSuperview()
+                            chartViewDumbSuperViewController.view.addSubview(chartView)
+                            chartView.frame = CGRect(x: 0, y: (self.maxAugmentedViewWH - self.augmentedViewHeight) / 2, width: self.augmentedViewWidth, height: self.augmentedViewHeight)
+                            self.show(viewController: chartViewDumbSuperViewController, on: self.planeNode)
+                            self.chartViewExpansionAnimating = false
+                        }
+                    }
+                }
+                self.chartViewExpanded.toggle()
+            }
+        }
+
+        self.view.addSubview(expandButtonViewController.view)
+        expandButtonViewController.view.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(padding)
+            make.trailing.equalToSuperview().inset(padding)
+            make.height.equalTo(buttonHeight)
+        }
+    }
+
+    // swiftlint:disable function_body_length
     private func setupAttachedViewInfoView(initPosition: SCNVector3) {
+        let buttonHeight: CGFloat = 50
+        let padding: CGFloat = 16
+        let width: CGFloat = 325
+        let height: CGFloat = 280
+        let originX = padding
+        let originY = 2 * padding + buttonHeight
+        let rect = CGRect(x: originX, y: originY, width: width, height: height)
+
+        // ViewInfoView declaration
         let generatedViewInfoComponent = SampleViewInfoComponentHelper.sampleViewInfoComponent
         let viewInfoViewController = UIHostingController(rootView: ARVisInfoView(viewInfoComponents: [generatedViewInfoComponent]))
 
-        let width: CGFloat = 325
-        let height: CGFloat = 280
-        let padding: CGFloat = 16
-        let originX = padding
-        let originY = padding
-        let rect = CGRect(x: originX, y: originY, width: width, height: height)
-        showViewControllerWithMagicMoveAnimation(viewController: viewInfoViewController, in: rect, initPosition: initPosition)
+        // ExpandButton declaration
+        let expandButtonViewController = vibrantButtonWith(systemImage: "arrow.up.left.and.arrow.down.right") {
+            UIView.animate(withDuration: 1.0) {
+                if self.viewInfoExpanded {
+                    viewInfoViewController.view.snp.updateConstraints { make in
+                        make.width.equalTo(width)
+                        make.height.equalTo(height)
+                    }
+                } else {
+                    let maxWidth = self.view.frame.width - padding * 2
+                    let expandWidth = width * 2 < maxWidth ? width * 2 : maxWidth
+                    let maxHeight = self.view.frame.height - padding * 2
+                    let expandHeight = height * 2 < maxHeight ? height * 2 : maxHeight
+                    viewInfoViewController.view.snp.updateConstraints { make in
+                        make.width.equalTo(expandWidth)
+                        make.height.equalTo(expandHeight)
+                    }
+                }
+                viewInfoViewController.view.setNeedsUpdateConstraints()
+                viewInfoViewController.view.superview?.layoutIfNeeded()
+
+                self.viewInfoExpanded.toggle()
+            }
+        }
+
+        // HideButton declaration
+        let hideButtonViewController = vibrantButtonWith(primaryText: "Hide", secondaryText: "Show") {
+            UIView.animate(withDuration: 0.5) {
+                viewInfoViewController.view.alpha = 1 - viewInfoViewController.view.alpha
+                expandButtonViewController.view.alpha = 1 - expandButtonViewController.view.alpha
+            }
+        }
+
+        self.view.addSubview(hideButtonViewController.view)
+        hideButtonViewController.view.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(padding)
+            make.leading.equalToSuperview().inset(padding)
+            make.height.equalTo(buttonHeight)
+        }
+
+        showViewControllerWithMagicMoveAnimation(viewController: viewInfoViewController, in: rect, initPosition: initPosition) {
+            viewInfoViewController.view.snp.makeConstraints { make in
+                make.leading.equalToSuperview().inset(padding)
+                make.top.equalTo(hideButtonViewController.view.snp.bottom).offset(padding)
+                make.bottom.lessThanOrEqualToSuperview().inset(padding).priority(.required)
+                make.trailing.lessThanOrEqualToSuperview().inset(padding).priority(.required)
+
+                make.width.equalTo(width)
+                make.height.equalTo(height)
+            }
+        }
+
+        self.view.addSubview(expandButtonViewController.view)
+        expandButtonViewController.view.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(padding)
+            make.leading.equalTo(hideButtonViewController.view.snp.trailing).offset(padding)
+            make.height.equalTo(buttonHeight)
+        }
     }
 
     private func setupSettingView(initPosition: SCNVector3) {
+        let padding: CGFloat = 16
+
         var settingComponents: [AnyARVisSettingViewComponent] = [
             .trackingComponent(realTimeTrackingEnabled: $arViewModel.realTimeTrackingEnabled)
         ]
@@ -358,19 +475,37 @@ extension ARVisViewController {
 
         let settingViewController = UIHostingController(rootView: ARVisSettingView(sectionComponents: settingComponents))
 
+        let hideButtonViewController = vibrantButtonWith(primaryText: "Hide", secondaryText: "Show") {
+            UIView.animate(withDuration: 0.5) {
+                settingViewController.view.alpha = 1 - settingViewController.view.alpha
+            }
+        }
+
+        let buttonHeight: CGFloat = 50
+        self.view.addSubview(hideButtonViewController.view)
+        hideButtonViewController.view.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(padding)
+            make.bottom.equalToSuperview().inset(padding)
+            make.height.equalTo(buttonHeight)
+        }
+
         let width: CGFloat = 325
         let height: CGFloat = 280
-        let padding: CGFloat = 16
         let originX = view.frame.size.width - width - padding
-        let originY = view.frame.size.height - height - padding
+        let originY = view.frame.size.height - height - 2 * padding - buttonHeight
         let rect = CGRect(x: originX, y: originY, width: width, height: height)
-        showViewControllerWithMagicMoveAnimation(viewController: settingViewController, in: rect, initPosition: initPosition)
+        showViewControllerWithMagicMoveAnimation(viewController: settingViewController, in: rect, initPosition: initPosition) {
+            settingViewController.view.snp.makeConstraints { make in
+                make.trailing.equalTo(hideButtonViewController.view)
+                make.bottom.equalTo(hideButtonViewController.view.snp.top).inset(-padding)
+                make.size.equalTo(CGSize(width: width, height: height))
+            }
+        }
     }
 
-    private func showViewControllerWithMagicMoveAnimation(viewController: UIViewController, in rect: CGRect, initPosition: SCNVector3) {
+    private func showViewControllerWithMagicMoveAnimation(viewController: UIViewController, in rect: CGRect, initPosition: SCNVector3, completion: @escaping () -> Void) {
         viewController.view.backgroundColor = .clear
         view.addSubview(viewController.view)
-
 
         let transform: CGAffineTransform =
             .identity
@@ -381,12 +516,38 @@ extension ARVisViewController {
         viewController.view.frame = rect
         viewController.view.transform = transform
         DispatchQueue.main.async {
-            UIViewPropertyAnimator(duration: 0.7, curve: .easeInOut) {
+            let animator = UIViewPropertyAnimator(duration: 0.7, curve: .easeInOut) {
                 viewController.view.alpha = 1
                 viewController.view.transform = .identity
                 viewController.view.layoutIfNeeded()
-            }.startAnimation()
+            }
+            animator.addCompletion { position in
+                if position == .end {
+                    completion()
+                }
+            }
+            animator.startAnimation()
         }
     }
 
+    private func vibrantButtonWith(text: String, action: @escaping () -> Void) -> UIViewController {
+        let viewController = UIHostingController(rootView: VibrantTextButton(text: text, action: action))
+        let view = viewController.view!
+        view.backgroundColor = .clear
+        return viewController
+    }
+
+    private func vibrantButtonWith(primaryText: String, secondaryText: String, action: @escaping () -> Void) -> UIViewController {
+        let viewController = UIHostingController(rootView: VibrantTwoStatesTextButton(primaryText: primaryText, secondaryText: secondaryText, action: action))
+        let view = viewController.view!
+        view.backgroundColor = .clear
+        return viewController
+    }
+
+    private func vibrantButtonWith(systemImage: String, action: @escaping () -> Void) -> UIViewController {
+        let viewController = UIHostingController(rootView: VibrantImageButton(systemName: systemImage, action: action))
+        let view = viewController.view!
+        view.backgroundColor = .clear
+        return viewController
+    }
 }

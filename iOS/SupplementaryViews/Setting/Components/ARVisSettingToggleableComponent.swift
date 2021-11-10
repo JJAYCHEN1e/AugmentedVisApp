@@ -18,7 +18,7 @@ struct ToggleableSection {
     let items: [ToggleableItem]
 }
 
-fileprivate struct IdentifiableToggleableItem: Identifiable {
+private struct IdentifiableToggleableItem: Identifiable {
     let id = UUID()
     let toggleableItem: ToggleableItem
 

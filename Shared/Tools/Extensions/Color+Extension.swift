@@ -60,11 +60,12 @@ extension Color {
             colors.append(contentsOf: colors)
         }
 
-        return Array<Color>(colors.prefix(count))
+        return [Color](colors.prefix(count))
     }
 }
 
 extension Color {
+    // swiftlint:disable large_tuple
     var components: (red: CGFloat, green: CGFloat, blue: CGFloat, opacity: CGFloat) {
         var r: CGFloat = 0
         var g: CGFloat = 0

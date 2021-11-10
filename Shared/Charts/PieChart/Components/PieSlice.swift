@@ -129,7 +129,7 @@ struct Pie: View {
         }
     }
 
-    var endAngle:  Double {
+    var endAngle: Double {
         switch index {
         case viewModel.data.count - 1:
             return viewModel.sliceOffset + 2 * .pi
@@ -139,7 +139,7 @@ struct Pie: View {
         }
     }
 
-    var textOffset:  CGSize {
+    var textOffset: CGSize {
         let denominator: CGFloat = endAngle - startAngle > .pi / 15 ? 4.0 : 3.0
         let radius = min(geo.size.width, geo.size.height) / denominator
         let dataRatio = (2 * viewModel.data[..<index].reduce(0, +) + viewModel.data[index]) / (2 * viewModel.data.reduce(0, +))
@@ -169,4 +169,3 @@ struct PieChartMain: View {
         }
     }
 }
-

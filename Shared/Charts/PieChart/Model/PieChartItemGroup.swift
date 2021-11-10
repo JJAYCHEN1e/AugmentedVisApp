@@ -11,7 +11,7 @@ struct PieChartItemGroup: Codable, Identifiable, Equatable {
     var id = UUID()
     let items: [PieChartItem]
     let title: String
-    let subtitle: String? 
+    let subtitle: String?
 
     let dataDescriptionPrefix: String?
     let dataDescription: String?
