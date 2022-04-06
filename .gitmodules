@@ -1,9 +1,9 @@
-[submodule "submodules/myarvis-json-editor"]
-	path = submodules/myarvis-json-editor
-	url = https://github.com/JJAYCHEN1e/myarvis-json-editor
-[submodule "submodules/myarvis-json-compiler"]
-	path = submodules/myarvis-json-compiler
-	url = https://github.com/JJAYCHEN1e/myarvis-json-compiler
 [submodule "submodules/myarvis-json-renderer"]
 	path = submodules/myarvis-json-renderer
 	url = https://github.com/JJAYCHEN1e/myarvis-json-renderer
+[submodule "submodules/myarvis-json-compiler"]
+	path = submodules/myarvis-json-compiler
+	url = https://github.com/JJAYCHEN1e/myarvis-json-compiler
+[submodule "submodules/myarvis-json-editor"]
+	path = submodules/myarvis-json-editor
+	url = https://github.com/JJAYCHEN1e/myarvis-json-editor
