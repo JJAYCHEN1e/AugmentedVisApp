@@ -1,16 +1,50 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "swift-collections",
-        "repositoryURL": "https://github.com/apple/swift-collections.git",
-        "state": {
-          "branch": null,
-          "revision": "2d33a0ea89c961dcb2b3da2157963d9c0370347e",
-          "version": "1.0.1"
-        }
+  "pins" : [
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "eb07a3adf535ec6e87d450453471f69c053a48f1"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "svgview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/JJAYCHEN1e/SVGView/",
+      "state" : {
+        "branch" : "patch-1",
+        "revision" : "b08f0986142a759ca92c058a42744418e3c5911f"
+      }
+    },
+    {
+      "identity" : "swift-collections",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-collections.git",
+      "state" : {
+        "revision" : "2d33a0ea89c961dcb2b3da2157963d9c0370347e",
+        "version" : "1.0.1"
+      }
+    },
+    {
+      "identity" : "swiftcsv",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftcsv/SwiftCSV",
+      "state" : {
+        "revision" : "039cc273dcc91f4c9d85e05a2514bbe63e7dde60",
+        "version" : "0.6.1"
+      }
+    },
+    {
+      "identity" : "uicolor-hex-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yeahdongcn/UIColor-Hex-Swift",
+      "state" : {
+        "branch" : "master",
+        "revision" : "4e0c1bc57c02fcb19c3b34ec5e6188383a95aa94"
+      }
+    }
+  ],
+  "version" : 2
 }

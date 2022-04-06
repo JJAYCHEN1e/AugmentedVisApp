@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import UIColorHexSwift
 
 // MARK: - ContentMode
 enum ContentMode: String, Codable {
@@ -370,8 +371,7 @@ extension AVColor: Codable {
 
     static private func checkHexStringValidity(string hexString: String) throws -> Bool {
         guard hexString.hasPrefix("#") else {
-            let error = HexColorInputError.missingHashMarkAsPrefix(hexString)
-            print(error.localizedDescription)
+            let error = PlatformColorInputError.missingHashMarkAsPrefix(hexString)
             throw error
         }
 
@@ -385,8 +385,7 @@ extension AVColor: Codable {
         case 8:
             return true
         default:
-            let error = HexColorInputError.mismatchedHexStringLength(hexString)
-            print(error.localizedDescription)
+            let error = PlatformColorInputError.mismatchedHexStringLength(hexString)
             throw error
         }
     }
