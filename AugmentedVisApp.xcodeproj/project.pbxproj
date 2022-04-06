@@ -717,8 +717,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 63EE70E927045087007C3BED /* Build configuration list for PBXNativeTarget "AugmentedVisApp (macOS)" */;
 			buildPhases = (
-				63BA953227FDDC11008C8041 /* JS Library Build */,
 				B04BED1C9D6429D6886CC7F2 /* [CP] Check Pods Manifest.lock */,
+				63BA953227FDDC11008C8041 /* JS Library Build */,
 				63127A6B27159CF40096D61C /* SwiftGen */,
 				63EE70D727045087007C3BED /* Sources */,
 				63EE70D827045087007C3BED /* Frameworks */,
@@ -774,7 +774,7 @@
 			);
 			mainGroup = 63EE70C827045085007C3BED;
 			packageReferences = (
-				636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */,
+				636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */,
 				634ED2B427FDBD500038D07B /* XCRemoteSwiftPackageReference "SnapKit" */,
 				634ED2B927FDBD8D0038D07B /* XCRemoteSwiftPackageReference "SwiftCSV" */,
 				634ED2C127FDC0480038D07B /* XCRemoteSwiftPackageReference "SVGView" */,
@@ -1496,7 +1496,7 @@
 				kind = branch;
 			};
 		};
-		636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+		636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-collections.git";
 			requirement = {
@@ -1549,47 +1549,47 @@
 		};
 		636AF7482715B8DC0027C825 /* Collections */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
 			productName = Collections;
 		};
 		636AF74A2715B8DC0027C825 /* DequeModule */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
 			productName = DequeModule;
 		};
 		636AF74C2715B8DC0027C825 /* OrderedCollections */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
 			productName = OrderedCollections;
 		};
 		636AF74E2715B8EC0027C825 /* Collections */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
 			productName = Collections;
 		};
 		636AF7502715B8EC0027C825 /* DequeModule */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
 			productName = DequeModule;
 		};
 		636AF7522715B8EC0027C825 /* OrderedCollections */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
 			productName = OrderedCollections;
 		};
 		636AF7542715B90A0027C825 /* Collections */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
 			productName = Collections;
 		};
 		636AF7562715B90A0027C825 /* DequeModule */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
 			productName = DequeModule;
 		};
 		636AF7582715B90A0027C825 /* OrderedCollections */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
 			productName = OrderedCollections;
 		};
 /* End XCSwiftPackageProductDependency section */
