@@ -8,6 +8,24 @@
 import SwiftUI
 import WebKit
 
+struct Margin: Decodable {
+    var top: Double
+    var right: Double
+    var bottom: Double
+    var left: Double
+}
+
+struct VisInfo: Decodable {
+    var width: Double
+    var height: Double
+    var margin: Margin
+    var outerRootSVG: String
+    var innerRootGroup: String
+    var xAxisGroup: String?
+    var yAxisGroup: String?
+    var dataComponents: [String]
+}
+
 class EditorPanelViewController: PlatformViewController, WKNavigationDelegate, WKScriptMessageHandler {
     private var wkWebView: WKWebView!
 
@@ -37,15 +55,12 @@ class EditorPanelViewController: PlatformViewController, WKNavigationDelegate, W
     // MARK: WKScriptMessageHandler
 
     func userContentController(_: WKUserContentController, didReceive message: WKScriptMessage) {
-//        let body = message.body
-//        if let jsonData = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted),
-//           let jsonObject = try? JSONSerialization.jsonObject(with: jsonData, options: []) {
-//            print(jsonObject)
-//            print(String(data: jsonData, encoding: .utf8)!)
-//        }
-//        if let dic = body as? [String: Any] {
-//            print("dic")
-//        }
+        if let bodyStr = message.body as? String,
+           let data = bodyStr.data(using: .utf8) {
+            if let visInfo = try? JSONDecoder().decode(VisInfo.self, from: data) {
+                SVGContent.shared.visInfo = visInfo
+            }
+        }
         print("WKWebView Message: \(message.body)")
     }
 }

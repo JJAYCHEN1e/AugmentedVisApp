@@ -105,6 +105,63 @@
 		636AF7572715B90A0027C825 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF7562715B90A0027C825 /* DequeModule */; };
 		636AF7592715B90A0027C825 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 636AF7582715B90A0027C825 /* OrderedCollections */; };
 		636F53B7273636CE006BA7E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A941E02716C14F00636EFB /* AppDelegate.swift */; };
+		63709B1D27FEAAD300707CD4 /* Color+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63070441273BD89E0060BDC2 /* Color+Random.swift */; };
+		63709B1E27FEAAD300707CD4 /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE70CF27045085007C3BED /* AppMainView.swift */; };
+		63709B1F27FEAAD300707CD4 /* WKWebViewDebugUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44B3A27DCDBF6003757B0 /* WKWebViewDebugUtil.swift */; };
+		63709B2027FEAAD300707CD4 /* PieChartItemSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D48927322A24005F7D74 /* PieChartItemSummary.swift */; };
+		63709B2127FEAAD300707CD4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AF127147D4C004F79FF /* String+Extension.swift */; };
+		63709B2227FEAAD300707CD4 /* PieSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D47827322986005F7D74 /* PieSlice.swift */; };
+		63709B2327FEAAD300707CD4 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A991472737B5E20021E6FC /* ChartViewModel.swift */; };
+		63709B2427FEAAD300707CD4 /* PreviewContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6377BD272739622200DE7FA7 /* PreviewContainerViewController.swift */; };
+		63709B2527FEAAD300707CD4 /* ImageGenerateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A1782725124D00661A68 /* ImageGenerateHelper.swift */; };
+		63709B2627FEAAD300707CD4 /* PieChartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1F9802732809C00F960E7 /* PieChartItem.swift */; };
+		63709B2727FEAAD300707CD4 /* AugmentedVisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE70CE27045085007C3BED /* AugmentedVisApp.swift */; };
+		63709B2827FEAAD300707CD4 /* PlatformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637B8D3427DCC873004FB084 /* PlatformViewController.swift */; };
+		63709B2927FEAAD300707CD4 /* NSView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6379DB232719A19A0007FF21 /* NSView+Extension.swift */; };
+		63709B2A27FEAAD300707CD4 /* PieChartTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D48D27322AEF005F7D74 /* PieChartTitle.swift */; };
+		63709B2B27FEAAD300707CD4 /* ARVisSettingToggleableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639859CA2736757C007E10FB /* ARVisSettingToggleableComponent.swift */; };
+		63709B2C27FEAAD300707CD4 /* PointScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636AF73D2715B83A0027C825 /* PointScale.swift */; };
+		63709B2D27FEAAD300707CD4 /* ViewInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A1712723F93E00661A68 /* ViewInfoComponent.swift */; };
+		63709B2E27FEAAD300707CD4 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A732715A6CA0096D61C /* Color+Extension.swift */; };
+		63709B2F27FEAAD300707CD4 /* SamplePieChartDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1F9882732B84F00F960E7 /* SamplePieChartDataHelper.swift */; };
+		63709B3027FEAAD300707CD4 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281ADA2714253F004F79FF /* LineChart.swift */; };
+		63709B3127FEAAD300707CD4 /* PieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345D90F272EEB6800C44D45 /* PieChart.swift */; };
+		63709B3227FEAAD300707CD4 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345D90A272DA48600C44D45 /* BarChart.swift */; };
+		63709B3327FEAAD300707CD4 /* PieChartTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D480273229D4005F7D74 /* PieChartTool.swift */; };
+		63709B3427FEAAD300707CD4 /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AE127144C67004F79FF /* Scale.swift */; };
+		63709B3527FEAAD300707CD4 /* EdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AEE271473B4004F79FF /* EdgeInsets+Extension.swift */; };
+		63709B3627FEAAD300707CD4 /* SampleDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C94D827170B030041897A /* SampleDataHelper.swift */; };
+		63709B3727FEAAD300707CD4 /* ARVisSettingTrackingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639859C7273672F9007E10FB /* ARVisSettingTrackingComponent.swift */; };
+		63709B3827FEAAD300707CD4 /* BandScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A712715A5E00096D61C /* BandScale.swift */; };
+		63709B3927FEAAD300707CD4 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AE527145494004F79FF /* Axis.swift */; };
+		63709B3A27FEAAD300707CD4 /* ARVisInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351A16E2723F92500661A68 /* ARVisInfoView.swift */; };
+		63709B3B27FEAAD300707CD4 /* PieChartLegends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D47C273229B4005F7D74 /* PieChartLegends.swift */; };
+		63709B3C27FEAAD300707CD4 /* PieChartItemGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C1F9842732B2F700F960E7 /* PieChartItemGroup.swift */; };
+		63709B3D27FEAAD300707CD4 /* SampleViewInfoComponentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E6910272C137900C713D0 /* SampleViewInfoComponentHelper.swift */; };
+		63709B3E27FEAAD300707CD4 /* PieChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6361D48527322A0A005F7D74 /* PieChartViewModel.swift */; };
+		63709B3F27FEAAD300707CD4 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281AE827145BEF004F79FF /* View+Extension.swift */; };
+		63709B4027FEAAD300707CD4 /* ARVisSettingViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639859C327367285007E10FB /* ARVisSettingViewComponent.swift */; };
+		63709B4127FEAAD300707CD4 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63127A6E27159EC50096D61C /* Assets.swift */; };
+		63709B4227FEAAD300707CD4 /* RadarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6345D905272D9B4F00C44D45 /* RadarChart.swift */; };
+		63709B4327FEAAD300707CD4 /* EditorPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637B8D3027DCC80C004FB084 /* EditorPanel.swift */; };
+		63709B4427FEAAD300707CD4 /* LinearScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63281ADE271449DB004F79FF /* LinearScale.swift */; };
+		63709B4527FEAAD300707CD4 /* ViewInfoEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630766DC272AAEA8008289DA /* ViewInfoEnums.swift */; };
+		63709B4627FEAAD300707CD4 /* LineChartContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6396A1FD27185E5C004F7ABD /* LineChartContainerViewModel.swift */; };
+		63709B4827FEAAD300707CD4 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 63709B0D27FEAAD300707CD4 /* Collections */; };
+		63709B4927FEAAD300707CD4 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 63709B1027FEAAD300707CD4 /* OrderedCollections */; };
+		63709B4A27FEAAD300707CD4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 63709B1127FEAAD300707CD4 /* SnapKit */; };
+		63709B4B27FEAAD300707CD4 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = 63709B0F27FEAAD300707CD4 /* DequeModule */; };
+		63709B4C27FEAAD300707CD4 /* SVGView in Frameworks */ = {isa = PBXBuildFile; productRef = 63709B1527FEAAD300707CD4 /* SVGView */; };
+		63709B4D27FEAAD300707CD4 /* Pods_AugmentedVisApp__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FF56568C47D4F3241B3CEA /* Pods_AugmentedVisApp__macOS_.framework */; };
+		63709B4E27FEAAD300707CD4 /* UIColorHexSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63709B1727FEAAD300707CD4 /* UIColorHexSwift */; };
+		63709B4F27FEAAD300707CD4 /* SwiftCSV in Frameworks */ = {isa = PBXBuildFile; productRef = 63709B1327FEAAD300707CD4 /* SwiftCSV */; };
+		63709B5127FEAAD300707CD4 /* CatSevNumOrdered.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63127A67271573340096D61C /* CatSevNumOrdered.csv */; };
+		63709B5227FEAAD300707CD4 /* CatSevNumOrderedMock.csv in Resources */ = {isa = PBXBuildFile; fileRef = 637C457C27171DC700BC2484 /* CatSevNumOrderedMock.csv */; };
+		63709B5327FEAAD300707CD4 /* CatSevNumOrderedMock3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6379DB20271994820007FF21 /* CatSevNumOrderedMock3.csv */; };
+		63709B5427FEAAD300707CD4 /* CatSevNumOrderedMock2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6371F9652717C71C00BA9025 /* CatSevNumOrderedMock2.csv */; };
+		63709B5527FEAAD300707CD4 /* Telegram_Submodules.csv in Resources */ = {isa = PBXBuildFile; fileRef = 63C1A59E2733AF2300342270 /* Telegram_Submodules.csv */; };
+		63709B5627FEAAD300707CD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63EE70D027045087007C3BED /* Assets.xcassets */; };
+		63709B5727FEAAD300707CD4 /* EditorPanel in Resources */ = {isa = PBXBuildFile; fileRef = 637B8D2D27DCC619004FB084 /* EditorPanel */; };
 		6371F9662717C71C00BA9025 /* CatSevNumOrderedMock2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6371F9652717C71C00BA9025 /* CatSevNumOrderedMock2.csv */; };
 		6371F9672717C71C00BA9025 /* CatSevNumOrderedMock2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 6371F9652717C71C00BA9025 /* CatSevNumOrderedMock2.csv */; };
 		6377BD282739622200DE7FA7 /* PreviewContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6377BD272739622200DE7FA7 /* PreviewContainerViewController.swift */; };
@@ -204,6 +261,7 @@
 		636AF7292715AF920027C825 /* BandScaleXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandScaleXCTest.swift; sourceTree = "<group>"; };
 		636AF73B2715B8240027C825 /* PointScaleXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointScaleXCTest.swift; sourceTree = "<group>"; };
 		636AF73D2715B83A0027C825 /* PointScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointScale.swift; sourceTree = "<group>"; };
+		63709B5C27FEAAD300707CD4 /* AugmentedVisApp (macOS)  - JS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AugmentedVisApp (macOS)  - JS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6371F9652717C71C00BA9025 /* CatSevNumOrderedMock2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CatSevNumOrderedMock2.csv; sourceTree = "<group>"; };
 		6377BD272739622200DE7FA7 /* PreviewContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainerViewController.swift; sourceTree = "<group>"; };
 		6379DB20271994820007FF21 /* CatSevNumOrderedMock3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CatSevNumOrderedMock3.csv; sourceTree = "<group>"; };
@@ -253,6 +311,21 @@
 				636AF7592715B90A0027C825 /* OrderedCollections in Frameworks */,
 				636AF7572715B90A0027C825 /* DequeModule in Frameworks */,
 				36AE5B864306DB5C48304379 /* libPods-AugmentedVisAppTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63709B4727FEAAD300707CD4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63709B4827FEAAD300707CD4 /* Collections in Frameworks */,
+				63709B4927FEAAD300707CD4 /* OrderedCollections in Frameworks */,
+				63709B4A27FEAAD300707CD4 /* SnapKit in Frameworks */,
+				63709B4B27FEAAD300707CD4 /* DequeModule in Frameworks */,
+				63709B4C27FEAAD300707CD4 /* SVGView in Frameworks */,
+				63709B4D27FEAAD300707CD4 /* Pods_AugmentedVisApp__macOS_.framework in Frameworks */,
+				63709B4E27FEAAD300707CD4 /* UIColorHexSwift in Frameworks */,
+				63709B4F27FEAAD300707CD4 /* SwiftCSV in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +685,7 @@
 				63EE70D527045087007C3BED /* AugmentedVisApp.app */,
 				63EE70DB27045087007C3BED /* AugmentedVisApp.app */,
 				636AF7222715AEE30027C825 /* AugmentedVisAppTests.xctest */,
+				63709B5C27FEAAD300707CD4 /* AugmentedVisApp (macOS)  - JS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -683,6 +757,36 @@
 			productName = AugmentedVisAppTests;
 			productReference = 636AF7222715AEE30027C825 /* AugmentedVisAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		63709B0C27FEAAD300707CD4 /* AugmentedVisApp (macOS)  - JS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63709B5927FEAAD300707CD4 /* Build configuration list for PBXNativeTarget "AugmentedVisApp (macOS)  - JS" */;
+			buildPhases = (
+				63709B1927FEAAD300707CD4 /* [CP] Check Pods Manifest.lock */,
+				63709B1A27FEAAD300707CD4 /* JS Library Build */,
+				63709B1B27FEAAD300707CD4 /* SwiftGen */,
+				63709B1C27FEAAD300707CD4 /* Sources */,
+				63709B4727FEAAD300707CD4 /* Frameworks */,
+				63709B5027FEAAD300707CD4 /* Resources */,
+				63709B5827FEAAD300707CD4 /* SwiftLint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AugmentedVisApp (macOS)  - JS";
+			packageProductDependencies = (
+				63709B0D27FEAAD300707CD4 /* Collections */,
+				63709B0F27FEAAD300707CD4 /* DequeModule */,
+				63709B1027FEAAD300707CD4 /* OrderedCollections */,
+				63709B1127FEAAD300707CD4 /* SnapKit */,
+				63709B1327FEAAD300707CD4 /* SwiftCSV */,
+				63709B1527FEAAD300707CD4 /* SVGView */,
+				63709B1727FEAAD300707CD4 /* UIColorHexSwift */,
+			);
+			productName = "AugmentedVisApp (macOS)";
+			productReference = 63709B5C27FEAAD300707CD4 /* AugmentedVisApp (macOS)  - JS.app */;
+			productType = "com.apple.product-type.application";
 		};
 		63EE70D427045087007C3BED /* AugmentedVisApp (iOS) */ = {
 			isa = PBXNativeTarget;
@@ -774,7 +878,7 @@
 			);
 			mainGroup = 63EE70C827045085007C3BED;
 			packageReferences = (
-				636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */,
+				636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */,
 				634ED2B427FDBD500038D07B /* XCRemoteSwiftPackageReference "SnapKit" */,
 				634ED2B927FDBD8D0038D07B /* XCRemoteSwiftPackageReference "SwiftCSV" */,
 				634ED2C127FDC0480038D07B /* XCRemoteSwiftPackageReference "SVGView" */,
@@ -787,6 +891,7 @@
 				63EE70D427045087007C3BED /* AugmentedVisApp (iOS) */,
 				636AF7212715AEE30027C825 /* AugmentedVisAppTests */,
 				63EE70DA27045087007C3BED /* AugmentedVisApp (macOS) */,
+				63709B0C27FEAAD300707CD4 /* AugmentedVisApp (macOS)  - JS */,
 			);
 		};
 /* End PBXProject section */
@@ -797,6 +902,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				63C1A5A02733AF2300342270 /* Telegram_Submodules.csv in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63709B5027FEAAD300707CD4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63709B5127FEAAD300707CD4 /* CatSevNumOrdered.csv in Resources */,
+				63709B5227FEAAD300707CD4 /* CatSevNumOrderedMock.csv in Resources */,
+				63709B5327FEAAD300707CD4 /* CatSevNumOrderedMock3.csv in Resources */,
+				63709B5427FEAAD300707CD4 /* CatSevNumOrderedMock2.csv in Resources */,
+				63709B5527FEAAD300707CD4 /* Telegram_Submodules.csv in Resources */,
+				63709B5627FEAAD300707CD4 /* Assets.xcassets in Resources */,
+				63709B5727FEAAD300707CD4 /* EditorPanel in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -903,6 +1022,83 @@
 			shellPath = /bin/zsh;
 			shellScript = "if which /opt/homebrew/bin/swiftgen > /dev/null; then\n    /opt/homebrew/bin/swiftgen\nelse\n    echo \"warning: SwiftGen not installed.\"\nfi\n";
 		};
+		63709B1927FEAAD300707CD4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AugmentedVisApp (macOS)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63709B1A27FEAAD300707CD4 /* JS Library Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/submodules/myarvis-json-editor/src",
+			);
+			name = "JS Library Build";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if $COMPILE_JS_SUBMODULES\nthen\n    sh ./submodules/build.sh\nelse\n    echo \"COMPILE_JS_SUBMODULES is FALSE.\"\nfi\n";
+		};
+		63709B1B27FEAAD300707CD4 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "if which /opt/homebrew/bin/swiftgen > /dev/null; then\n    /opt/homebrew/bin/swiftgen\nelse\n    echo \"warning: SwiftGen not installed.\"\nfi\n";
+		};
+		63709B5827FEAAD300707CD4 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "source ~/.zshrc\nif which swiftlint > /dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed.\"\nfi\n";
+		};
 		63BA953227FDDC11008C8041 /* JS Library Build */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
@@ -920,7 +1116,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if $COMPILE_JS_SUBMODULES\nthen\n    export PATH=\"/opt/homebrew/bin:$PATH\"\n    cd ./submodules\n    echo \"Start building...\"\n    cd myarvis-json-renderer && yarn lib && cp -R ./lib ../myarvis-json-editor/node_modules/myarvis-json-renderer&\n    cd myarvis-json-compiler && yarn lib && cp -R ./lib ../myarvis-json-editor/node_modules/myarvis-json-compiler&\n    wait\n    cd myarvis-json-editor && yarn build&\n    wait\n    rm -rf ./macOS/Features/JSON\\ Editor/Web\\ Code\\ Source/EditorPanel\n    cp -R ./myarvis-json-editor/build/* ../macOS/Features/JSON\\ Editor/Web\\ Code\\ Source/EditorPanel\n    echo \"Build finished.\"\nelse\n    echo \"COMPILE_JS_SUBMODULES is FALSE.\"\nfi\n";
+			shellScript = "if $COMPILE_JS_SUBMODULES\nthen\n    sh ./submodules/build.sh\nelse\n    echo \"COMPILE_JS_SUBMODULES is FALSE.\"\nfi\n";
 		};
 		A3F7422182514BE1292759F1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1013,6 +1209,55 @@
 				63070449273BDD4D0060BDC2 /* Color+Extension.swift in Sources */,
 				636AF73C2715B8240027C825 /* PointScaleXCTest.swift in Sources */,
 				630766DE272AAEA8008289DA /* ViewInfoEnums.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63709B1C27FEAAD300707CD4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63709B1D27FEAAD300707CD4 /* Color+Random.swift in Sources */,
+				63709B1E27FEAAD300707CD4 /* AppMainView.swift in Sources */,
+				63709B1F27FEAAD300707CD4 /* WKWebViewDebugUtil.swift in Sources */,
+				63709B2027FEAAD300707CD4 /* PieChartItemSummary.swift in Sources */,
+				63709B2127FEAAD300707CD4 /* String+Extension.swift in Sources */,
+				63709B2227FEAAD300707CD4 /* PieSlice.swift in Sources */,
+				63709B2327FEAAD300707CD4 /* ChartViewModel.swift in Sources */,
+				63709B2427FEAAD300707CD4 /* PreviewContainerViewController.swift in Sources */,
+				63709B2527FEAAD300707CD4 /* ImageGenerateHelper.swift in Sources */,
+				63709B2627FEAAD300707CD4 /* PieChartItem.swift in Sources */,
+				63709B2727FEAAD300707CD4 /* AugmentedVisApp.swift in Sources */,
+				63709B2827FEAAD300707CD4 /* PlatformViewController.swift in Sources */,
+				63709B2927FEAAD300707CD4 /* NSView+Extension.swift in Sources */,
+				63709B2A27FEAAD300707CD4 /* PieChartTitle.swift in Sources */,
+				63709B2B27FEAAD300707CD4 /* ARVisSettingToggleableComponent.swift in Sources */,
+				63709B2C27FEAAD300707CD4 /* PointScale.swift in Sources */,
+				63709B2D27FEAAD300707CD4 /* ViewInfoComponent.swift in Sources */,
+				63709B2E27FEAAD300707CD4 /* Color+Extension.swift in Sources */,
+				63709B2F27FEAAD300707CD4 /* SamplePieChartDataHelper.swift in Sources */,
+				63709B3027FEAAD300707CD4 /* LineChart.swift in Sources */,
+				63709B3127FEAAD300707CD4 /* PieChart.swift in Sources */,
+				63709B3227FEAAD300707CD4 /* BarChart.swift in Sources */,
+				63709B3327FEAAD300707CD4 /* PieChartTool.swift in Sources */,
+				63709B3427FEAAD300707CD4 /* Scale.swift in Sources */,
+				63709B3527FEAAD300707CD4 /* EdgeInsets+Extension.swift in Sources */,
+				63709B3627FEAAD300707CD4 /* SampleDataHelper.swift in Sources */,
+				63709B3727FEAAD300707CD4 /* ARVisSettingTrackingComponent.swift in Sources */,
+				63709B3827FEAAD300707CD4 /* BandScale.swift in Sources */,
+				63709B3927FEAAD300707CD4 /* Axis.swift in Sources */,
+				63709B3A27FEAAD300707CD4 /* ARVisInfoView.swift in Sources */,
+				63709B3B27FEAAD300707CD4 /* PieChartLegends.swift in Sources */,
+				63709B3C27FEAAD300707CD4 /* PieChartItemGroup.swift in Sources */,
+				63709B3D27FEAAD300707CD4 /* SampleViewInfoComponentHelper.swift in Sources */,
+				63709B3E27FEAAD300707CD4 /* PieChartViewModel.swift in Sources */,
+				63709B3F27FEAAD300707CD4 /* View+Extension.swift in Sources */,
+				63709B4027FEAAD300707CD4 /* ARVisSettingViewComponent.swift in Sources */,
+				63709B4127FEAAD300707CD4 /* Assets.swift in Sources */,
+				63709B4227FEAAD300707CD4 /* RadarChart.swift in Sources */,
+				63709B4327FEAAD300707CD4 /* EditorPanel.swift in Sources */,
+				63709B4427FEAAD300707CD4 /* LinearScale.swift in Sources */,
+				63709B4527FEAAD300707CD4 /* ViewInfoEnums.swift in Sources */,
+				63709B4627FEAAD300707CD4 /* LineChartContainerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1172,6 +1417,68 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		63709B5A27FEAAD300707CD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDC8C75E801CEB1C7525EE0D /* Pods-AugmentedVisApp (macOS).debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COMPILE_JS_SUBMODULES = TRUE;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XKUVHTJ3W8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTING_SEARCH_PATHS = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jjayhen.AugmentedVisApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		63709B5B27FEAAD300707CD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B86FF955E68199E0D44431C /* Pods-AugmentedVisApp (macOS).release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COMPILE_JS_SUBMODULES = TRUE;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XKUVHTJ3W8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTING_SEARCH_PATHS = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jjayhen.AugmentedVisApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1369,7 +1676,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				COMPILE_JS_SUBMODULES = TRUE;
+				COMPILE_JS_SUBMODULES = FALSE;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XKUVHTJ3W8;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1400,7 +1707,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				COMPILE_JS_SUBMODULES = TRUE;
+				COMPILE_JS_SUBMODULES = FALSE;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XKUVHTJ3W8;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1430,6 +1737,15 @@
 			buildConfigurations = (
 				636AF7262715AEE30027C825 /* Debug */,
 				636AF7272715AEE30027C825 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63709B5927FEAAD300707CD4 /* Build configuration list for PBXNativeTarget "AugmentedVisApp (macOS)  - JS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63709B5A27FEAAD300707CD4 /* Debug */,
+				63709B5B27FEAAD300707CD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1496,12 +1812,52 @@
 				kind = branch;
 			};
 		};
-		636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */ = {
+		636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-collections.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
+			};
+		};
+		63709B0E27FEAAD300707CD4 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		63709B1227FEAAD300707CD4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		63709B1427FEAAD300707CD4 /* XCRemoteSwiftPackageReference "SwiftCSV" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftcsv/SwiftCSV";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.1;
+			};
+		};
+		63709B1627FEAAD300707CD4 /* XCRemoteSwiftPackageReference "SVGView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JJAYCHEN1e/SVGView/";
+			requirement = {
+				branch = "patch-1";
+				kind = branch;
+			};
+		};
+		63709B1827FEAAD300707CD4 /* XCRemoteSwiftPackageReference "UIColor-Hex-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yeahdongcn/UIColor-Hex-Swift";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1549,48 +1905,83 @@
 		};
 		636AF7482715B8DC0027C825 /* Collections */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = Collections;
 		};
 		636AF74A2715B8DC0027C825 /* DequeModule */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = DequeModule;
 		};
 		636AF74C2715B8DC0027C825 /* OrderedCollections */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = OrderedCollections;
 		};
 		636AF74E2715B8EC0027C825 /* Collections */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = Collections;
 		};
 		636AF7502715B8EC0027C825 /* DequeModule */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = DequeModule;
 		};
 		636AF7522715B8EC0027C825 /* OrderedCollections */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = OrderedCollections;
 		};
 		636AF7542715B90A0027C825 /* Collections */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = Collections;
 		};
 		636AF7562715B90A0027C825 /* DequeModule */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = DequeModule;
 		};
 		636AF7582715B90A0027C825 /* OrderedCollections */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections.git" */;
+			package = 636AF7472715B8DC0027C825 /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = OrderedCollections;
+		};
+		63709B0D27FEAAD300707CD4 /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63709B0E27FEAAD300707CD4 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+		63709B0F27FEAAD300707CD4 /* DequeModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63709B0E27FEAAD300707CD4 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = DequeModule;
+		};
+		63709B1027FEAAD300707CD4 /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63709B0E27FEAAD300707CD4 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+		63709B1127FEAAD300707CD4 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63709B1227FEAAD300707CD4 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		63709B1327FEAAD300707CD4 /* SwiftCSV */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63709B1427FEAAD300707CD4 /* XCRemoteSwiftPackageReference "SwiftCSV" */;
+			productName = SwiftCSV;
+		};
+		63709B1527FEAAD300707CD4 /* SVGView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63709B1627FEAAD300707CD4 /* XCRemoteSwiftPackageReference "SVGView" */;
+			productName = SVGView;
+		};
+		63709B1727FEAAD300707CD4 /* UIColorHexSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63709B1827FEAAD300707CD4 /* XCRemoteSwiftPackageReference "UIColor-Hex-Swift" */;
+			productName = UIColorHexSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

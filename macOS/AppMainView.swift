@@ -9,14 +9,53 @@ import SVGView
 import SwiftCSV
 import SwiftUI
 
+class SVGContent: ObservableObject {
+    @Published var visInfo: VisInfo?
+
+    static var shared = SVGContent()
+}
+
+struct SVGContentView: View {
+    @ObservedObject var model: SVGContent
+    var body: some View {
+        ZStack {
+            Color.clear
+            if let visInfo = model.visInfo {
+                Group {
+                    SVGView(string: visInfo.outerRootSVG)
+                    ZStack {
+                        SVGView(string: visInfo.innerRootGroup)
+                        Group {
+                            Group {
+                                ForEach(visInfo.dataComponents, id: \.self) { dataComponent in
+                                    SVGView(string: dataComponent)
+                                        .onTapGesture {
+                                            print(dataComponent)
+                                        }
+                                }
+                            }
+                            if let xAxisGroup = visInfo.xAxisGroup {
+                                SVGView(string: xAxisGroup)
+                            }
+                            if let yAxisGroup = visInfo.yAxisGroup {
+                                SVGView(string: yAxisGroup)
+                            }
+                        }
+                        .offset(x: visInfo.margin.left, y: visInfo.margin.top)
+                    }
+                }
+                .background(Color.white)
+            }
+        }
+    }
+}
+
 struct AppMainView: View {
+    @ObservedObject var model = SVGContent.shared
     var body: some View {
         HSplitView {
             EditorPanelViewControllerRepresentable()
-            ZStack {
-                Color.clear
-                Text("123")
-            }
+            SVGContentView(model: model)
         }
     }
 }
